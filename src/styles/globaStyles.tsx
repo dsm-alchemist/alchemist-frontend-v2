@@ -9,12 +9,10 @@ const GlobalStyle = createGlobalStyle`
         scroll-behavior: smooth;
     }
     body{
-        background-color:black;
         font-family:Arial, Helvetica, sans-serif;
     }
     *{
         -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;  
-        color:white;
     }
     a{
         text-decoration:none;
