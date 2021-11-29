@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import { BrowserRouter as Router} from "react-router-dom";
 import GlobalStyle from "./styles/globaStyles";
 
@@ -8,7 +8,7 @@ const App = () => {
     <>
     <GlobalStyle />
     <Router>
-      <Routes></Routes>
+      <Switch></Switch>
     </Router>
     </>
   );
