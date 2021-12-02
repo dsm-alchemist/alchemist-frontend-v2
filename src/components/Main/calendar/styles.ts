@@ -2,19 +2,23 @@ import styled from "styled-components";
 import { WIDTH, COLOR } from "../../../styles/index";
 
 export const Wrapper = styled.div`
-    width: ${WIDTH.main};
-    height: 840px;
+    width: 1200px;
+    height: auto;
     background: ${COLOR.whiteColor};
     box-shadow: 4px 7px 10px #727272;
     border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `
 
 export const Top = styled.div`
-    padding-top: 20px;
     display: flex;
-    width: 100%;
+    width: 90%;
     align-items: center;
     justify-content: space-around;
+    margin-top: 40px;
 
     & button{
         border: none;
@@ -33,12 +37,21 @@ export const Table = styled.table`
 `
 
 export const TBody = styled.tbody`
+
+    & tr{
+        & td:nth-of-type(1){
+            & span{
+                margin-left: 0;
+            }
+        }
+    }
+
     & span{
         display: flex;
         justify-content: center;
-        font-size: 32px;
-        margin-bottom: 100px;
-        margin-left: 180px;
+        font-size: 29px;
+        margin-bottom: 50px;
+        margin-left: 80px;
     }
 `
 
