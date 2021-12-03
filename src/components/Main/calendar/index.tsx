@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import * as S from "./styles";
 import moment from "moment";
-import { COLOR } from "../../../styles";
+import useDate from "../../../utils/hooks/date/useDate";
+import { format } from "path";
 
 const Calendar = () => {
+
+    const {state, setState} = useDate();
 
     const [getMoment, setMoment] = useState(moment());
     const today = getMoment;
@@ -14,29 +17,43 @@ const Calendar = () => {
     const calendarArr=()=>{
         let result: any[] = [];
         let week = firstWeek;
+
+        const changeDate = (date: string) => {
+            setState.setMonth(Number(date.substr(0,2)));
+            setState.setDay(Number(date.substr(2, 4)));
+
+        }
+        
         for ( week; week <= lastWeek; week++) {
           result = result.concat(
             <S.CalTr key={week}>
                 {
+                    // eslint-disable-next-line no-loop-func
                     Array(7).fill(0).map((data, index) => {
                         let days = today.clone().startOf('year').week(week).startOf('week').add(index, 'day');
 
                         if(moment().format('YYYYMMDD') === days.format('YYYYMMDD')){
                             return(
                                 <S.Today key={index}  >
-                                    <span style={{color: '#6C00FF', textDecoration: 'underline'}}>{days.format('D')}</span>
+                                    <span onClick={() => {
+                                        changeDate(days.format('MMDD'))
+                                    }} style={{color: '#6C00FF', textDecoration: 'underline'}}>{days.format('D')}</span>
                                 </S.Today>
                             );
                         }else if(days.format('MM') !== today.format('MM')){
                             return(
                                 <S.NotCurMonth key={index} style={{color: '#aeaeae'}} >
-                                    <span>{days.format('D')}</span>
+                                    <span onClick={() => {
+                                        changeDate(days.format('MMDD'))
+                                    }}>{days.format('D')}</span>
                                 </S.NotCurMonth>
                             );
                         }else{
                             return(
                                 <S.CurMonth key={index}>
-                                    <span>{days.format('D')}</span>
+                                    <span onClick={() => {
+                                        changeDate(days.format('MMDD'))
+                                    }}x>{days.format('D')}</span>
                                 </S.CurMonth>
                             );
                         }

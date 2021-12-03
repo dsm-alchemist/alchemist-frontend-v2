@@ -47,11 +47,16 @@ export const TBody = styled.tbody`
     }
 
     & span{
+        cursor: pointer;
         display: flex;
         justify-content: center;
         font-size: 29px;
         margin-bottom: 50px;
         margin-left: 80px;
+    }
+     
+    & span:hover{
+        opacity: 0.5;
     }
 `
 
