@@ -1,8 +1,7 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import moment from "moment";
 import useDate from "../../../utils/hooks/date/useDate";
-import { format } from "path";
 
 const Calendar = () => {
 
@@ -53,7 +52,7 @@ const Calendar = () => {
                                 <S.CurMonth key={index}>
                                     <span onClick={() => {
                                         changeDate(days.format('MMDD'))
-                                    }}x>{days.format('D')}</span>
+                                    }}>{days.format('D')}</span>
                                 </S.CurMonth>
                             );
                         }

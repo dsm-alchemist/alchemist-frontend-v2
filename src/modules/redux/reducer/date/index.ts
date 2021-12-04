@@ -3,7 +3,7 @@ import { SET_DAY, SET_MONTH } from "../../action/date/interface";
 import DateState from "./interface";
 
 const initState: DateState = {
-    tdMonth: new Date().getMonth(),
+    tdMonth: new Date().getMonth() + 1,
     tdDay: new Date().getDate(),
 };
 

@@ -9,8 +9,8 @@ const Main = () => {
         <S.Wrapper>
             <Calendar />
             <S.Left>
+                <Profile />
                 <Todolist />
-                {/* <Profile /> */}
             </S.Left>
         </S.Wrapper>
     )
