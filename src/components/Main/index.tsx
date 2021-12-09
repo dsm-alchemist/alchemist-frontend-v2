@@ -5,6 +5,7 @@ import Profile from "./profile/index";
 import Todolist from "./todolist/index";
 import Modal from "./todolist/plusModal";
 import useModal from "../../utils/hooks/modal/useModal";
+import MoreModal from "./todolist/moreModal";
 
 const Main = () => {
 
@@ -15,6 +16,10 @@ const Main = () => {
         {
             !modal.state.todoModalState ? 
                 null : <Modal />
+        }
+        {
+            !modal.state.moreModalState ? 
+                null : <MoreModal />
         }
         <S.Wrapper>
             <Calendar />

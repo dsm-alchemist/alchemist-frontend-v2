@@ -83,3 +83,15 @@ export const NotCurMonth = styled.td`
 export const CurMonth = styled.td`
     
 `
+
+export const Bottom = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;  
+    cursor: pointer;
+    margin-top: -20px;
+    & p{
+        padding-right: 200px;  
+        text-decoration: underline;
+    }
+`

@@ -41,6 +41,7 @@ const Modal = () => {
             date: date.state.tdDay.toString(),
             done: false
         });
+        localStorage.setItem("todolist", todo.state.todo.todoItems.toString())
         setData({
             content: ""
         })

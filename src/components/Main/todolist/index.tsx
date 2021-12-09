@@ -5,7 +5,7 @@ import { Plus } from "../../../assets/index";
 import useModal from "../../../utils/hooks/modal/useModal";
 import {More} from "../../../assets/index";
 import useTodo from "../../../utils/hooks/todolist/useTodo";
-import MoreModal from "./moreModal";
+import { isTemplateTail } from "typescript";
 
 
 const Todolist = () => {
@@ -14,11 +14,10 @@ const Todolist = () => {
     const modal = useModal();
     const todo = useTodo();
 
-
-    const changeState = () => {
+    const changeTodoState = () => {
         modal.setState.setTodoModal(true);
     }
-    
+
     const finish = (id: number) => {
         todo.setState.done(id);
     }
@@ -27,16 +26,16 @@ const Todolist = () => {
         todo.setState.unDone(id);
     }
 
+    const changeMoreState = () => {
+        modal.setState.setMoreModal(true);
+    }
+
     return(
         <>
-        {/* {
-            !modal.state.modalState ? 
-                null : <MoreModal />
-        } */}
         <S.Wrapper>
             <S.Top>
                 <span>{date.state.tdDay.toString().substr(0,2)}월 {date.state.tdDay.toString().substr(2, 4)}일</span>
-                <img src={Plus} alt=""  onClick={changeState} />
+                <img src={Plus} alt=""  onClick={changeTodoState} />
             </S.Top>
             <S.Main>
                 {
@@ -60,14 +59,13 @@ const Todolist = () => {
                                         <span className="todoContent">{item.text}</span>
                                     }
                                 </S.Left>
-                                <div className="imgWrp">
+                                <div onClick={() => {changeMoreState()}}   className="imgWrp">
                                     <img className="more" src={More} alt="" />
                                 </div>
                             </S.TodoWrp> 
                         )) 
                 }
-            </S.Main>
-          
+            </S.Main>   
         </S.Wrapper>
         </>
     )

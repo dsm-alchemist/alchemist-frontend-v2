@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 `
 
 export const ImgWrp = styled.div`
+    cursor: pointer;
     background: #E5E5E5;
     border-radius: 50%;
 
