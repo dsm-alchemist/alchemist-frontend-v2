@@ -1,9 +1,13 @@
 import { combineReducers } from "redux";
 import DateReducer from "./date";
+import ModalReducer from "./modal";
+import TodoReducer from "./todolist";
 
 
 const rootReducer = combineReducers({
-    date: DateReducer
+    date: DateReducer,
+    todo: TodoReducer,
+    modal: ModalReducer,
 })
 
 export type reducerType =

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import moment from "moment";
 import useDate from "../../../utils/hooks/date/useDate";
@@ -10,6 +10,10 @@ const Calendar = () => {
     const [getMoment, setMoment] = useState(moment());
     const today = getMoment;
 
+    useEffect(() => {
+        console.log(state.tdDay);
+    } , [])
+
     const firstWeek = today.clone().startOf('month').week();
     const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
 
@@ -18,9 +22,7 @@ const Calendar = () => {
         let week = firstWeek;
 
         const changeDate = (date: string) => {
-            setState.setMonth(Number(date.substr(0,2)));
-            setState.setDay(Number(date.substr(2, 4)));
-
+            setState.setDay(Number(date));
         }
         
         for ( week; week <= lastWeek; week++) {

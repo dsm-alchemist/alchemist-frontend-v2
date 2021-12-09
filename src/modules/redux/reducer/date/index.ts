@@ -1,22 +1,16 @@
 import { dateActionType } from "../../action/date";
-import { SET_DAY, SET_MONTH } from "../../action/date/interface";
+import { SET_DAY } from "../../action/date/interface";
 import DateState from "./interface";
 
 const initState: DateState = {
-    tdMonth: new Date().getMonth() + 1,
-    tdDay: new Date().getDate(),
+    tdDay: (new Date().getMonth() + 1).toString() + new Date().getDate().toString(),
 };
 
 const DateReducer = (
-    state: DateState = initState,
+    state = initState,
     action: dateActionType
-): DateState => {
+) => {
     switch (action.type) {
-        case SET_MONTH:
-            return {
-                ...state,
-                tdMonth: action.payload,
-            }
         case SET_DAY:
             return {
                 ...state,

@@ -10,5 +10,5 @@ export const Wrapper = styled.div`
 `
 
 export const Left = styled.div`
-
+    
 `

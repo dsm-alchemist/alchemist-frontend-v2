@@ -3,7 +3,7 @@ import { WIDTH, COLOR } from "../../../styles/index";
 
 export const Wrapper = styled.div`
     width: 1200px;
-    height: auto;
+    height: 700px;
     background: ${COLOR.whiteColor};
     box-shadow: 4px 7px 10px #727272;
     border-radius: 13px;

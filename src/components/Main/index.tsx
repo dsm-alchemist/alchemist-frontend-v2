@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import * as S from "./styles";
 import Calendar from "./calendar/index";
 import Profile from "./profile/index";
 import Todolist from "./todolist/index";
+import Modal from "./todolist/plusModal";
+import useModal from "../../utils/hooks/modal/useModal";
 
 const Main = () => {
+
+    const modal = useModal();
+
     return(
+        <>
+        {
+            !modal.state.todoModalState ? 
+                null : <Modal />
+        }
         <S.Wrapper>
             <Calendar />
             <S.Left>
@@ -13,6 +23,7 @@ const Main = () => {
                 <Todolist />
             </S.Left>
         </S.Wrapper>
+        </>
     )
 }
 
