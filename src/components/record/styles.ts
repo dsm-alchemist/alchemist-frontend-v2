@@ -6,9 +6,30 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #F8FEFF;
+    flex-direction: column;
 
-    & .capture{
-        width: 900px;
-        height: 600px;
+    & .timer{
+        font-size: 20px;
+        padding: 10px 50px;
+        font-weight: bold;
+        border: none;
+        border-radius: 7px;
+        margin-top: 40px;
+        color: #393939;
     }
+
+    & .reset{
+        border: none; 
+        color: #1DA0FF;
+        font-size: 20px;
+        background: none;
+        margin-top: 20px;
+    }()
+`
+
+export const Time = styled.div`
+    display: flex;
+    font-size: 40px;
+    margin-bottom: 20px;
 `
