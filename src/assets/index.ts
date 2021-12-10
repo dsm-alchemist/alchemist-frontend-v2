@@ -12,3 +12,8 @@ export { default as Push } from "./push.png";
 export { default as ChangeDate } from "./changeDate.png";
 export { default as Storage } from "./storage.png";
 export { default as Delete } from "./delete.png";
+
+export { default as signupBack } from "./signupBack.svg";
+export { default as signinBack } from "./signinBack.svg";
+
+export { default as Welcome } from "./welcome";
