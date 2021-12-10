@@ -17,3 +17,8 @@ export { default as signupBack } from "./signupBack.svg";
 export { default as signinBack } from "./signinBack.svg";
 
 export { default as Welcome } from "./welcome";
+
+export { default as Chart } from "./chart.png";
+export { default as Gold } from "./gold.png";
+export { default as Silver } from "./silver.png";
+export { default as Bronze } from "./bronze.png";
