@@ -15,8 +15,8 @@ const Header = () => {
             <S.Right>
                 <ul>
                     <li onClick={() => history.push("/")}>ranking</li>
-                    <li onClick={() => history.push("/")}>timer</li>
-                    <li onClick={() => history.push("/")}>my page</li>
+                    <li onClick={() => history.push("/record")}>timer</li>
+                    <li style={{color: "#ff5a5a"}} onClick={() => history.push("/")}>logout</li>
                 </ul>
                 <ImgLogo />
             </S.Right>
