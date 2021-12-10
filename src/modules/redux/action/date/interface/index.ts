@@ -1,0 +1,1 @@
+export const SET_DAY = "DATE/SET_DAY" as const;
