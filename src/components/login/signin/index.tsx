@@ -62,7 +62,7 @@ const Signin = () => {
                     />
                 </S.Wrap>
                 <S.Btn onClick={signinBtn}>Login</S.Btn>
-                <p className="goP">if you don't have account <span onClick={() => history.push("/")} className="goSpan">Click here</span></p>
+                <p className="goP">if you don't have account <span onClick={() => history.push("/signup")} className="goSpan">Click here</span></p>
             </S.Modal>
         </S.Wrapper>
     )

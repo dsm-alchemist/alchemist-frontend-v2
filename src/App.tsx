@@ -10,6 +10,7 @@ import Main from "./components/Main";
 import Signin from "./components/login/signin";
 import Signup from "./components/login/singup";
 import Record from "./components/record";
+import Ranking from "./components/ranking";
 
 const App = () => {
   return (
@@ -18,9 +19,10 @@ const App = () => {
       <GlobalStyle />
         <Switch>
           <Route exact path="/signin" component={Signin} />
-          <Route exact path="//signup" component={Signup} />
+          <Route exact path="/signup" component={Signup} />
           <>
             <Header />
+            <Route exact path="/ranking" component={Ranking} />
             <Route exact path="/" component={Main} />
             <Route exact path="/record" component={Record} />
           </>
