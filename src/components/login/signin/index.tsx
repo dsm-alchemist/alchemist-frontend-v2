@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 import { Welcome } from "../../../assets";
-import InputBox from "../input/index";
 import { useHistory } from "react-router-dom";
 
 interface SigninProps{
@@ -50,16 +49,14 @@ const Signin = () => {
             <S.Modal>
                 <Welcome />
                 <S.Wrap>
-                    <InputBox 
-                        onChange={idChange}
-                        title="email"
-                        placeholder="이메일을 입력해주세요"
-                    />
-                    <InputBox 
-                        onChange={pwChange}
-                        title="password"
-                        placeholder="비밀번호를 입력해주세요"
-                    />
+                    <S.InputBox>
+                            <p>email</p>
+                            <input type="text" onChange={idChange} placeholder="이메일을 입력해주세요" />
+                    </S.InputBox>
+                    <S.InputBox>
+                            <p>password</p>
+                            <input type="text" onChange={pwChange} placeholder="비밀번호를 입력해주세요" />
+                    </S.InputBox>
                 </S.Wrap>
                 <S.Btn onClick={signinBtn}>Login</S.Btn>
                 <p className="goP">if you don't have account <span onClick={() => history.push("/signup")} className="goSpan">Click here</span></p>

@@ -53,3 +53,24 @@ export const Btn = styled.button`
     border: none;
     margin-top: 30px;
 `
+
+export const InputBox = styled.div`
+
+    & p{
+        font-size: 16px;
+        padding-left: 10px;
+    }
+
+    & input{
+        width: 550px;
+        height: 65px;
+        border-radius: 7px;
+        background: #E8E8E8;
+        border: none;
+        font-size: 15px;
+        text-indent: 15px;
+        margin-top: 10px;
+    }
+
+    margin-bottom: 30px;
+`
