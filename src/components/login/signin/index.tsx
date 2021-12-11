@@ -70,12 +70,12 @@ const Signin = () => {
                 url: "/login",
                 headers: {},
                 data: {
-                    "eamil": id,
+                    "email": id,
                     "password": password
                 }
             }).then((res) => {
                 console.log(res.data);
-                localStorage.setItem(ACCESS_TOKEN, res.data.token);
+                localStorage.setItem(ACCESS_TOKEN, res.data.accessToken);
                 swal({
                     title: "로그인 완료!",
                     text: "메인페이지로 이동합니다.",

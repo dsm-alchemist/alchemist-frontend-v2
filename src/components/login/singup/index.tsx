@@ -134,6 +134,10 @@ const Signup = () => {
                 setData({
                     ...data,    
                     nameCheck: true
+                });
+                swal({
+                    title: "사용 가능한 이름입니다.",
+                    icon: "success",
                 })
             }).catch((err) => {
                 console.log(err);
@@ -144,7 +148,7 @@ const Signup = () => {
     const emailCodeCheck = async(e: any) => {
         await requestWithOutAccessToken({
             method: "GET",
-            url: `/sms-certification/confirms/${email_ck}`,
+            url: `/sms-certification/confirms?code=${email_ck}&email=${id}`,
             headers: {},
             data: {}
         }).then((res) => {
@@ -153,6 +157,10 @@ const Signup = () => {
                 ...data,
                 emailCheck: true
             });
+            swal({
+                title: "이메일 인증 완료",
+                icon: "success",
+            })
         }).catch((err) => {
             console.log(err);
         })
