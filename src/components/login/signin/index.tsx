@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as S from "./styles";
 import { Welcome } from "../../../assets";
 import { useHistory } from "react-router-dom";
-import {ACCESS_TOKEN, requestWithOutAccessToken} from "../../../utils/api/axios";
+import {ACCESS_TOKEN, REFRESH_TOKEN, requestWithOutAccessToken} from "../../../utils/api/axios";
 import swal from "sweetalert";
 
 interface SigninProps{
@@ -76,6 +76,7 @@ const Signin = () => {
             }).then((res) => {
                 console.log(res.data);
                 localStorage.setItem(ACCESS_TOKEN, res.data.accessToken);
+                localStorage.setItem(REFRESH_TOKEN, res.data.refreshToken);
                 swal({
                     title: "로그인 완료!",
                     text: "메인페이지로 이동합니다.",
