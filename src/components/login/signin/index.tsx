@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as S from "./styles";
 import { Welcome } from "../../../assets";
-import InputBox from "../input/index";
 import { useHistory } from "react-router-dom";
+import {ACCESS_TOKEN, requestWithOutAccessToken} from "../../../utils/api/axios";
+import swal from "sweetalert";
 
 interface SigninProps{
     id: string;
@@ -10,6 +11,12 @@ interface SigninProps{
 }
 
 const Signin = () => {
+
+    useEffect(() => {
+        idInput.current.focus();
+    }, [])
+
+    const history = useHistory();
 
     const [data, setData] = useState<SigninProps>({
         id: "",
@@ -32,38 +39,78 @@ const Signin = () => {
         });
     };
 
-    const signinBtn = () => {
-        console.log("asd");
-    }
-
     const onKeyGo = (e: any) => {
         if(e.key === "Enter"){
-            signinBtn();
+            SigninBtn();
         }
     }
-     
 
-    const history = useHistory();
+    const idInput = useRef<any>();
+
+    const SigninBtn = () => {
+        if(id.length == 0) {
+            swal({
+                text: "아이디를 입력해 주세요",
+                icon: "error",
+                dangerMode: true,
+            })
+            return false;
+        }
+        else if(password.length == 0) {
+            swal({
+                text: "비밀번호를 입력해 주세요",
+                icon: "error",
+                dangerMode: true,
+            })
+            return false;
+        }
+        else{
+            requestWithOutAccessToken({
+                method: "POST",
+                url: "/login",
+                headers: {},
+                data: {
+                    "email": id,
+                    "password": password
+                }
+            }).then((res) => {
+                console.log(res.data);
+                localStorage.setItem(ACCESS_TOKEN, res.data.accessToken);
+                swal({
+                    title: "로그인 완료!",
+                    text: "메인페이지로 이동합니다.",
+                    icon: "success",
+                })
+                history.push("/");
+            }).catch((err) => {
+                console.log(err);
+                swal({
+                    text: "아이디나 비밀번호를 잘못 입력 하셨습니다.",
+                    icon: "error",
+                    dangerMode: true,
+                })
+            })
+        }
+    }
     
     return(
         <S.Wrapper onKeyPress={onKeyGo}>
             <S.Modal>
                 <Welcome />
                 <S.Wrap>
-                    <InputBox 
-                        onChange={idChange}
-                        title="email"
-                        placeholder="이메일을 입력해주세요"
-                    />
-                    <InputBox 
-                        onChange={pwChange}
-                        title="password"
-                        placeholder="비밀번호를 입력해주세요"
-                    />
+                    <S.InputBox>
+                            <p>email</p>
+                            <input ref={idInput} type="text" onChange={idChange} placeholder="이메일을 입력해주세요" />
+                    </S.InputBox>
+                    <S.InputBox>
+                            <p>password</p>
+                            <input type="password" onChange={pwChange} placeholder="비밀번호를 입력해주세요" />
+                    </S.InputBox>
                 </S.Wrap>
-                <S.Btn onClick={signinBtn}>Login</S.Btn>
+                <S.Btn onClick={SigninBtn}>Login</S.Btn>
                 <p className="goP">if you don't have account <span onClick={() => history.push("/signup")} className="goSpan">Click here</span></p>
             </S.Modal>
+
         </S.Wrapper>
     )
 }
