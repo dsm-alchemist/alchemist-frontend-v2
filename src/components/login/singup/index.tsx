@@ -3,6 +3,7 @@ import { Welcome } from "../../../assets";
 import * as S from "./styles";
 import { useHistory } from "react-router-dom";
 import {requestWithOutAccessToken} from "../../../utils/api/axios";
+import swal from "sweetalert";
 
 interface SignupProps{
     id: string;
@@ -14,6 +15,10 @@ interface SignupProps{
 }
 
 const Signup = () => {
+    
+    useEffect(() => {
+        idInput.current.focus();
+    }, []);
 
     const history = useHistory();
 
@@ -63,17 +68,34 @@ const Signup = () => {
     }
 
     const emailCk = async(e: any) => {
-        await requestWithOutAccessToken({
-            method: "GET",
-            url: `/reduplication/email/${id}`,
-            headers: {},
-            data: {},
-        }).then((res) => {
-            console.log(res.data + "emailCheck");
-            emailCodeSend();
-        }).catch((err) => {
-            console.log(err);
-        })
+        if(id.length == 0) {
+            swal({
+                text: "이메일은 빈칸일 수 없습니다",
+                icon: "error",
+                dangerMode: true,
+            })
+        }
+        else if(!id.includes("@gmail.com")){
+            swal({
+                text: "이메일은 gmail만 가능합니다.",
+                icon: "error",
+                dangerMode: true,
+            })
+            return false;
+        }
+        else{
+            await requestWithOutAccessToken({
+                method: "GET",
+                url: `/reduplication/email/${id}`,
+                headers: {},
+                data: {},
+            }).then((res) => {
+                console.log(res.data);
+                emailCodeSend();
+            }).catch((err) => {
+                console.log(err);
+            })
+        }   
     }
 
     const emailCodeSend = () => {
@@ -93,20 +115,30 @@ const Signup = () => {
 
 
     const nameCk = async(e: any) => {
-        requestWithOutAccessToken({
-            method: "GET",
-            url: `/reduplication/name/${nickname}`,
-            headers: {},
-            data: {},
-        }).then((res) => {
-            console.log(res.data);
-            setData({
-                ...data, 
-                nameCheck: true
+        if(nickname.length < 2 || nickname.length > 10){
+            swal({
+                text: "이름은 두글자 이상 10글자 이하입니다.",
+                icon: "error",
+                dangerMode: true,
             })
-        }).catch((err) => {
-            console.log(err);
-        })
+            return false;
+        }
+        else{
+            requestWithOutAccessToken({
+                method: "GET",
+                url: `/reduplication/name/${nickname}`,
+                headers: {},
+                data: {},
+            }).then((res) => {
+                console.log(nickname.length);
+                setData({
+                    ...data,    
+                    nameCheck: true
+                })
+            }).catch((err) => {
+                console.log(err);
+            })
+        }
     }
     
     const emailCodeCheck = async(e: any) => {
@@ -126,18 +158,23 @@ const Signup = () => {
         })
     }
 
-    const nameInput = useRef<any>();
-    const emailInput = useRef<any>();
+    const idInput = useRef<any>();
 
     const signupBtn = () => {
-        if (!nameCheck) {
-            alert("이름 중복확인을 해주세요!");
-            nameInput.current.focus();
+        if(!emailCheck) {
+            swal({
+                text: "먼저 이메일 인증을 완료해 주세요.",
+                icon: "error",
+                dangerMode: true,
+            })
             return false;
         }
-        else if(!emailCheck) {
-            alert("이메일 인증을 완료해 주세요");
-            emailInput.current.focus();
+        else if (!nameCheck) {
+            swal({
+                text: "이름 중복 확인을 완료해 주세요",
+                icon: "error",
+                dangerMode: true,
+            });
             return false;
         }
         else{
@@ -152,10 +189,20 @@ const Signup = () => {
                 }
             }).then((res) => {
                 console.log(res);
-                alert("회원가입 완료. 로그인 페이지로 이동합니다.");
+                swal({
+                    title: "회원가입 성공!",
+                    text: "로그인 페이지로 이동합니다.",
+                    icon: "success",
+                });
                 history.push("/signin");
             }).catch((err) => {
                 console.log(err);
+                swal({
+                    text: "회원가입에 실패했습니다.",
+                    icon: "error",
+                    dangerMode: true,
+                })
+
             })
         }
     }
@@ -168,7 +215,7 @@ const Signup = () => {
                     <S.Verify>
                         <S.InputBox>
                             <p>email</p>
-                            <input  type="text" ref={emailInput} onChange={idChange} placeholder="이메일을 입력해주세요" />
+                            <input  type="text" ref={idInput} onChange={idChange} placeholder="이메일을 입력해주세요 (gmail만 가능)" />
                         </S.InputBox>
                         <button className="send" onClick={emailCk}>인증코드 발송</button>
                     </S.Verify>
@@ -182,13 +229,13 @@ const Signup = () => {
                     <S.Verify>
                         <S.InputBox>
                             <p>name</p>
-                            <input type="text" ref={nameInput} onChange={nameChange} placeholder="이름을 입력해주세요" />
+                            <input type="text" onChange={nameChange} placeholder="이름을 입력해주세요" />
                         </S.InputBox>
                         <button className="send" onClick={nameCk}>이름 중복확인</button>
                     </S.Verify>
                     <S.InputBox>
                             <p>password</p>
-                            <input type="text" onChange={pwChange} placeholder="비밀번호를 입력해주세요" />
+                            <input type="password" onChange={pwChange} placeholder="비밀번호를 입력해주세요" />
                     </S.InputBox>
                 </S.Wrap>
                 <S.Btn onClick={signupBtn}>Signup</S.Btn>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { signinBack } from "../../../assets";
 import { COLOR } from "../../../styles";
 
-export const Wrapper = styled.form`
+export const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
     background-image: url(${signinBack});
@@ -51,7 +51,7 @@ export const Btn = styled.button`
     border-radius: 7px;
     font-size: 25px;
     border: none;
-    margin-top: 30px;
+    margin-top: 10px;
 `
 
 export const InputBox = styled.div`
