@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./styles";
-import { ChangeDate, Delete, Edit, Push, Storage } from "../../../../assets";
+import { ChangeDate, Delete, Edit, Push } from "../../../../assets";
 import useModal from "../../../../utils/hooks/modal/useModal";
 import useTask from "../../../../utils/hooks/task/useTask";
 import { requestWithAccessToken, ACCESS_TOKEN } from "../../../../utils/api/axios";
@@ -8,41 +8,44 @@ import swal from "sweetalert";
 import useMain from "../../../../utils/hooks/main/useMain";
 import useDate from "../../../../utils/hooks/date/useDate";
 
-const MoreModal = () => {
+const TaskModal = () => {
 
     const modal = useModal();
-    const task = useTask();
     const main = useMain();
-    const date = useDate();
+    const task = useTask();
 
-    const changeMoreState = () => {
-        modal.setState.setMoreModal(false);
+    useEffect(() => {
+        main.setState.setTaskComponent(true);
+    }, [])
+
+    const changeTaskState = () => {
+        modal.setState.setTaskModal(false);
     }
 
     const editModal = () => {
-        modal.setState.setMoreModal(false);
+        modal.setState.setTaskModal(false);
         modal.setState.setEditModal(true);
     }
 
     const pushModal = () => {
-        modal.setState.setMoreModal(false);
+        modal.setState.setTaskModal(false);
         modal.setState.setPushModal(true);
     }
 
-    const setTommorrow = () => {
+    const today = new Date().getFullYear().toString() + (new Date().getMonth() + 1).toString() + new Date().getDate().toString()
 
+    const setTaskToday = () => {
         requestWithAccessToken({
             method: "POST",
-            url: `/task/${task.state.taskId}?date=${date.state.tmDay}`,
+            url: `/task/storage/${task.state.taskId}?date=${today}`,
             headers: {authorization: ACCESS_TOKEN},
             data: {},
         }).then((res) => {
-            console.log(res);
             swal({
-                title: "오늘 할 일을 미뤘습니다.",
+                title: "보관함에서 오늘 할 일로 이동하였습니다.",
                 icon: "success"
             }).then(() => {
-                modal.setState.setMoreModal(false);
+                modal.setState.setTaskModal(false);
                 main.setState.setComponent(true);
             })
         }).catch((err) => {
@@ -50,51 +53,28 @@ const MoreModal = () => {
         })
     }
 
-    const setStorageTask = () => {
-        requestWithAccessToken({
-            method: "POST",
-            url: `/task/${task.state.taskId}/storage`,
-            headers: {authorization: ACCESS_TOKEN},
-            data:{}
-        }).then((res) => {
-            console.log(res)
-            swal({
-                title: "보관함 이동 성공",
-                icon: "success",
-            }).then(() => {
-                modal.setState.setMoreModal(false);
-                main.setState.setComponent(true);
-            })
-        }).catch((err) => {
-            console.log(err);
-        })
-    }
-    
-
-    const deleteTask = () => {
+    const storageDelete = () => {
         requestWithAccessToken({
             method: "DELETE",
-            url: `/task/${task.state.taskId}`,
+            url: `/task/storage/${task.state.taskId}`,
             headers: {authorization: ACCESS_TOKEN},
             data: {}
         }).then((res) => {
-            console.log(res.data);
             swal({
                 title: "삭제 성공!",
-                icon: "success"
+                icon: "success",
             }).then(() => {
-                main.setState.setComponent(true);
-                modal.setState.setMoreModal(false);
+                modal.setState.setTaskModal(false);
+                main.setState.setComponent(true)
             })
         }).catch((err) => {
-            console.log(err)
+            console.log(err);
         })
     }
 
     return(
         <>
             <S.Back>
-
                 <S.Wrapper>
                 <S.BtnWrapper>
                     <S.ImgWrp onClick={editModal}>
@@ -103,10 +83,10 @@ const MoreModal = () => {
                     <p>수정</p>
                 </S.BtnWrapper>
                 <S.BtnWrapper>
-                    <S.ImgWrp onClick={setTommorrow}>
-                        <img src={Push} alt="" />
+                    <S.ImgWrp onClick={setTaskToday}>
+                        <img style={{transform: "rotate(180deg)"}} src={Push} alt="" />
                     </S.ImgWrp>
-                    <p>내일하기</p>
+                    <p>오늘하기</p>
                 </S.BtnWrapper>
                 <S.BtnWrapper>
                     <S.ImgWrp onClick={pushModal}>
@@ -115,22 +95,16 @@ const MoreModal = () => {
                     <p>날짜 바꾸기</p>
                 </S.BtnWrapper>
                 <S.BtnWrapper>
-                    <S.ImgWrp onClick={setStorageTask}>
-                        <img src={Storage} alt="" />
-                    </S.ImgWrp>
-                    <p>보관함으로</p>
-                </S.BtnWrapper>
-                <S.BtnWrapper>
-                    <S.ImgWrp onClick={deleteTask}>
+                    <S.ImgWrp onClick={storageDelete}>
                         <img src={Delete} alt="" />
                     </S.ImgWrp>
                     <p>삭제</p>
                 </S.BtnWrapper>
                 </S.Wrapper>
             </S.Back>
-            <S.Close onClick={changeMoreState}></S.Close>
+            <S.Close onClick={changeTaskState}></S.Close>
         </>
     )
 }
 
-export default MoreModal;
+export default TaskModal;

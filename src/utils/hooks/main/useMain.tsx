@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { setComponent } from "../../../modules/redux/action/main";
+import { setComponent, setTaskComponent } from "../../../modules/redux/action/main";
 import useSelectState from "../default/useSelectState";
 
 const useMain = () => {
@@ -9,6 +9,9 @@ const useMain = () => {
     const setState = {
         setComponent: (payload: boolean) => {
             dispatch(setComponent(payload));
+        },
+        setTaskComponent: (payload: boolean) => {
+            dispatch(setTaskComponent(payload));
         }
     }
     return{

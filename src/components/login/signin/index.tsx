@@ -48,7 +48,7 @@ const Signin = () => {
     const idInput = useRef<any>();
 
     const SigninBtn = () => {
-        if(id.length == 0) {
+        if(id.length === 0) {
             swal({
                 text: "아이디를 입력해 주세요",
                 icon: "error",
@@ -56,7 +56,7 @@ const Signin = () => {
             })
             return false;
         }
-        else if(password.length == 0) {
+        else if(password.length === 0) {
             swal({
                 text: "비밀번호를 입력해 주세요",
                 icon: "error",

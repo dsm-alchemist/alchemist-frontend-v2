@@ -4,11 +4,8 @@ import * as S from "./styles";
 import { Plus } from "../../../assets/index";
 import useModal from "../../../utils/hooks/modal/useModal";
 import {More} from "../../../assets/index";
-import useTodo from "../../../utils/hooks/todolist/useTodo";
-import { isTemplateTail } from "typescript";
 import useMain from "../../../utils/hooks/main/useMain";
 import { requestWithAccessToken, ACCESS_TOKEN } from "../../../utils/api/axios";
-import { AnyTxtRecord } from "dns";
 import useTask from "../../../utils/hooks/task/useTask";
 
 const Todolist = () => {

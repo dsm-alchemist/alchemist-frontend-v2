@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { createNoSubstitutionTemplateLiteral } from 'typescript';
 import { Chart, Gold, Silver, Bronze } from '../../assets';
 import * as S from "./styles"
 

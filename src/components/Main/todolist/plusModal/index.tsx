@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import * as S from "./styles";
 import { Close } from "../../../../assets";
 import useModal from "../../../../utils/hooks/modal/useModal";
-import useTodo from "../../../../utils/hooks/todolist/useTodo";
 import useDate from "../../../../utils/hooks/date/useDate";
 import useMain from "../../../../utils/hooks/main/useMain";
 import swal from "sweetalert";

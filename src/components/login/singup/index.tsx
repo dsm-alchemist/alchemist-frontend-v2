@@ -68,7 +68,7 @@ const Signup = () => {
     }
 
     const emailCk = async(e: any) => {
-        if(id.length == 0) {
+        if(id.length === 0) {
             swal({
                 text: "이메일은 빈칸일 수 없습니다",
                 icon: "error",
