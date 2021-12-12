@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 import Calendar from "./calendar/index";
-import Profile from "./profile/index";
+import Profile from "../profile/index";
 import Todolist from "./todolist/index";
 import Modal from "./todolist/plusModal";
 import useModal from "../../utils/hooks/modal/useModal";

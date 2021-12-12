@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./styles";
-import { BaseProfile } from "../../../assets/index";
+import { BaseProfile } from "../../assets/index";
 
 interface UserProps {
     name: string;
