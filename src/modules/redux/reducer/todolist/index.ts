@@ -1,5 +1,5 @@
 import { TodoState } from "./interface";
-import { done, todoActionType } from "../../action/todolist";
+import { todoActionType } from "../../action/todolist";
 import { DONE, PULL, PUSH, REMOVE, SUBMIT, UNDONE } from "../../action/todolist/interface";
 
 const initState: TodoState = {

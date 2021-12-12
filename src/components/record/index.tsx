@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import Webcam from "react-webcam";
-import { clearInterval } from "timers";
 
 const Record = () => {
 

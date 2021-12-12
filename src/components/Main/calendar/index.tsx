@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import moment from "moment";
 import useDate from "../../../utils/hooks/date/useDate";
+import { useHistory } from "react-router";
 
 const Calendar = () => {
 
@@ -9,6 +10,7 @@ const Calendar = () => {
 
     const [getMoment, setMoment] = useState(moment());
     const today = getMoment;
+    const history = useHistory();
 
 
     const firstWeek = today.clone().startOf('month').week();
@@ -20,7 +22,7 @@ const Calendar = () => {
 
         const changeDate = (date: string) => {
             setState.setDay(Number(date));
-            setState.setTomorrow(Number(date) + 1)
+            setState.setTomorrow(Number(date) + 1);
         }
         
         for ( week; week <= lastWeek; week++) {
@@ -102,7 +104,7 @@ const Calendar = () => {
                     </S.TBody>
                 </S.Table>
                 <S.Bottom>
-                    <p>보관함 확인하기 {">"}</p>
+                    <p onClick={() => history.push("/storage")}>보관함 확인하기 {">"}</p>
                 </S.Bottom>
             </S.Wrapper>
   );

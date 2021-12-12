@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setTodoModal, setMoreModal, setEditModal, setPushModal } from "../../../modules/redux/action/modal";
+import { setTodoModal, setMoreModal, setEditModal, setPushModal, setTaskModal } from "../../../modules/redux/action/modal";
 import useSelectState from "../default/useSelectState";
 
 const useModal = () => {
@@ -18,6 +18,9 @@ const useModal = () => {
         },
         setPushModal:(payload: boolean) => {
             dispatch(setPushModal(payload));
+        },
+        setTaskModal: (payload: boolean) => {
+            dispatch(setTaskModal(payload))
         }
     }
     return {

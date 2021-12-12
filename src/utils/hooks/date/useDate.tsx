@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { setDay, setTomorrow } from "../../../modules/redux/action/date";
+import { setDay, setToday, setTomorrow } from "../../../modules/redux/action/date";
 import useSelectState from "../default/useSelectState";
 
 
@@ -13,9 +13,11 @@ const useDate = () => {
         },
         setTomorrow: (payload: number) => {
             dispatch(setTomorrow(payload));
-        }
+        },
+        setToday:  (payload: number) => {
+            dispatch(setToday(payload));
+        },
     }
-
     return{
         state,
         setState

@@ -10,6 +10,7 @@ import Main from "./components/Main";
 import Signin from "./components/login/signin";
 import Signup from "./components/login/singup";
 import Record from "./components/record";
+import Storage from "./components/storage";
 import Ranking from "./components/ranking";
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
             <Header />
             <Route exact path="/ranking" component={Ranking} />
             <Route exact path="/" component={Main} />
+            <Route exact path="/storage" component={Storage} />
             <Route exact path="/record" component={Record} />
           </>
         </Switch>
