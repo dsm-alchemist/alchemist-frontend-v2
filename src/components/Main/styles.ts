@@ -7,9 +7,12 @@ export const Wrapper = styled.div`
     display: flex;  
     align-items: center;
     justify-content: space-around;
-    padding-top: 30px;
+    overflow: scroll;
+    & .right{
+        margin-top: 50px;
+    }
 `
 
 export const Left = styled.div`
-    
+    margin-top: 50px;
 `

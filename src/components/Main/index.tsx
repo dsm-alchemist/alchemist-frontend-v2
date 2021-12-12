@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import * as S from "./styles";
 import Calendar from "./calendar/index";
 import Profile from "./profile/index";
@@ -6,6 +6,8 @@ import Todolist from "./todolist/index";
 import Modal from "./todolist/plusModal";
 import useModal from "../../utils/hooks/modal/useModal";
 import MoreModal from "./todolist/moreModal";
+import EditModal from "./todolist/editModal";
+import PushModal from "./todolist/pushModal";
 
 const Main = () => {
 
@@ -21,8 +23,18 @@ const Main = () => {
             !modal.state.moreModalState ? 
                 null : <MoreModal />
         }
+        {
+            !modal.state.editModalState ? 
+                null : <EditModal />
+        }
+        {
+            !modal.state.pushModalState ? 
+                null : <PushModal />
+        }
         <S.Wrapper>
-            <Calendar />
+            <div className="right">
+                <Calendar />
+            </div>
             <S.Left>
                 <Profile />
                 <Todolist />

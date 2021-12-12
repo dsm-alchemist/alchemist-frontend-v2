@@ -6,64 +6,107 @@ import useModal from "../../../utils/hooks/modal/useModal";
 import {More} from "../../../assets/index";
 import useTodo from "../../../utils/hooks/todolist/useTodo";
 import { isTemplateTail } from "typescript";
-
+import useMain from "../../../utils/hooks/main/useMain";
+import { requestWithAccessToken, ACCESS_TOKEN } from "../../../utils/api/axios";
+import { AnyTxtRecord } from "dns";
+import useTask from "../../../utils/hooks/task/useTask";
 
 const Todolist = () => {
 
     const date = useDate();
     const modal = useModal();
-    const todo = useTodo();
+    const task = useTask();
+    const main = useMain();
+
+    
+
+    const [list, setList] = useState<any[]>([]);
 
     const changeTodoState = () => {
         modal.setState.setTodoModal(true);
     }
 
-    const finish = (id: number) => {
-        todo.setState.done(id);
-    }
-
-    const unfinish = (id: number) => {
-        todo.setState.unDone(id);
-    }
-
-    const changeMoreState = () => {
+    const changeMoreState = (e: any) => {
         modal.setState.setMoreModal(true);
+        task.setState.setTaskId(e.task_id);
+    }
+
+    const getTdTask = () => {
+        requestWithAccessToken({
+            method: "GET",
+            url: `/task?date=${date.state.tdDay}`,
+            headers: {authorization: ACCESS_TOKEN},
+            data: {}
+        }).then((res) => {
+            console.log(res.data);
+            setList(res.data.taskList);
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
+
+    useEffect(() => {
+        main.setState.setComponent(false);
+        console.log("render");
+        getTdTask();
+    },[main.state.todoRender]);
+
+    useEffect(() => {
+        getTdTask();
+    }, [date.state.tdDay]);
+
+    const [value, setValue] = useState<any>();
+
+
+    const finish = (e: any) => {
+        e.done = e.done ? false : true;
+        console.log(e)
+        requestWithAccessToken({
+            method: "PUT",
+            url: `/task/done/${e.task_id}`,
+            headers: {authorization: ACCESS_TOKEN},
+            data: {
+                "isDone": e.done
+            }
+        }).then((res) => {
+            console.log(res);
+            setValue({});
+        }).catch((err) => {
+            console.log(err)
+        })
     }
 
     return(
         <>
         <S.Wrapper>
             <S.Top>
-                <span>{date.state.tdDay.toString().substr(0,2)}월 {date.state.tdDay.toString().substr(2, 4)}일</span>
+                <span>{date.state.tdDay.toString().substring(4,6)}월 {date.state.tdDay.toString().substring(6,8)}일</span>
                 <img src={Plus} alt=""  onClick={changeTodoState} />
             </S.Top>
             <S.Main>
                 {
-                todo.state.todo.todoItems.length === 0 ? 
-                    <div></div> 
-                        :
-                        todo.state.todo.todoItems.map((item) => (
-                            <S.TodoWrp >
-                                <S.Left>
-                                    {
-                                        item.done ? 
-                                            <div onClick={() => unfinish(item.id)} style={{background: "#7F92FC", border: "none", }} className="check" />
-                                                : 
-                                            <div onClick={() => finish(item.id)} className="check" />
-                                    }
-
-                                    {
-                                        item.done ? 
-                                        <span style={{textDecoration: "line-through"}} className="todoContent">{item.text}</span>
-                                            :
-                                        <span className="todoContent">{item.text}</span>
-                                    }
-                                </S.Left>
-                                <div onClick={() => {changeMoreState()}}   className="imgWrp">
+                    list.map((e, index) => (
+                        <S.TodoWrp>
+                            <S.Left>
+                                {!e.done ?
+                                    <div onClick={() => { finish(list[index]); console.log(e.done); } } className="check" />
+                                    :
+                                    <div onClick={() => { finish(list[index]); console.log(e.done); } } style={{ background: "#7F92FC", border: "none", }} className="check" />}
+                                {!e.done ?
+                                    <span className="todoContent">{e.task}</span>
+                                    :
+                                    <span style={{ textDecoration: "line-through" }} className="todoContent">{e.task}</span>}
+                            </S.Left>
+                            {!e.done ?
+                                <div onClick={() => { changeMoreState(list[index]); } } className="imgWrp">
                                     <img className="more" src={More} alt="" />
                                 </div>
-                            </S.TodoWrp> 
-                        )) 
+                                :
+                                <div style={{opacity: 0.3}} className="imgWrp">
+                                    <img className="more" src={More} alt="" />
+                                </div>}
+                        </S.TodoWrp>
+                    ))
                 }
             </S.Main>   
         </S.Wrapper>

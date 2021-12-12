@@ -37,6 +37,7 @@ export const InpWrapper = styled.div`
     align-items: center;
     justify-content: space-evenly;
     & input{
+        padding-right: 20px;
         width: 490px;
         height: 55px;
         border: none;
