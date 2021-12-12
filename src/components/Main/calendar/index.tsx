@@ -10,9 +10,6 @@ const Calendar = () => {
     const [getMoment, setMoment] = useState(moment());
     const today = getMoment;
 
-    useEffect(() => {
-        console.log(state.tdDay);
-    } , [])
 
     const firstWeek = today.clone().startOf('month').week();
     const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
@@ -23,6 +20,7 @@ const Calendar = () => {
 
         const changeDate = (date: string) => {
             setState.setDay(Number(date));
+            setState.setTomorrow(Number(date) + 1)
         }
         
         for ( week; week <= lastWeek; week++) {
@@ -35,9 +33,9 @@ const Calendar = () => {
 
                         if(moment().format('YYYYMMDD') === days.format('YYYYMMDD')){
                             return(
-                                <S.Today key={index}  >
+                                <S.Today key={index} >
                                     <span onClick={() => {
-                                        changeDate(days.format('MMDD'))
+                                        changeDate(days.format('YYYYMMDD'));
                                     }} style={{color: '#6C00FF', textDecoration: 'underline'}}>{days.format('D')}</span>
                                 </S.Today>
                             );
@@ -45,7 +43,7 @@ const Calendar = () => {
                             return(
                                 <S.NotCurMonth key={index} style={{color: '#aeaeae'}} >
                                     <span onClick={() => {
-                                        changeDate(days.format('MMDD'))
+                                        changeDate(days.format('YYYYMMDD'))
                                     }}>{days.format('D')}</span>
                                 </S.NotCurMonth>
                             );
@@ -53,7 +51,7 @@ const Calendar = () => {
                             return(
                                 <S.CurMonth key={index}>
                                     <span onClick={() => {
-                                        changeDate(days.format('MMDD'))
+                                        changeDate(days.format('YYYYMMDD'))
                                     }}>{days.format('D')}</span>
                                 </S.CurMonth>
                             );

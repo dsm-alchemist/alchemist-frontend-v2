@@ -1,0 +1,1 @@
+export const SET_COMPONENT = "MAIN/SET_COMPONENT" as const;
