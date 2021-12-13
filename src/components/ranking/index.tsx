@@ -74,8 +74,6 @@ const Ranking = () => {
 
     return(
         <S.Wrapper>
-            {
-                data.map((e, index) => ( 
                     <>
                     <S.TopRank>
                                 <S.Top>
@@ -83,21 +81,20 @@ const Ranking = () => {
                                     <p className="myname"><span style={{ color: "#6067FF", fontWeight: "bold" }}></span> 님의 랭킹은 3등 입니다.</p>
                                 </S.Top>
                                 <S.Main>
-
                                     <S.Silver>
                                         <img src={Silver} alt="" />
-                                        <p className="name">{e.name}</p>
-                                        <p className="timer">{e.time}</p>
+                                        <p className="name">{data[0]?.name}</p>
+                                        <p className="timer">{"<><>"}</p>
                                     </S.Silver>
                                     <S.Gold>
                                         <img src={Gold} alt="" />
-                                        <p className="name">{e.name}</p>
-                                        <p className="timer">{e.time}</p>
+                                        <p className="name">{data[1]?.name}</p>
+                                        <p className="timer">{"<><>"}</p>
                                     </S.Gold>
                                     <S.Bronze>
                                         <img src={Bronze} alt="" />
-                                        <p className="name">{e.name}</p>
-                                        <p className="timer">{e.time}</p>
+                                        <p className="name">{data[2]?.name}</p>
+                                        <p className="timer">{"<><>"}</p>
 
                                     </S.Bronze>
                                 </S.Main>
@@ -109,17 +106,19 @@ const Ranking = () => {
                                 </S.Bottom>
                             </S.TopRank>
                             <S.RankList>
-                                <S.ListBox className="listBox">
-                                    <S.Left>
-                                        <p className="number">{index}</p>
-                                        <p className="listname">{e.name}</p>
-                                    </S.Left>
-                                        <p className="time">{e.time}</p>
-                                </S.ListBox>
+                                    {
+                                        data.slice(0,2).map((e, index) => (
+                                            <S.ListBox className="listBox">
+                                                <S.Left>
+                                                    <p className="number">{index}</p>
+                                                    <p className="listname">{e?.name}</p>
+                                                </S.Left>
+                                                    <p className="time">{"<><>"}</p>
+                                            </S.ListBox>
+                                        ))
+                                    }
                             </S.RankList>
                         </>
-                    ))
-            }
         </S.Wrapper>
     )
 }

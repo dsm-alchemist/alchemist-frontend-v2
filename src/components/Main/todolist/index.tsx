@@ -80,6 +80,7 @@ const Todolist = () => {
                 <span>{date.state.tdDay.toString().substring(4,6)}월 {date.state.tdDay.toString().substring(6,8)}일</span>
                 <img src={Plus} alt=""  onClick={changeTodoState} />
             </S.Top>
+            
             <S.Main>
                 {
                     list.map((e, index) => (
