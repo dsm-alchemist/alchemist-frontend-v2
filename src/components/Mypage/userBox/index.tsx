@@ -4,10 +4,13 @@ import { BaseProfile } from "../../../assets";
 import { ACCESS_TOKEN, requestWithAccessToken, requestWithOutAccessToken } from "../../../utils/api/axios";
 import useMain from "../../../utils/hooks/main/useMain";
 import swal from "sweetalert2";
+import { useHistory } from "react-router";
 
 const UserBox = () => {
 
     const [list, setList] = useState<any[]>([]);
+
+    const history = useHistory();
 
     const [bool, setBool] = useState({
         all: true,
@@ -151,7 +154,7 @@ const UserBox = () => {
                         <S.ListLeft>
                             <img src={BaseProfile} alt="" />
                             <S.LeftTop>
-                                <p className="name">{e.userName}</p>
+                                <p className="name" onClick={() => {localStorage.setItem("otherName", e.userName); localStorage.setItem("otherEmail", e.userEmail); history.push("/other")}}>{e.userName}</p>
                                 <p className="email">{e.userEmail}</p>
                             </S.LeftTop>    
                         </S.ListLeft>
