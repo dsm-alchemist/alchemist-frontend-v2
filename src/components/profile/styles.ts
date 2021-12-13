@@ -24,8 +24,8 @@ export const Left = styled.div`
     }
 
     & .name {
-        font-size: 21px;
-        padding-top: 20px;
+        font-size: 18px;
+        padding-top: 10px;
     }
     
 `

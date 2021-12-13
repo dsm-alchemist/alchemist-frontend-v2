@@ -3,6 +3,7 @@ import * as S from "./styles";
 import { BaseProfile } from "../../assets/index";
 import { ACCESS_TOKEN, requestWithAccessToken } from "../../utils/api/axios";
 import useMain from "../../utils/hooks/main/useMain";
+import { useHistory } from "react-router";
 
 interface UserProps {
     follower: number;
@@ -13,6 +14,8 @@ interface UserProps {
 const Profile = ()=> {
 
     const main = useMain();
+
+    const history = useHistory();
 
     const [data, setData] = useState<UserProps>({
         follower: 0,
@@ -52,6 +55,7 @@ const Profile = ()=> {
         <S.Wrapper>
             <S.Left>
                 <img className="profile" src={BaseProfile} alt="" />
+                <p className="name">{localStorage.getItem("name")}</p>
             </S.Left>
             <S.Right>
                 <S.Top>
@@ -81,7 +85,7 @@ const Profile = ()=> {
                     </ul>
                 </S.Top>
                 <S.Bottom>
-                    <button className="editProfile">프로필 편집</button>
+                    <button onClick={() => history.push("/mypage")} className="editProfile">프로필 보기</button>
                 </S.Bottom>
             </S.Right>
         </S.Wrapper>

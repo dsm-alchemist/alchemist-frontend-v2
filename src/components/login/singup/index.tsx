@@ -77,7 +77,7 @@ const Signup = () => {
         }
         else if(!id.includes("@gmail.com")){
             swal({
-                text: "이메일은 gmail만 가능합니다.",
+                text: "이메일은 @gmail.com으로만 가능합니다.",
                 icon: "error",
                 dangerMode: true,
             })
@@ -207,6 +207,7 @@ const Signup = () => {
                     icon: "success",
                 }).then(() => {
                     history.push("/signin");
+                    localStorage.setItem("name" , data.nickname);
                 })
             }).catch((err) => {
                 console.log(err);
