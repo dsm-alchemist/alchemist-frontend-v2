@@ -2,10 +2,20 @@ import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import { BaseProfile } from "../../../assets";
 import { ACCESS_TOKEN, requestWithAccessToken, requestWithOutAccessToken } from "../../../utils/api/axios";
+import useMain from "../../../utils/hooks/main/useMain";
+import swal from "sweetalert2";
 
 const UserBox = () => {
 
     const [list, setList] = useState<any[]>([]);
+
+    const [bool, setBool] = useState({
+        all: true,
+        following: false,
+        follower: false,
+    });
+
+    const main = useMain();
 
     const getAllUser = () => {
         requestWithAccessToken({
@@ -16,6 +26,11 @@ const UserBox = () => {
         }).then((res) => {
             console.log(res.data);
             setList(res.data);
+            setBool({
+                all: true,
+                follower: false,
+                following: false
+            });
         }).catch((err) => {
             console.log(err);
         })
@@ -29,7 +44,12 @@ const UserBox = () => {
             data: {}
         }).then((res) => {
             console.log(res.data);
-            setList(res.data)
+            setList(res.data);
+            setBool({
+                all: false,
+                follower: false,
+                following: true
+            });
         }).catch((err) => {
             console.log(err);
         })
@@ -43,7 +63,12 @@ const UserBox = () => {
             data: {}
         }).then((res) => {
             console.log(res.data);
-            setList(res.data)
+            setList(res.data);
+            setBool({
+                all: false,
+                follower: true,
+                following: false
+            });
         }).catch((err) => {
             console.log(err);
         })
@@ -62,22 +87,52 @@ const UserBox = () => {
             data: {}
         }).then((res) => {
             console.log(res);
+            main.setState.setProfileComponent(true);
         }).catch((err) => {
             console.log(err);
         })
     }
 
+    useEffect(() => {
+        main.setState.setProfileComponent(false);
+        if(bool.all === true) {
+            getAllUser();
+        }
+        else if(bool.following === true) {
+            getFollowingUser();
+        }
+        else {
+            getFollowerUser();
+        }
+    }, [main.state.profileRender]);
+
     const cancleFollow = (e: any) => {
-        requestWithAccessToken({
-            method: "DELETE",
-            url: `/following/${e.userEmail}`,
-            headers: {authorization: ACCESS_TOKEN},
-            data: {}
-        }).then((res) => {
-            console.log(res);
-        }).catch((err) => {
-            console.log(err);
+        swal.fire({
+            title: "팔로잉을 취소하시겠습니까?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "예",
+            cancelButtonText: "아니오",
+            focusConfirm: true,
+            focusCancel: false
+        }).then((result) => {
+            if(result.isConfirmed){
+                requestWithAccessToken({
+                    method: "DELETE",
+                    url: `/following/${e.userEmail}`,
+                    headers: {authorization: ACCESS_TOKEN},
+                    data: {}
+                }).then((res) => {
+                    console.log(res);
+                    main.setState.setProfileComponent(true);
+                }).catch((err) => {
+                    console.log(err);
+                })
+            } else{
+                return;
+            }
         })
+        
     }
 
     
@@ -101,8 +156,12 @@ const UserBox = () => {
                             </S.LeftTop>    
                         </S.ListLeft>
                         <S.ListRight>
-                            <button className="follow" onClick={() => {setFollow(list[index]);}}>팔로우</button>
-                            <button onClick={() => {cancleFollow(list[index])}}></button>
+                            {
+                                !e.isFollowing ? 
+                                    <button className="follow" onClick={() => {setFollow(list[index]);}}>팔로우</button>
+                                        : 
+                                    <button style={{border: "1px solid #FF7879", color: "#FF7879"}} onClick={() => {cancleFollow(list[index])}}>팔로잉</button>
+                            }
                         </S.ListRight>
                     </S.Wrapper>
                 ))
