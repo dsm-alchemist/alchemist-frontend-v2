@@ -107,7 +107,11 @@ const Signup = () => {
                 "email": id
             },
         }).then((res) => {
-            console.log(res.data);
+            console.log(res.data)
+            swal({
+                title: "이메일 코드 전송",
+                icon: "success"
+            })
         }).catch((err) => {
             console.log(err)
         })
@@ -177,7 +181,7 @@ const Signup = () => {
             })
             return false;
         }
-        else if (!nameCheck) {
+        else if(!nameCheck) {
             swal({
                 text: "이름 중복 확인을 완료해 주세요",
                 icon: "error",
@@ -201,8 +205,9 @@ const Signup = () => {
                     title: "회원가입 성공!",
                     text: "로그인 페이지로 이동합니다.",
                     icon: "success",
-                });
-                history.push("/signin");
+                }).then(() => {
+                    history.push("/signin");
+                })
             }).catch((err) => {
                 console.log(err);
                 swal({
@@ -216,7 +221,7 @@ const Signup = () => {
     }
 
     return(
-        <S.Wrapper onKeyPress={onKeyGo}>
+        <S.Wrapper>
             <S.Modal>
                 <Welcome />
                 <S.Wrap>
@@ -243,7 +248,7 @@ const Signup = () => {
                     </S.Verify>
                     <S.InputBox>
                             <p>password</p>
-                            <input type="password" onChange={pwChange} placeholder="비밀번호를 입력해주세요" />
+                            <input onKeyPress={onKeyGo} type="password" onChange={pwChange} placeholder="비밀번호를 입력해주세요" />
                     </S.InputBox>
                 </S.Wrap>
                 <S.Btn onClick={signupBtn}>Signup</S.Btn>

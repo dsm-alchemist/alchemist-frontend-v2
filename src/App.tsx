@@ -12,6 +12,7 @@ import Signup from "./components/login/singup";
 import Record from "./components/record";
 import Storage from "./components/storage";
 import Ranking from "./components/ranking";
+import Mypage from "./components/Mypage";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route exact path="/signup" component={Signup} />
           <>
             <Header />
+            <Route exact path="/mypage" component={Mypage} />
             <Route exact path="/ranking" component={Ranking} />
             <Route exact path="/" component={Main} />
             <Route exact path="/storage" component={Storage} />

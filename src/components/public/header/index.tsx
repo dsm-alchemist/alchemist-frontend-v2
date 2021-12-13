@@ -16,6 +16,7 @@ const Header = () => {
                 <ul>
                     <li onClick={() => history.push("/ranking")}>ranking</li>
                     <li onClick={() => history.push("/record")}>timer</li>
+                    <li onClick={() => history.push('mypage')}>my page</li>
                     <li style={{color: "#ff5a5a"}} onClick={() => history.push("/")}>logout</li>
                 </ul>
                 <ImgLogo />

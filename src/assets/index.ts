@@ -22,3 +22,6 @@ export { default as Chart } from "./chart.png";
 export { default as Gold } from "./gold.png";
 export { default as Silver } from "./silver.png";
 export { default as Bronze } from "./bronze.png";
+
+export { default as BackRight } from "./backright.png";
+export { default as BackLeft } from "./backleft.png";

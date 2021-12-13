@@ -1,36 +1,62 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
-import { BaseProfile } from "../../../assets/index";
+import { BaseProfile } from "../../assets/index";
+import { ACCESS_TOKEN, requestWithAccessToken } from "../../utils/api/axios";
+import useMain from "../../utils/hooks/main/useMain";
 
 interface UserProps {
-    name: string;
-    todo: number;
     follower: number;
     following: number;
+    todo: number;
 }
 
 const Profile = ()=> {
 
+    const main = useMain();
+
     const [data, setData] = useState<UserProps>({
-        name: "",
-        todo: 0,
         follower: 0,
-        following: 10,
+        following: 0,
+        todo: 0,
     });
 
-    const {name, todo, follower, following} = data;
+    const { todo, follower, following} = data;
+
+    const getUserInfo = () => {
+        requestWithAccessToken({
+            method: "GET",
+            url: "/follow",
+            headers: {authorization: ACCESS_TOKEN},
+            data: {},
+        }).then((res) => {
+            console.log(res.data);
+            setData({
+                follower: res.data.follower,
+                following: res.data.following,
+                todo: res.data.taskCount,
+            })
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    useEffect(() => {
+        getUserInfo();
+    }, []);
+    useEffect(() => {
+        getUserInfo();
+        main.setState.setProfileComponent(false);
+    }, [main.state.profileRender])
     
     return(
         <S.Wrapper>
             <S.Left>
                 <img className="profile" src={BaseProfile} alt="" />
-                <span className="name">{name}</span>
             </S.Left>
             <S.Right>
                 <S.Top>
                     <ul className="todo">
                         <li className="title">오늘 할 일</li>
-
                         {
                             todo === 0 ? 
                             <li className="cnt" style={{color: "#E0E0E0"}}>{todo}</li> :
