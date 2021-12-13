@@ -27,7 +27,7 @@ const Mypage = () => {
 
     useEffect(() => {
         date.setState.setTomorrow(tomorrow);
-    }, [])
+    }, []);
 
     const getTask = () => {
         requestWithAccessToken({
@@ -42,6 +42,11 @@ const Mypage = () => {
             console.log(err);
         })
     };
+    
+    useEffect(() => {
+        main.setState.setProfileComponent(false);
+        getTask();
+    }, [main.state.profileRender])
 
     const changeMoreState = (e: any) => {
         modal.setState.setMoreModal(true);
