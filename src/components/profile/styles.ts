@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { COLOR } from "../../styles";
 
 export const Wrapper = styled.div`
-    width: 500px;
+    width: 450px;
     height: 200px;
     background: ${COLOR.whiteColor};
     box-shadow: 4px 7px 10px #8c8c8c;
