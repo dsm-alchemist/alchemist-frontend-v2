@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import Webcam from "react-webcam";
+import { ACCESS_TOKEN, requestWithAccessToken } from "../../utils/api/axios";
 
 const Record = () => {
 
@@ -26,17 +27,50 @@ const Record = () => {
             clearTimeout(interval);
         }
         return () => clearTimeout(interval);
-    }, [running])
+    }, [running]);
 
-    const hour = ("0" + Math.floor((time / 3600000) % 60)).slice(-2);
-    const minute = ("0" + Math.floor((time / 60000) % 60)).slice(-2);
-    const second = ("0" + Math.floor((time / 1000) % 60)).slice(-2);
+    const a: any = localStorage.getItem("prevTime");
+
+    const hour = (time.toString() + Math.floor((time / 3600000) % 60)).slice(-2);
+    const minute = (time.toString() + Math.floor((time / 60000) % 60)).slice(-2);
+    const second = (time.toString() + Math.floor((time / 1000) % 60)).slice(-2);
 
     useEffect(() => {
-        localStorage.setItem("timer",(hour + minute + second).toString());
-    }, [!running])
+        localStorage.setItem("prevTime",  time.toString());
+    }, [!running]);
 
+    const sendTimer = () => {
+        requestWithAccessToken({
+            method: "POST",
+            url: "/timer",
+            headers: {authorization: ACCESS_TOKEN},
+            data: {
+                "time":  hour
+            }
+        }).then((res) => {
+            console.log(res);
+        }).catch((err) => {
+            console.log(err);
+        })
+    };
 
+    const stopTimer = () => {
+        requestWithAccessToken({
+            method: "PUT",
+            url: "/timer",
+            headers: {authorization: ACCESS_TOKEN},
+            data: {}
+        }).then((res) => {
+            console.log(res);
+            setRunning(false);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    useEffect(() => {
+        sendTimer();
+    }, [hour])
 
 
     // useEffect(() => {
@@ -48,14 +82,34 @@ const Record = () => {
     //     }, 5000)
     // }, [])
 
+    // localStorage.getItem("timer")?.substr(0,2)
+    //localStorage.getItem("timer")?.substr(2,2)
+    //localStorage.getItem("timer")?.substr(4,6)
+
     return(
         <S.Wrapper>
             <S.Time>
-                <span>{hour}:</span>
-                <span>{minute}:</span>
-                <span>{second}</span>
+                <span>
+                    {
+                        hour == "0" ?
+                        (a ? a : "0" + + Math.floor((time / 3600000) % 60)).slice(-2) : hour
+                    }:
+                </span>
+                <span>
+                    {
+                        minute == "0" ?
+                            (a ? a : "0" + + Math.floor((time / 60000) % 60)).slice(-2) : minute
+                    }:
+                </span>
+                <span>
+                    {
+                        second == "0" ? 
+                            (a ? a : "0" + + Math.floor((time / 1000) % 60)).slice(-2) : second
+                    }
+                </span>
             </S.Time>
             <Webcam
+                mirrored={true}
                 audio={false}
                 height={650}
                 ref={webcamRef}
@@ -65,7 +119,7 @@ const Record = () => {
                 !running ? 
                     <button className="timer" onClick={() => setRunning(true)}>타이머 시작하기</button>
                         : 
-                    <button className="timer" onClick={() => setRunning(false)}>타이머 멈추기</button>
+                    <button className="timer" onClick={() => stopTimer()}>타이머 멈추기</button>
             }
             <button className="reset" onClick={() => setTime(0)}>reset</button>
 
