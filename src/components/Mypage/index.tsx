@@ -27,6 +27,7 @@ const Mypage = () => {
 
     useEffect(() => {
         date.setState.setTomorrow(tomorrow);
+        main.setState.setMypageComponent(true);
     }, []);
 
     const getTask = () => {

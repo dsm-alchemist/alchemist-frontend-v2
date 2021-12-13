@@ -4,6 +4,7 @@ import { BaseProfile } from "../../assets/index";
 import { ACCESS_TOKEN, requestWithAccessToken } from "../../utils/api/axios";
 import useMain from "../../utils/hooks/main/useMain";
 import { useHistory } from "react-router";
+import swal from "sweetalert2";
 
 interface UserProps {
     follower: number;
@@ -43,8 +44,47 @@ const Profile = ()=> {
         })
     }
 
+    const deleteAccount = () => {
+
+        swal.fire({
+            title: "정말로 계정을 삭제 하시겠습니까?",
+            icon: "error",
+            showCancelButton: true,
+            confirmButtonText: "예",
+            cancelButtonText: "아니오",
+            focusConfirm: false,
+            focusCancel: true
+        }).then((result) => {
+            if(result.isConfirmed){
+                requestWithAccessToken({
+                    method: "DELETE",
+                    url: "/account",
+                    headers: {authorization: ACCESS_TOKEN},
+                    data: {}
+                }).then((res) => {
+                    console.log(res);
+                    swal.fire({
+                        title: "계정 삭제 완료!",
+                        text: "회원가입 페이지로 이동합니다.",
+                        icon: "success"
+                    }).then(() => {
+                        history.push("/signup");
+                    })
+                }).catch((err) => {
+                    console.log(err);
+                })
+            }
+            else{
+                return;
+            }
+        })
+
+        
+    }
+
     useEffect(() => {
         getUserInfo();
+        main.setState.setMypageComponent(false);
     }, []);
     useEffect(() => {
         getUserInfo();
@@ -85,7 +125,12 @@ const Profile = ()=> {
                     </ul>
                 </S.Top>
                 <S.Bottom>
-                    <button onClick={() => history.push("/mypage")} className="editProfile">프로필 보기</button>
+                    {
+                        main.state.myPageRender ? 
+                            <button onClick={deleteAccount} style={{border: "1px solid #ff6363", color: "#ff6363"}} className="editProfile">계정 삭제</button>
+                                : 
+                            <button onClick={() => history.push("/mypage")} className="editProfile">프로필 보기</button>
+                    }
                 </S.Bottom>
             </S.Right>
         </S.Wrapper>
