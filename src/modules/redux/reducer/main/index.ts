@@ -1,10 +1,11 @@
 import { mainActionType } from "../../action/main";
-import { SET_COMPONENT, SET_TASK_OMPONENT } from "../../action/main/interface";
+import { SET_COMPONENT, SET_PROFILE_COMPONENT, SET_TASK_OMPONENT } from "../../action/main/interface";
 import MainState from "./interface";
 
 const initState: MainState = {
     todoRender: false,
     taskRender: false,
+    profileRender: false,
 };
 
 const MainReducer = (
@@ -21,6 +22,11 @@ const MainReducer = (
             return {
                 ...state,
                 taskRender: action.payload,
+            }
+        case SET_PROFILE_COMPONENT:
+            return {
+                ...state,
+                profileRender: action.payload
             }
         default:
             return state;

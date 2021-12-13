@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./styles";
 import { ChangeDate, Delete, Edit, Push, Storage } from "../../../../assets";
 import useModal from "../../../../utils/hooks/modal/useModal";
@@ -30,7 +30,6 @@ const MoreModal = () => {
     }
 
     const setTommorrow = () => {
-
         requestWithAccessToken({
             method: "POST",
             url: `/task/${task.state.taskId}?date=${date.state.tmDay}`,
