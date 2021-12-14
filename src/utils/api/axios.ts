@@ -34,8 +34,29 @@ export const requestWithAccessToken = ({ method, url, headers, data }: AxiosProp
     })
         .then((res) => {
             return res;
-        }).catch((err) => {
-            throw new Error(err);
+        }).catch(async (err) => {
+            if (err.response.status === 401) {
+                try {
+                    const res = await axios({
+                        method: "PUT",
+                        url: "/refresh",
+                        headers: {},
+                        data: {
+                            "refreshToken": localStorage.getItem("alchemist_refresh_token")
+                        },
+                    });
+                    const { access_token, refresh_token } = res.data;
+
+                    localStorage.setItem("alchemist_access_token", access_token);
+                    localStorage.setItem("alchemist_refresh_token", refresh_token)
+                }
+                catch (err: any) {
+                    if (err.response.status === 401) {
+                        window.location.href = "/signin";
+                    }
+                }
+            }
+            return Promise.reject(err);
         });
 };
 
