@@ -74,51 +74,51 @@ const Ranking = () => {
 
     return(
         <S.Wrapper>
-                    <>
-                    <S.TopRank>
-                                <S.Top>
-                                    <img className="chart" src={Chart} alt="" />
-                                    <p className="myname"><span style={{ color: "#6067FF", fontWeight: "bold" }}></span> 님의 랭킹은 3등 입니다.</p>
-                                </S.Top>
-                                <S.Main>
-                                    <S.Silver>
-                                        <img src={Silver} alt="" />
-                                        <p className="name">{data[0]?.name}</p>
-                                        <p className="timer">{"<><>"}</p>
-                                    </S.Silver>
-                                    <S.Gold>
-                                        <img src={Gold} alt="" />
-                                        <p className="name">{data[1]?.name}</p>
-                                        <p className="timer">{"<><>"}</p>
-                                    </S.Gold>
-                                    <S.Bronze>
-                                        <img src={Bronze} alt="" />
-                                        <p className="name">{data[2]?.name}</p>
-                                        <p className="timer">{"<><>"}</p>
+            <>
+            <S.TopRank>
+                        <S.Top>
+                            <img className="chart" src={Chart} alt="" />
+                            <p className="myname"><span style={{ color: "#6067FF", fontWeight: "bold" }}></span> 님의 랭킹은 3등 입니다.</p>
+                        </S.Top>
+                        <S.Main>
+                            <S.Silver>
+                                <img src={Silver} alt="" />
+                                <p className="name">{data[0]?.name}</p>
+                                <p className="timer">{"<><>"}</p>
+                            </S.Silver>
+                            <S.Gold>
+                                <img src={Gold} alt="" />
+                                <p className="name">{data[1]?.name}</p>
+                                <p className="timer">{"<><>"}</p>
+                            </S.Gold>
+                            <S.Bronze>
+                                <img src={Bronze} alt="" />
+                                <p className="name">{data[2]?.name}</p>
+                                <p className="timer">{"<><>"}</p>
 
-                                    </S.Bronze>
-                                </S.Main>
-                                <S.Bottom>
-                                    <S.More>
-                                        <p className="scroll">스크롤 해서 더보기</p>
-                                        <p className="arrow">&gt;&gt;</p>
-                                    </S.More>
-                                </S.Bottom>
-                            </S.TopRank>
-                            <S.RankList>
-                                    {
-                                        data.slice(0,2).map((e, index) => (
-                                            <S.ListBox className="listBox">
-                                                <S.Left>
-                                                    <p className="number">{index}</p>
-                                                    <p className="listname">{e?.name}</p>
-                                                </S.Left>
-                                                    <p className="time">{"<><>"}</p>
-                                            </S.ListBox>
-                                        ))
-                                    }
-                            </S.RankList>
-                        </>
+                            </S.Bronze>
+                        </S.Main>
+                        <S.Bottom>
+                            <S.More>
+                                <p className="scroll">스크롤 해서 더보기</p>
+                                <p className="arrow">&gt;&gt;</p>
+                            </S.More>
+                        </S.Bottom>
+                    </S.TopRank>
+                    <S.RankList>
+                            {
+                                data.slice(0,2).map((e, index) => (
+                                    <S.ListBox className="listBox">
+                                        <S.Left>
+                                            <p className="number">{index}</p>
+                                            <p className="listname">{e?.name}</p>
+                                        </S.Left>
+                                            <p className="time">{"<><>"}</p>
+                                    </S.ListBox>
+                                ))
+                            }
+                    </S.RankList>
+                </>
         </S.Wrapper>
     )
 }

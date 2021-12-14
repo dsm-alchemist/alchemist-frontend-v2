@@ -7,13 +7,13 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 100px;
     flex-direction: column;
     
 `
 
 export const TopRank = styled.div`
     width: 1500px;
+    margin-top: 170px;
 `
 
 export const Top = styled.div`
