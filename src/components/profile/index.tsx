@@ -29,7 +29,7 @@ const Profile = ()=> {
     const getUserInfo = () => {
         requestWithAccessToken({
             method: "GET",
-            url: "/follow",
+            url: `/follow/${localStorage.getItem("email")}`,
             headers: {authorization: ACCESS_TOKEN},
             data: {},
         }).then((res) => {
