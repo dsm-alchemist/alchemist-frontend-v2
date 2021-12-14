@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import Webcam from "react-webcam";
 import { ACCESS_TOKEN, requestWithAccessToken } from "../../utils/api/axios";
+import Clock from "react-live-clock";
+import moment from "moment";
 
 const Record = () => {
 
     const webcamRef = React.useRef<any>(null);
 
     const [imgSrc, setImgSrc] = useState<string>("");
+    
+    const [cur, setCur] = useState<number>(new Date().getDate());
+
+    const [mom, setMom] = useState<string>(moment().format("hh:mm:ss"));
 
     const capture = React.useCallback(() => {
         const imageSrc = webcamRef.current.getScreenshot();
@@ -62,7 +68,6 @@ const Record = () => {
             data: {}
         }).then((res) => {
             console.log(res);
-            setRunning(false);
         }).catch((err) => {
             console.log(err);
         })
@@ -70,8 +75,20 @@ const Record = () => {
 
     useEffect(() => {
         sendTimer();
-    }, [hour])
+    }, [hour]);
 
+    useEffect(() => {
+        setInterval(function() {
+            var tommom = moment().format("hh:mm:ss");
+            if(cur !== new Date().getDate()){
+                setTime(0);
+                setCur(new Date().getDate());
+            }
+            if(mom !== tommom){
+                setMom(tommom);
+            }
+        }, 5000)
+    }, []);
 
     // useEffect(() => {
     //     setInterval(function() {
@@ -88,6 +105,7 @@ const Record = () => {
 
     return(
         <S.Wrapper>
+            <Clock format={"hh:mm:ss"} ticking={true} />
             <S.Time>
                 <span>
                     {
@@ -119,7 +137,7 @@ const Record = () => {
                 !running ? 
                     <button className="timer" onClick={() => setRunning(true)}>타이머 시작하기</button>
                         : 
-                    <button className="timer" onClick={() => stopTimer()}>타이머 멈추기</button>
+                    <button className="timer" onClick={() => {stopTimer(); setRunning(false)}}>타이머 멈추기</button>
             }
             <button className="reset" onClick={() => setTime(0)}>reset</button>
 
