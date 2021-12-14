@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import Webcam from "react-webcam";
 import { ACCESS_TOKEN, requestWithAccessToken } from "../../utils/api/axios";
-import Clock from "react-live-clock";
-import moment from "moment";
+import swal from "sweetalert";
 
 const Record = () => {
 
@@ -12,8 +11,6 @@ const Record = () => {
     const [imgSrc, setImgSrc] = useState<string>("");
     
     const [cur, setCur] = useState<number>(new Date().getDate());
-
-    const [mom, setMom] = useState<string>(moment().format("hh:mm:ss"));
 
     const capture = React.useCallback(() => {
         const imageSrc = webcamRef.current.getScreenshot();
@@ -27,7 +24,7 @@ const Record = () => {
         let interval: any;
         if (running) {
             interval = setInterval(() => {
-                setTime((prevTime) => prevTime + 1000);
+                setTime((prevTime) => prevTime + 10);
             }, 10);
         }else if(!running){
             clearTimeout(interval);
@@ -65,7 +62,9 @@ const Record = () => {
             method: "PUT",
             url: "/timer",
             headers: {authorization: ACCESS_TOKEN},
-            data: {}
+            data: {
+                "time": time
+            }
         }).then((res) => {
             console.log(res);
         }).catch((err) => {
@@ -78,16 +77,26 @@ const Record = () => {
     }, [hour]);
 
     useEffect(() => {
+
+        requestWithAccessToken({
+            method: "GET",
+            url: "/time",
+            headers: {authorization: ACCESS_TOKEN},
+            data: {}
+        }).then((res) => {
+            console.log(res);
+            setTime(res.data);
+        }).catch((err) => {
+            console.log(err);
+        })
+
         setInterval(function() {
-            var tommom = moment().format("hh:mm:ss");
             if(cur !== new Date().getDate()){
                 setTime(0);
                 setCur(new Date().getDate());
             }
-            if(mom !== tommom){
-                setMom(tommom);
-            }
-        }, 5000)
+        }, 5000);
+
     }, []);
 
     // useEffect(() => {
@@ -105,23 +114,22 @@ const Record = () => {
 
     return(
         <S.Wrapper>
-            <Clock format={"hh:mm:ss"} ticking={true} />
             <S.Time>
-                <span>
+            <span>
                     {
-                        hour == "0" ?
+                        hour === "0" ?
                         (a ? a : "0" + + Math.floor((time / 3600000) % 60)).slice(-2) : hour
                     }:
                 </span>
                 <span>
                     {
-                        minute == "0" ?
+                        minute === "0" ?
                             (a ? a : "0" + + Math.floor((time / 60000) % 60)).slice(-2) : minute
                     }:
                 </span>
                 <span>
                     {
-                        second == "0" ? 
+                        second === "0" ? 
                             (a ? a : "0" + + Math.floor((time / 1000) % 60)).slice(-2) : second
                     }
                 </span>
@@ -139,7 +147,7 @@ const Record = () => {
                         : 
                     <button className="timer" onClick={() => {stopTimer(); setRunning(false)}}>타이머 멈추기</button>
             }
-            <button className="reset" onClick={() => setTime(0)}>reset</button>
+            <span className="reset">* 시간은 날짜가 바뀌면 초기화 됩니다. *</span>
 
       
       {/* 캡처한 이미지 나타내는 코드 */}

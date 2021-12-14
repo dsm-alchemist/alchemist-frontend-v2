@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     width: 100%;
-    padding-top: 70px;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #F8FEFF;
     flex-direction: column;
+    overflow-y: hidden;
 
     & .timer{
         font-size: 20px;
@@ -21,15 +21,14 @@ export const Wrapper = styled.div`
     }
 
     & .reset{
-        border: none; 
-        color: #1DA0FF;
-        font-size: 20px;
-        background: none;
         margin-top: 20px;
+        font-size: 20px;
+        color: #ff5959;
     }()
 `
 
 export const Time = styled.div`
+    margin-top: 90px;
     display: flex;
     font-size: 40px;
     margin-bottom: 20px;
