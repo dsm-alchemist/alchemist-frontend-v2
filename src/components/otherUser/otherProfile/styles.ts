@@ -1,16 +1,15 @@
 import styled from "styled-components";
-import { COLOR } from "../../styles";
+import { COLOR } from "../../../styles";
 
 export const Wrapper = styled.div`
     width: 450px;
     height: 200px;
-    background: ${COLOR.whiteColor};
+    border-radius: 7px;
     box-shadow: 4px 7px 10px #8c8c8c;
+    background: ${COLOR.whiteColor};
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 7px;
-    gap: 50px;
+    justify-content: space-evenly;
 `
 
 export const Left = styled.div`
@@ -73,10 +72,11 @@ export const Top = styled.div`
 export const Bottom = styled.div`
     margin-top: 30px;
 
-    & .editProfile{
+    & .follow{
         width: 100%;
         border-radius: 3px;
         background: none;
-        border: 1px solid #ACACAC;
+        color: #4c83ff;
+        border: 1px solid #4c83ff;
     }
 `

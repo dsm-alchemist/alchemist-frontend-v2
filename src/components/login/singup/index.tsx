@@ -15,10 +15,16 @@ interface SignupProps{
 }
 
 const Signup = () => {
+
+    const idInput = useRef<any>();
+    const codeInput = useRef<any>();
+    const nameInput = useRef<any>();
+    const passwordInput = useRef<any>();
     
     useEffect(() => {
         idInput.current.focus();
     }, []);
+
 
     const history = useHistory();
 
@@ -73,15 +79,20 @@ const Signup = () => {
                 text: "이메일은 빈칸일 수 없습니다",
                 icon: "error",
                 dangerMode: true,
+            }).then(() => {
+                idInput.current.focus();
+                return;
             })
         }
         else if(!id.includes("@gmail.com")){
             swal({
-                text: "이메일은 gmail만 가능합니다.",
+                text: "이메일은 @gmail.com으로만 가능합니다.",
                 icon: "error",
                 dangerMode: true,
+            }).then(() => {
+                idInput.current.focus();
+                return;
             })
-            return false;
         }
         else{
             await requestWithOutAccessToken({
@@ -111,6 +122,8 @@ const Signup = () => {
             swal({
                 title: "이메일 코드 전송",
                 icon: "success"
+            }).then(() => {
+                codeInput.current.focus();
             })
         }).catch((err) => {
             console.log(err)
@@ -124,8 +137,10 @@ const Signup = () => {
                 text: "이름은 두글자 이상 10글자 이하입니다.",
                 icon: "error",
                 dangerMode: true,
+            }).then(() => {
+                nameInput.current.focus();
+                return;
             })
-            return false;
         }
         else{
             requestWithOutAccessToken({
@@ -142,6 +157,8 @@ const Signup = () => {
                 swal({
                     title: "사용 가능한 이름입니다.",
                     icon: "success",
+                }).then(() => {
+                    passwordInput.current.focus();
                 })
             }).catch((err) => {
                 console.log(err);
@@ -164,13 +181,13 @@ const Signup = () => {
             swal({
                 title: "이메일 인증 완료",
                 icon: "success",
+            }).then(() => {
+                nameInput.current.focus();
             })
         }).catch((err) => {
             console.log(err);
         })
     }
-
-    const idInput = useRef<any>();
 
     const signupBtn = () => {
         if(!emailCheck) {
@@ -207,6 +224,7 @@ const Signup = () => {
                     icon: "success",
                 }).then(() => {
                     history.push("/signin");
+                    localStorage.setItem("name" , data.nickname);
                 })
             }).catch((err) => {
                 console.log(err);
@@ -235,20 +253,20 @@ const Signup = () => {
                     <S.Verify>
                         <S.InputBox>
                             <p>emai check</p>
-                            <input type="text" onChange={emailCode} placeholder="인증번호를 입력해주세요" />
+                            <input ref={codeInput} type="text" onChange={emailCode} placeholder="인증번호를 입력해주세요" />
                         </S.InputBox>
                         <button className="send" onClick={emailCodeCheck}>인증코드 확인</button>
                     </S.Verify>
                     <S.Verify>
                         <S.InputBox>
                             <p>name</p>
-                            <input type="text" onChange={nameChange} placeholder="이름을 입력해주세요" />
+                            <input ref={nameInput} type="text" onChange={nameChange} placeholder="이름을 입력해주세요" />
                         </S.InputBox>
                         <button className="send" onClick={nameCk}>이름 중복확인</button>
                     </S.Verify>
                     <S.InputBox>
                             <p>password</p>
-                            <input onKeyPress={onKeyGo} type="password" onChange={pwChange} placeholder="비밀번호를 입력해주세요" />
+                            <input ref={passwordInput} onKeyPress={onKeyGo} type="password" onChange={pwChange} placeholder="비밀번호를 입력해주세요" />
                     </S.InputBox>
                 </S.Wrap>
                 <S.Btn onClick={signupBtn}>Signup</S.Btn>

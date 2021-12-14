@@ -77,12 +77,14 @@ const Signin = () => {
                 console.log(res.data);
                 localStorage.setItem(ACCESS_TOKEN, res.data.accessToken);
                 localStorage.setItem(REFRESH_TOKEN, res.data.refreshToken);
+                localStorage.setItem("email", data.id);
                 swal({
                     title: "로그인 완료!",
                     text: "메인페이지로 이동합니다.",
                     icon: "success",
+                }).then(() => {
+                    history.push("/");
                 })
-                history.push("/");
             }).catch((err) => {
                 console.log(err);
                 swal({

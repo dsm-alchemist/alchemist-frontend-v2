@@ -84,6 +84,7 @@ const MoreModal = () => {
             }).then(() => {
                 main.setState.setComponent(true);
                 modal.setState.setMoreModal(false);
+                main.setState.setProfileComponent(true);
             })
         }).catch((err) => {
             console.log(err)

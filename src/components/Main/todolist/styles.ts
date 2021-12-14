@@ -3,7 +3,7 @@ import { COLOR } from "../../../styles";
 
 export const Wrapper = styled.div`
     margin-top: 50px;
-    width: 500px;
+    width: 450px;
     height: 450px;
     background: ${COLOR.whiteColor};
     box-shadow: 4px 7px 10px #8c8c8c;
@@ -17,7 +17,7 @@ export const Top = styled.div`
     /* background: ${COLOR.whiteColor}; */
     justify-content: space-between;
     position: fixed;
-    width: 500px;
+    width: 450px;
     height: 50px;
     border-radius: 13px 13px 0 0;
     backdrop-filter: blur(20px);

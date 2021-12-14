@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { setComponent, setProfileComponent, setTaskComponent } from "../../../modules/redux/action/main";
+import { setComponent, setMypageComponent, setProfileComponent, setTaskComponent } from "../../../modules/redux/action/main";
 import useSelectState from "../default/useSelectState";
 
 const useMain = () => {
@@ -15,6 +15,9 @@ const useMain = () => {
         },
         setProfileComponent: (payload: boolean) => {
             dispatch(setProfileComponent(payload));
+        },
+        setMypageComponent: (payload: boolean) => {
+            dispatch(setMypageComponent(payload));
         },
     }
     return{

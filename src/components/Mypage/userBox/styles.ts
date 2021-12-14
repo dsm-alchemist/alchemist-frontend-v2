@@ -16,6 +16,7 @@ export const ListLeft = styled.div`
         width: 65px;
         height: 65px;
         border-radius: 50%;
+        cursor: pointer;
     }
 
 `
@@ -24,6 +25,12 @@ export const LeftTop = styled.div`
     padding-left: 10px;
     & .name{
         font-size: 18px;
+    }
+
+    & .name:hover{
+        font-size: 18px;
+        text-decoration: underline;
+        cursor: pointer;
     }
 
     & .email{

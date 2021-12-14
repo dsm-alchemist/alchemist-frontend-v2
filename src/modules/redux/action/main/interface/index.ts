@@ -1,3 +1,4 @@
 export const SET_COMPONENT = "MAIN/SET_COMPONENT" as const;
 export const SET_TASK_OMPONENT = "MAIN/SET_TASK_COMPONENT" as const;
 export const SET_PROFILE_COMPONENT = "MAIN/SET_PROFILE_COMPONENT" as const;
+export const SET_MYPAGE_COMPONENT = "MAIN/SET_MYPAGE_COMPONENT" as const;
