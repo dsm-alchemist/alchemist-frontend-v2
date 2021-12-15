@@ -15,41 +15,9 @@ import Storage from "./components/storage";
 import Ranking from "./components/ranking";
 import Mypage from "./components/Mypage";
 import OtherUser from "./components/otherUser";
-import axios from "axios";
 
 const App = () => {
 
-  const available = 5;
-  const access = window.localStorage.getItem("alchemist_access_token");
-
-  useEffect(() => {
-
-
-    const timerId = setTimeout(async () => {
-      try{
-        const res = await axios({
-          method: "PUT",
-          url: "http://52.79.148.224:8080/refresh",
-          headers: {},
-          data: {
-            "refreshToken": localStorage.getItem("alchemist_refresh_token")
-          },
-        }); 
-        const {accessToken, refreshToken} = res.data;
-        localStorage.setItem("alchemist_access_token", accessToken);
-        localStorage.setItem("alchemist_refresh_token", refreshToken);
-      }catch (err) {
-        console.log(err);
-        swal({
-          title: "로그인이 만료되었습니다.",
-          icon: "error"
-        }).then(function() {
-          window.location.href = "/signin"
-        });
-      }
-    }, available);
-    return () => clearTimeout(timerId);
-  }, [access])
 
   return (
     <Provider store={store}>
