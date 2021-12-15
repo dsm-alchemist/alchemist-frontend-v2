@@ -1,4 +1,5 @@
 import axios, { Method } from "axios";
+import swal from "sweetalert";
 
 interface AxiosProps {
     method: Method;
@@ -34,29 +35,8 @@ export const requestWithAccessToken = ({ method, url, headers, data }: AxiosProp
     })
         .then((res) => {
             return res;
-        }).catch(async (err) => {
-            if (err.response.status === 401) {
-                try {
-                    const res = await axios({
-                        method: "PUT",
-                        url: "/refresh",
-                        headers: {},
-                        data: {
-                            "refreshToken": localStorage.getItem("alchemist_refresh_token")
-                        },
-                    });
-                    const { access_token, refresh_token } = res.data;
-
-                    localStorage.setItem("alchemist_access_token", access_token);
-                    localStorage.setItem("alchemist_refresh_token", refresh_token)
-                }
-                catch (err: any) {
-                    if (err.response.status === 401) {
-                        window.location.href = "/signin";
-                    }
-                }
-            }
-            return Promise.reject(err);
+        }).catch((err) => {
+            throw new Error(err);
         });
 };
 
@@ -70,3 +50,23 @@ export const requestWithAccessToken = ({ method, url, headers, data }: AxiosProp
 //     }).catch((err)=>{
 //         return;
 //     })
+
+// if (err.response.status === 401) {
+//     try {
+//         const res = await axios({
+//             method: "PUT",
+//             url: "http://52.79.148.224:8080/refresh",
+//             headers: {},
+//             data: {
+//                 "refreshToken": localStorage.getItem("alchemist_refresh_token")
+//             },
+//         });
+//         const { accessToken, refreshToken } = res.data;
+//         localStorage.setItem("alchemist_access_token", accessToken);
+//         localStorage.setItem("alchemist_refresh_token", refreshToken);
+//     }
+//     catch (error: any) {
+//         console.log("안돼!");
+//     }
+// }
+// return Promise.reject(err);
