@@ -36,6 +36,29 @@ export const requestWithAccessToken = ({ method, url, headers, data }: AxiosProp
         .then((res) => {
             return res;
         }).catch((err) => {
+            if (err.response.status === 401) {
+                requestWithOutAccessToken({
+                    method: "PUT",
+                    url: "/refresh",
+                    headers: {},
+                    data: {
+                        "refreshToken": localStorage.getItem("alchemist_refresh_token")
+                    }
+                }).then((res) => {
+                    console.log(res);
+                    window.location.reload();
+                    localStorage.setItem("alchemist_access_token", res.data.accessToken);
+                    localStorage.setItem("alchemist_refresh_token", res.data.refreshToken);
+                }).catch((error) => {
+                    swal({
+                        title: "로그인 기간이 만료되었습니다.",
+                        icon: "error"
+                    }).then(() => {
+                        localStorage.clear();
+                        window.location.href = "/signin";
+                    });
+                })
+            }
             throw new Error(err);
         });
 };
@@ -70,7 +93,3 @@ export const requestWithAccessToken = ({ method, url, headers, data }: AxiosProp
 //     }
 // }
 // return Promise.reject(err);
-
-
-// eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJodW4wMDcxOUBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjM5NTU0NTUxLCJleHAiOjE2Mzk1NTQ1NTZ9.Vj-5hzKCEFYX2WIEftH1twTEXvBqWXaht1gijN6MRzg
-// eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJodW4wMDcxOUBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjM5NTU0NTY0LCJleHAiOjE2Mzk1NTQ1Njl9.NyMnaOxsr_iRcnheS320XRFQ68CI1tcIBIfhoN24V5w
