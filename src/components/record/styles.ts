@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
         margin-top: 20px;
         font-size: 20px;
         color: #ff5959;
-    }()
+    }
 `
 
 export const Time = styled.div`

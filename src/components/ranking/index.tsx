@@ -5,7 +5,7 @@ import * as S from "./styles"
 
 interface RankingProps{
     name: string;
-    time: string;
+    timer: string;
     isStop: boolean;
 }
 
@@ -13,7 +13,7 @@ const Ranking = () => {
 
     const [data, setData] = useState<RankingProps[]>([]);
     const [page, setPage] = useState<number>(1);
-    const [name, setName] = useState<string>("");
+    const [nickname, setName] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const getUserName = () => {
@@ -42,7 +42,7 @@ const Ranking = () => {
             data: {}
         }).then((res) => {
             console.log(res.data);   
-            setData(data.concat(res.data.rank));
+            setData(data.concat(res.data.content));
             setIsLoading(false);
         }).catch((err) => {
             console.log(err);
@@ -78,23 +78,23 @@ const Ranking = () => {
             <S.TopRank>
                         <S.Top>
                             <img className="chart" src={Chart} alt="" />
-                            <p className="myname"><span style={{ color: "#6067FF", fontWeight: "bold" }}></span> 님의 랭킹은 3등 입니다.</p>
+                            {/* <p className="myname"><span style={{ color: "#6067FF", fontWeight: "bold" }}></span>{nickname} 님의 랭킹은 3등 입니다.</p> */}
                         </S.Top>
                         <S.Main>
                             <S.Silver>
                                 <img src={Silver} alt="" />
-                                <p className="name">{data[0]?.name}</p>
-                                <p className="timer">{"<><>"}</p>
+                                <p className="name">{data[1]?.name}</p>
+                                <p className="timer">{data[1]?.timer}</p>
                             </S.Silver>
                             <S.Gold>
                                 <img src={Gold} alt="" />
-                                <p className="name">{data[1]?.name}</p>
-                                <p className="timer">{"<><>"}</p>
+                                <p className="name">{data[0]?.name}</p>
+                                <p className="timer">{data[0]?.timer}</p>
                             </S.Gold>
                             <S.Bronze>
                                 <img src={Bronze} alt="" />
                                 <p className="name">{data[2]?.name}</p>
-                                <p className="timer">{"<><>"}</p>
+                                <p className="timer">{data[2]?.timer}</p>
 
                             </S.Bronze>
                         </S.Main>
@@ -107,13 +107,13 @@ const Ranking = () => {
                     </S.TopRank>
                     <S.RankList>
                             {
-                                data.slice(0,2).map((e, index) => (
+                                data.map((e, index) => (
                                     <S.ListBox className="listBox">
                                         <S.Left>
                                             <p className="number">{index}</p>
                                             <p className="listname">{e?.name}</p>
                                         </S.Left>
-                                            <p className="time">{"<><>"}</p>
+                                            <p className="time">{e?.timer}</p>
                                     </S.ListBox>
                                 ))
                             }

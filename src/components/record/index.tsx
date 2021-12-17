@@ -24,7 +24,7 @@ const Record = () => {
         let interval: any;
         if (running) {
             interval = setInterval(() => {
-                setTime((prevTime) => prevTime + 10);
+                setTime((prevTime) => prevTime + 10000);
             }, 10);
         }else if(!running){
             clearTimeout(interval);
