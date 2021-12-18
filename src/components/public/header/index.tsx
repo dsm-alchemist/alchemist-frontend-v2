@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
-import {Logo, ImgLogo} from "../../../assets/index";
+import {MainLogo, ImgLogo} from "../../../assets/index";
 import { useHistory } from "react-router-dom";
 import { ACCESS_TOKEN, requestWithAccessToken } from "../../../utils/api/axios";
 import axios from "axios";
@@ -34,7 +34,7 @@ const Header = () => {
     return(
         <S.Wrapper>
             <S.Left>
-                <Logo />
+                <img src={MainLogo} alt="" />
             </S.Left>
             <S.Right>
                 <ul>

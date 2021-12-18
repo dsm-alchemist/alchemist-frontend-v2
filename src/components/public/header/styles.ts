@@ -14,6 +14,10 @@ export const Wrapper = styled.header`
 
 export const Left = styled.div`
     padding-left: 20px;
+
+    & img{
+        width: 300px;
+    }
 `
 
 export const Right = styled.div`

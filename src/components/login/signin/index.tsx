@@ -4,6 +4,7 @@ import { Welcome } from "../../../assets";
 import { useHistory } from "react-router-dom";
 import {ACCESS_TOKEN, REFRESH_TOKEN, requestWithOutAccessToken} from "../../../utils/api/axios";
 import swal from "sweetalert";
+import {LoginLogo} from "../../../assets/index"
 
 interface SigninProps{
     id: string;
@@ -99,7 +100,7 @@ const Signin = () => {
     return(
         <S.Wrapper onKeyPress={onKeyGo}>
             <S.Modal>
-                <Welcome />
+                <img className="loginlogo" src={LoginLogo} alt="" />
                 <S.Wrap>
                     <S.InputBox>
                             <p>email</p>

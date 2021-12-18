@@ -32,6 +32,11 @@ export const Wrap = styled.div`
 `
 
 export const Modal = styled.div`
+
+    & .loginlogo {
+        width: 700px;
+        margin-top: 50px;
+    }
     border-radius: 15px;
     box-shadow: 0px 8px 16px #656565;
     background-color: ${COLOR.whiteColor};

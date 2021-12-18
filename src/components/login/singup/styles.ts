@@ -28,13 +28,19 @@ export const Wrapper = styled.div`
 `
 
 export const Wrap = styled.div`
-    margin-top: 60px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: -40px;
 `
 
 export const Modal = styled.div`
+
+& .loginlogo {
+    width: 700px;
+    margin-top: 40px;
+}
     border-radius: 15px;
     box-shadow: 0px 8px 16px #656565;
     background-color: ${COLOR.whiteColor};
@@ -55,6 +61,7 @@ export const Btn = styled.button`
     font-size: 25px;
     border: none;
     margin-top: 30px;
+    margin-left: -40px;
 `
 
 export const Verify = styled.div`

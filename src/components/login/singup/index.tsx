@@ -4,6 +4,7 @@ import * as S from "./styles";
 import { useHistory } from "react-router-dom";
 import {requestWithOutAccessToken} from "../../../utils/api/axios";
 import swal from "sweetalert";
+import {LoginLogo} from "../../../assets/index";
 
 interface SignupProps{
     id: string;
@@ -241,7 +242,7 @@ const Signup = () => {
     return(
         <S.Wrapper>
             <S.Modal>
-                <Welcome />
+                <img className="loginlogo" src={LoginLogo} alt="" />
                 <S.Wrap>
                     <S.Verify>
                         <S.InputBox>

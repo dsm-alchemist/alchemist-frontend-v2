@@ -25,3 +25,6 @@ export { default as Bronze } from "./bronze.png";
 
 export { default as BackRight } from "./backright.png";
 export { default as BackLeft } from "./backleft.png";
+
+export { default as LoginLogo } from "./loginLogo.png";
+export { default as MainLogo } from "./logoMain.png";
