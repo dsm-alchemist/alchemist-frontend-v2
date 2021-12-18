@@ -5726,6 +5726,14 @@ hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.1.0, hoist-non-react-
   dependencies:
     react-is "^16.7.0"
 
+hooked-react-stopwatch@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/hooked-react-stopwatch/-/hooked-react-stopwatch-1.5.1.tgz#e0fb62d758ff39dc13d1d91763edff132109c667"
+  integrity sha512-BxTlfeiP6bnI3/e/p44uJp0QaaO1zKYfIhT49QVeqm1/9eNJpQmy8IpJiNN6yUpCk30ZoxLTN8Qffn0VS9eRzg==
+  dependencies:
+    moment "^2.24.0"
+    react-icons "^3.7.0"
+
 hoopy@^0.1.4:
   version "0.1.4"
   resolved "https://registry.npmjs.org/hoopy/-/hoopy-0.1.4.tgz"
@@ -7580,7 +7588,7 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-moment@^2.29.1:
+moment@^2.24.0, moment@^2.29.1:
   version "2.29.1"
   resolved "https://registry.npmjs.org/moment/-/moment-2.29.1.tgz"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
@@ -9337,6 +9345,13 @@ react-error-overlay@^6.0.9:
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.9.tgz"
   integrity sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==
 
+react-icons@^3.7.0:
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.11.0.tgz#2ca2903dfab8268ca18ebd8cc2e879921ec3b254"
+  integrity sha512-JRgiI/vdF6uyBgyZhVyYJUZAop95Sy4XDe/jmT3R/bKliFWpO/uZBwvSjWEdxwzec7SYbEPNPck0Kff2tUGM2Q==
+  dependencies:
+    camelcase "^5.0.0"
+
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
@@ -9475,6 +9490,11 @@ react-stopwatch@^2.0.4:
   integrity sha512-FBF5MS3ODWbGWi7f5wkspMuazZFBZTdUZ2Qgjct7k6tnicHTuUdY1v//MmB3PKmFDX5wrtU++DhTO3ARGVr2wQ==
   dependencies:
     ms "^2.1.2"
+
+react-time-tracker-stopwatch@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-time-tracker-stopwatch/-/react-time-tracker-stopwatch-0.0.4.tgz#9a3ac5042402870f51cd66011c642d1a0b4dc0c7"
+  integrity sha512-zaVb//Op5REpg9kPFfgs05GLQlExyr0pvgYK0Tno8JoIliNQV4VzVHRuPgT+8NrrRnqPkGmzRoDI0/9qkkO6xQ==
 
 react-webcam@^6.0.0:
   version "6.0.0"
@@ -10499,6 +10519,11 @@ stealthy-require@^1.1.1:
   resolved "https://registry.npmjs.org/stealthy-require/-/stealthy-require-1.1.1.tgz"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
+stopwatch-node@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/stopwatch-node/-/stopwatch-node-1.1.0.tgz#3949bb4c53f15f704a05a33b9a9dece2354e1cfa"
+  integrity sha512-TpRTztFjiq/B5wn84oKK0YHHtprgrC8pLOUkqVU+MN+2DgdBMaEIeSyGeAn2n+7mT9zrfJyhM33Yw4j/rRV2Bg==
+
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.npmjs.org/stream-browserify/-/stream-browserify-2.0.2.tgz"
@@ -11025,6 +11050,11 @@ ts-pnp@1.2.0, ts-pnp@^1.1.6:
   version "1.2.0"
   resolved "https://registry.npmjs.org/ts-pnp/-/ts-pnp-1.2.0.tgz"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
+
+ts-stopwatch@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/ts-stopwatch/-/ts-stopwatch-0.0.4.tgz#9bf07edbd1d3d16c48a1b6deccd0dd2f11e68b9e"
+  integrity sha512-YUAV6lT4YiCrLckGkUsUp12Eo77NX3DK7HzFuFeDV702g/+Jz/IU80s7Boq+JhrqlocLELdgmpH+/y5XGBxLCQ==
 
 tsconfig-paths@^3.9.0:
   version "3.9.0"

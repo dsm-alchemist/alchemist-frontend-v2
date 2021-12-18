@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 
 export const TopRank = styled.div`
     width: 1500px;
-    margin-top: 170px;
+    margin-top: 130px;
 `
 
 export const Top = styled.div`
