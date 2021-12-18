@@ -12,7 +12,7 @@ interface RankingProps{
 const Ranking = () => {
 
     const [data, setData] = useState<RankingProps[]>([]);
-    const [page, setPage] = useState<number>(1);
+    const [page, setPage] = useState<number>(0);
     const [nickname, setName] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -59,7 +59,7 @@ const Ranking = () => {
         const scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
         const clientHeight = document.documentElement.clientHeight;
 
-        if(Math.round(scrollTop) + clientHeight === scrollHeight) {
+        if(Math.round(scrollTop) + clientHeight == scrollHeight) {
             setPage(page + 1);
         }
     }
@@ -77,8 +77,6 @@ const Ranking = () => {
             <>
             <S.TopRank>
                         <S.Top>
-                            <img className="chart" src={Chart} alt="" />
-                            {/* <p className="myname"><span style={{ color: "#6067FF", fontWeight: "bold" }}></span>{nickname} 님의 랭킹은 3등 입니다.</p> */}
                         </S.Top>
                         <S.Main>
                             <S.Silver>
