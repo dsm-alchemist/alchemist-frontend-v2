@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
 `
 
 export const Time = styled.div`
-    margin-top: 90px;
+    margin-top: 120px;
     display: flex;
     font-size: 40px;
     margin-bottom: 20px;
