@@ -15,9 +15,13 @@ export const Wrapper = styled.header`
 export const Left = styled.div`
     padding-left: 20px;
 
-    & img{
+    & .logo{
         width: 300px;
+        cursor: pointer;
     }
+    & .mobileLogo{
+        display: none;
+    } 
 `
 
 export const Right = styled.div`

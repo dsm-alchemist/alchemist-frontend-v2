@@ -1,8 +1,10 @@
 import React from "react";
+import { useHistory } from "react-router";
 
 export default function ImgLogo() {
+    const history = useHistory();
     return(
-        <svg xmlns="http://www.w3.org/2000/svg" width="63.419" height="46.6" viewBox="0 0 63.419 46.6">
+        <svg style={{cursor: "pointer"}} onClick={() => {history.push("/")}} xmlns="http://www.w3.org/2000/svg" width="63.419" height="46.6" viewBox="0 0 63.419 46.6">
             <g id="그룹_24" data-name="그룹 24" transform="translate(-203.956 -250.5)">
                 <g id="그룹_7" data-name="그룹 7" transform="translate(203.956 252)">
                 <g id="그룹_6" data-name="그룹 6" transform="translate(0 0)">

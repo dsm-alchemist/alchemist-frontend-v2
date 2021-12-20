@@ -5,7 +5,6 @@ const useTimer = () => {
   const [timer, setTimer] = useState<number>(0);
   const [date, setDate] = useState<number>(new Date().getDate());
 
-
   useEffect(() => {
     requestWithAccessToken({
         method: "GET",
@@ -26,7 +25,7 @@ const useTimer = () => {
             setDate(new Date().getDate());
         }
     }, 5000);
-    }, []);
+  }, []);
 
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isPaused, setIsPaused] = useState<boolean>(false);

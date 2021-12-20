@@ -28,3 +28,5 @@ export { default as BackLeft } from "./backleft.png";
 
 export { default as LoginLogo } from "./loginLogo.png";
 export { default as MainLogo } from "./logoMain.png";
+
+export { default as MobileLogo } from "./logo.png";

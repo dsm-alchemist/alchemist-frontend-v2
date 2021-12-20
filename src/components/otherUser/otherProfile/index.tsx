@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BaseProfile } from "../../../assets";
+import { ACCESS_TOKEN, requestWithAccessToken } from "../../../utils/api/axios";
+import useMain from "../../../utils/hooks/main/useMain";
 import * as S from "./styles";
+import swal from "sweetalert2";
 
 interface OtherProps {
     follower: number;
@@ -15,8 +18,56 @@ const OtherProfile = () => {
         following: 0,
         follower: 0
     });
+    const [fol, setFol] = useState<boolean>(false);
+
+    const main = useMain();
 
     const {todo, follower, following} = data;
+
+    const setFollow = () => {
+        requestWithAccessToken({
+            method: "POST",
+            url: `/following/${localStorage.getItem("otherEmail")}`,
+            headers: {authorization: ACCESS_TOKEN},
+            data: {}
+        }).then((res) => {
+            console.log(res);
+            main.setState.setProfileComponent(true);
+            setFol(true);
+        }).catch((err) => {
+            console.log(err);
+        })
+    };
+
+    const cancleFollow = (e: any) => {
+        swal.fire({
+            title: "팔로잉을 취소하시겠습니까?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "예",
+            cancelButtonText: "아니오",
+            focusConfirm: true,
+            focusCancel: false
+        }).then((result) => {
+            if(result.isConfirmed){
+                requestWithAccessToken({
+                    method: "DELETE",
+                    url: `/following/${localStorage.getItem("otherEmail")}`,
+                    headers: {authorization: ACCESS_TOKEN},
+                    data: {}
+                }).then((res) => {
+                    console.log(res);
+                    setFol(false);
+                    main.setState.setProfileComponent(true);
+                }).catch((err) => {
+                    console.log(err);
+                })
+            } else{
+                return;
+            }
+        })
+        
+    }
 
     return(
         <S.Wrapper>
@@ -51,9 +102,14 @@ const OtherProfile = () => {
                         }
                     </ul>
                 </S.Top>
-                <S.Bottom>
-                    <button className="follow">follow</button>
-                </S.Bottom>
+                    {/* <S.Bottom>
+                        {
+                            fol ? 
+                            <button className="follow" onClick={cancleFollow} style={{border: "1px solid #FF7879", color: "#FF7879"}}>following</button>
+                            :
+                            <button className="follow" onClick={setFollow}>follow</button>
+                        }
+                    </S.Bottom> */}
             </S.Right>
         </S.Wrapper>
     )

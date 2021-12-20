@@ -106,6 +106,10 @@ const Signup = () => {
                 emailCodeSend();
             }).catch((err) => {
                 console.log(err);
+                swal({
+                    title: "이미 존재하는 이메일 입니다",
+                    icon: "warning"
+                })
             })
         }   
     }

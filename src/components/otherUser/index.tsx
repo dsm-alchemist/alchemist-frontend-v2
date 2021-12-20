@@ -68,7 +68,7 @@ const OtherUser = () => {
             <S.Modal>
                 <S.LeftSide>
                     <S.LeftTop>
-                        <input type="date" value={tdDate} onChange={contentChange} />
+                        <input type="date" onChange={contentChange} />
                         <button onClick={getSetTask} type="button">적용</button>
                     </S.LeftTop>
                     {
@@ -107,12 +107,12 @@ const OtherUser = () => {
                                             {
                                                 !e.done ?  
                                                 <>
-                                                    <div className="check" />
+                                                    <div onClick={() => {swal({title: "다른 유저의 상태를 바꿀 수 없습니다.", icon: "warning"})}} className="check" />
                                                     <span className="todoContent">{e.task}</span>
                                                 </>
                                                     :
                                                 <>
-                                                    <div style={{ background: "#7F92FC", border: "none", }} className="check" />
+                                                    <div onClick={() => {swal({title: "다른 유저의 상태를 바꿀 수 없습니다.", icon: "warning"})}} style={{ background: "#7F92FC", border: "none", }} className="check" />
                                                     <span style={{ textDecoration: "line-through" }} className="todoContent">{e.task}</span>
                                                 </>
                                             }

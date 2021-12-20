@@ -49,7 +49,7 @@ export const requestWithAccessToken = ({ method, url, headers, data }: AxiosProp
                     window.location.reload();
                     localStorage.setItem("alchemist_access_token", res.data.accessToken);
                     localStorage.setItem("alchemist_refresh_token", res.data.refreshToken);
-                }).catch((error) => {
+                }).catch(() => {
                     swal({
                         title: "로그인 기간이 만료되었습니다.",
                         icon: "error"
@@ -59,7 +59,7 @@ export const requestWithAccessToken = ({ method, url, headers, data }: AxiosProp
                     });
                 })
             }
-            throw new Error(err);
+            return err;
         });
 };
 

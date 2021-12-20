@@ -82,17 +82,32 @@ const Ranking = () => {
                             <S.Silver>
                                 <img src={Silver} alt="" />
                                 <p className="name">{data[1]?.name}</p>
-                                <p className="timer">{data[1]?.timer}</p>
+                                <p className="timer">
+                                    {
+                                        data[1]?.timer == null ? 
+                                        null : <p>{data[1]?.timer}시간</p> 
+                                    }
+                                </p>
                             </S.Silver>
                             <S.Gold>
                                 <img src={Gold} alt="" />
                                 <p className="name">{data[0]?.name}</p>
-                                <p className="timer">{data[0]?.timer}</p>
+                                <p className="timer">
+                                    {
+                                        data[0]?.timer == null ? 
+                                        null : <p>{data[0]?.timer}시간</p> 
+                                    }
+                                </p>
                             </S.Gold>
                             <S.Bronze>
                                 <img src={Bronze} alt="" />
                                 <p className="name">{data[2]?.name}</p>
-                                <p className="timer">{data[2]?.timer}</p>
+                                <p className="timer">
+                                    {
+                                        data[2]?.timer == null ? 
+                                        null : <p>{data[2]?.timer}시간</p> 
+                                    }
+                                </p>
 
                             </S.Bronze>
                         </S.Main>
@@ -108,10 +123,10 @@ const Ranking = () => {
                                 data.map((e, index) => (
                                     <S.ListBox className="listBox">
                                         <S.Left>
-                                            <p className="number">{index}</p>
+                                            <p className="number">{index + 1}.</p>
                                             <p className="listname">{e?.name}</p>
                                         </S.Left>
-                                            <p className="time">{e?.timer}</p>
+                                            <p className="time">{e?.timer}시간</p>
                                     </S.ListBox>
                                 ))
                             }

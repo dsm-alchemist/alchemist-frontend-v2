@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    
 
     & .welcome{
         padding-top: 50px;
@@ -32,7 +33,6 @@ export const Wrap = styled.div`
 `
 
 export const Modal = styled.div`
-
     & .loginlogo {
         width: 700px;
         margin-top: 50px;

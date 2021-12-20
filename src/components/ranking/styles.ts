@@ -165,6 +165,8 @@ export const Left = styled.div`
 
     & .listname {
         font-size: 22px;
-        padding-left: 5px;
+        padding-left: 15px;
+        color: #6868ff;
+
     }
 `

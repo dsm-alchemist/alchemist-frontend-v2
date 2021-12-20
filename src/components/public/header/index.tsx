@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
-import {MainLogo, ImgLogo} from "../../../assets/index";
+import {MainLogo, ImgLogo, MobileLogo} from "../../../assets/index";
 import { useHistory } from "react-router-dom";
 import { ACCESS_TOKEN, requestWithAccessToken } from "../../../utils/api/axios";
-import axios from "axios";
 
 import swal from "sweetalert";
 
@@ -34,7 +33,8 @@ const Header = () => {
     return(
         <S.Wrapper>
             <S.Left>
-                <img src={MainLogo} alt="" />
+                <img className="logo" onClick={() => history.push("/")} src={MainLogo} alt="" />
+                <img className="mobileLogo" src={MobileLogo} alt="" />
             </S.Left>
             <S.Right>
                 <ul>
@@ -48,7 +48,7 @@ const Header = () => {
                             <li style={{color: "#ff5a5a"}} onClick={() => logout()}>logout</li>
                     }
                 </ul>
-                <ImgLogo />
+                <img className="mobileLogo" src={MobileLogo} alt="" />
             </S.Right>
         </S.Wrapper>
     )
