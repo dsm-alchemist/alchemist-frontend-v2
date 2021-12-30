@@ -32,7 +32,7 @@ const Ranking = () => {
 
     useEffect(() => {
         getUserName();
-    })
+    },[])
 
     const getRank = () => {
         requestWithAccessToken({
