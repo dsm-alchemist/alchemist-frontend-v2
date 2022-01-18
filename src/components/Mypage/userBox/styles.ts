@@ -71,6 +71,7 @@ export const UserList = styled.div`
 
         & li:nth-of-type(2){
             margin: 0px 130px;
+            
         }
     }
 

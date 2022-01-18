@@ -6,11 +6,23 @@ import useMain from "../../../utils/hooks/main/useMain";
 import swal from "sweetalert2";
 import { useHistory } from "react-router";
 
+interface UserProps {
+    userAll: boolean;
+    following: boolean;
+    follower: boolean;
+}
+
 const UserBox = () => {
 
     const [list, setList] = useState<any[]>([]);
 
     const history = useHistory();
+
+    const [link, setLink] = useState<UserProps>({
+        userAll: true,
+        following: false,
+        follower: false,
+    })
 
     const [bool, setBool] = useState({
         all: true,
@@ -143,9 +155,21 @@ const UserBox = () => {
     return(
         <S.UserList>
             <ul className="navBar">
-                <li onClick={getAllUser}>유저 전체</li>  
-                <li onClick={getFollowingUser}>팔로잉</li>
-                <li onClick={getFollowerUser}>팔로워</li>
+                <li onClick={() => {setLink({
+                    userAll: true,
+                    following: false,
+                    follower: false,
+                }); getAllUser();}} style={{borderBottom: link.userAll ? "3px solid black" : "none", paddingBottom: "3px"}}>유저 전체</li>  
+                <li onClick={() => {setLink({
+                    userAll: false,
+                    following: true,
+                    follower: false
+                }) ;getFollowingUser();}} style={{borderBottom: link.following ? "3px solid black" : "none", paddingBottom: "3px"}}>팔로잉</li>
+                <li onClick={() => {setLink({
+                    userAll: false,
+                    following: false,
+                    follower: true
+                }); getFollowerUser();}} style={{borderBottom: link.follower ? "3px solid black" : "none", paddingBottom: "3px"}}>팔로워</li>
             </ul>
             <S.List>
             {

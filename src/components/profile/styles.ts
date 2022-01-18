@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
     width: 450px;
     height: 200px;
     background: ${COLOR.whiteColor};
-    box-shadow: 4px 7px 10px #8c8c8c;
+    box-shadow: 4px 7px 7px #c2c2c2;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -4,11 +4,11 @@ export const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     background: #F8FEFF;
     flex-direction: column;
-    overflow-y: hidden;
+    overflow-y: scroll;
 
     & .timer{
         font-size: 20px;
@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
 `
 
 export const Time = styled.div`
-    margin-top: 120px;
+    margin-top: 180px;
     display: flex;
     font-size: 40px;
     margin-bottom: 20px;

@@ -6,20 +6,16 @@ export const Wrapper = styled.div`
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     background: #F8FEFF;
 `
 
 export const Modal = styled.div`
     overflow-y : scroll;
-    width: 1200px;
-    height: 750px;
     background: ${COLOR.whiteColor};
     border-radius: 13px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 4px 7px 10px #727272;
+
     margin-top: 60px;
+    background: none;
 `
 
 export const Top = styled.div`
@@ -27,13 +23,13 @@ export const Top = styled.div`
         font-size: 30px;
         font-weight: bold;
         padding: 40px;
+        margin-top: 60px;
     }
 `
 
 export const Main = styled.div`
-    display: grid;
-    grid: '. .';
-    width: 100%;
+    width: 815px;
+    height: 125px;
     justify-content: space-evenly;
 `
 
@@ -49,12 +45,14 @@ export const TodoWrp = styled.div`
     margin-top: 30px;
     align-items: center;
     padding: 10px 0px;
-    border-radius: 30px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 500px;
-    box-shadow: inset 0px 0px 10px #B7CDFF;
+    width: 815px;
+    height: 80px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.16);
+    background: #fff;
 
     & .todoContent{
         font-size: 20px;

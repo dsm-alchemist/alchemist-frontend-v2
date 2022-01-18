@@ -33,14 +33,14 @@ const Header = () => {
     return(
         <S.Wrapper>
             <S.Left>
+                {/* <img className="mobileLogo" src={MobileLogo} alt="" /> */}
                 <img className="logo" onClick={() => history.push("/")} src={MainLogo} alt="" />
-                <img className="mobileLogo" src={MobileLogo} alt="" />
             </S.Left>
             <S.Right>
                 <ul>
-                    <li onClick={() => history.push("/ranking")}>ranking</li>
                     <li onClick={() => history.push("/record")}>timer</li>
-                    <li onClick={() => history.push('mypage')}>my page</li>
+                    <li onClick={() => history.push('/mypage')}>my page</li>
+                    <li onClick={() => history.push('/storage')}>storage</li>
                     {
                         localStorage.getItem("email")?.length == null ?
                             <li style={{color: "#2c36ff"}} onClick={() => history.push("/signin")}>signin</li>
@@ -48,7 +48,6 @@ const Header = () => {
                             <li style={{color: "#ff5a5a"}} onClick={() => logout()}>logout</li>
                     }
                 </ul>
-                <img className="mobileLogo" src={MobileLogo} alt="" />
             </S.Right>
         </S.Wrapper>
     )

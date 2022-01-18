@@ -103,9 +103,6 @@ const Calendar = () => {
                         {calendarArr()}
                     </S.TBody>
                 </S.Table>
-                <S.Bottom>
-                    <p onClick={() => history.push("/storage")}>보관함 확인하기 {">"}</p>
-                </S.Bottom>
             </S.Wrapper>
   );
 }

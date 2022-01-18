@@ -12,7 +12,6 @@ import Signin from "./components/login/signin";
 import Signup from "./components/login/singup";
 import Record from "./components/record";
 import Storage from "./components/storage";
-import Ranking from "./components/ranking";
 import Mypage from "./components/Mypage";
 import OtherUser from "./components/otherUser";
 
@@ -30,7 +29,6 @@ const App = () => {
             <Header />
             <Route exact path="/mypage" component={Mypage} />
             <Route exact path="/other" component={OtherUser} />
-            <Route exact path="/ranking" component={Ranking} />
             <Route exact path="/" component={Main} />
             <Route exact path="/storage" component={Storage} />
             <Route exact path="/record" component={Record} />
