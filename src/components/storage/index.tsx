@@ -60,7 +60,7 @@ const Storage = () => {
                 <S.Top>
                     <p>보관함</p>
                 </S.Top>
-                <S.TodoWrapper>
+                <S.TodoWrapper className="todoWrap">
                     <S.Main>
                         {
                             storage.map((e, index) => (

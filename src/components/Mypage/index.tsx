@@ -106,8 +106,10 @@ const Mypage = () => {
             <S.Modal>
                 <S.Profile>
                     <Profile />
+                    
                     <S.Todo>
-                        <p className="title">오늘 할 일</p>
+                    <p className="title">오늘 할 일</p>
+                    <div className="wrap">
                         {
                             list.map((e, index) => (
                                 <S.TodoWrp className="todoWrp">
@@ -133,7 +135,63 @@ const Mypage = () => {
                                 </S.TodoWrp>
                             ))
                         }
+                        <S.TodoWrp className="todoWrp">
+                                    <S.Left>
+                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
+                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
+                                    </S.Left>
+                                        <div style={{opacity: 0.3}} className="imgWrp">
+                                            <img className="more" src={More} alt="" />
+                                        </div>
+                                </S.TodoWrp>
+                                <S.TodoWrp className="todoWrp">
+                                    <S.Left>
+                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
+                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
+                                    </S.Left>
+                                        <div style={{opacity: 0.3}} className="imgWrp">
+                                            <img className="more" src={More} alt="" />
+                                        </div>
+                                </S.TodoWrp>
+                                <S.TodoWrp className="todoWrp">
+                                    <S.Left>
+                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
+                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
+                                    </S.Left>
+                                        <div style={{opacity: 0.3}} className="imgWrp">
+                                            <img className="more" src={More} alt="" />
+                                        </div>
+                                </S.TodoWrp>
+                                <S.TodoWrp className="todoWrp">
+                                    <S.Left>
+                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
+                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
+                                    </S.Left>
+                                        <div style={{opacity: 0.3}} className="imgWrp">
+                                            <img className="more" src={More} alt="" />
+                                        </div>
+                                </S.TodoWrp>
+                                <S.TodoWrp className="todoWrp">
+                                    <S.Left>
+                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
+                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
+                                    </S.Left>
+                                        <div style={{opacity: 0.3}} className="imgWrp">
+                                            <img className="more" src={More} alt="" />
+                                        </div>
+                                </S.TodoWrp>
+                                <S.TodoWrp className="todoWrp">
+                                    <S.Left>
+                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
+                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
+                                    </S.Left>
+                                        <div style={{opacity: 0.3}} className="imgWrp">
+                                            <img className="more" src={More} alt="" />
+                                        </div>
+                                </S.TodoWrp>
+                                </div>
                     </S.Todo>
+                    
                 </S.Profile>
                 <UserBox />
             </S.Modal>

@@ -100,31 +100,31 @@ const MoreModal = () => {
                     <S.ImgWrp onClick={editModal}>
                         <img src={Edit} alt="" />
                     </S.ImgWrp>
-                    <p>수정</p>
+                    <p style={{fontSize: "14px"}}>수정</p>
                 </S.BtnWrapper>
                 <S.BtnWrapper>
                     <S.ImgWrp onClick={setTommorrow}>
                         <img src={Push} alt="" />
                     </S.ImgWrp>
-                    <p>내일하기</p>
+                    <p style={{fontSize: "14px"}}>내일하기</p>
                 </S.BtnWrapper>
                 <S.BtnWrapper>
                     <S.ImgWrp onClick={pushModal}>
                         <img src={ChangeDate} alt="" />
                     </S.ImgWrp>
-                    <p>날짜 바꾸기</p>
+                    <p style={{fontSize: "14px"}}>날짜 바꾸기</p>
                 </S.BtnWrapper>
                 <S.BtnWrapper>
                     <S.ImgWrp onClick={setStorageTask}>
                         <img src={Storage} alt="" />
                     </S.ImgWrp>
-                    <p>보관함으로</p>
+                    <p style={{fontSize: "14px"}}>보관함으로</p>
                 </S.BtnWrapper>
                 <S.BtnWrapper>
                     <S.ImgWrp onClick={deleteTask}>
                         <img src={Delete} alt="" />
                     </S.ImgWrp>
-                    <p>삭제</p>
+                    <p style={{fontSize: "14px"}}>삭제</p>
                 </S.BtnWrapper>
                 </S.Wrapper>
             </S.Back>

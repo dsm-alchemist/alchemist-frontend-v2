@@ -81,7 +81,7 @@ const Todolist = () => {
                 <img src={Plus} alt=""  onClick={changeTodoState} />
             </S.Top>
             
-            <S.Main>
+            <S.Main className="main">
                 {
                     list.map((e, index) => (
                         <S.TodoWrp>

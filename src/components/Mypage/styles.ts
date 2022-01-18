@@ -34,7 +34,6 @@ export const Profile = styled.div`
 export const Todo = styled.div`
     width: 450px;
     height: 480px;
-    overflow-y: scroll;
     background: ${COLOR.whiteColor};
     box-shadow: 0px 0px 13px #868686;
     border-radius: 13px;
@@ -42,6 +41,17 @@ export const Todo = styled.div`
     flex-direction: column;
     align-items: center;
     
+    .wrap{
+        height: 430px;
+        overflow-y: scroll;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none;
+    }
+
+    .wrap::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera*/
+    }
+
     & .title{
         padding-top: 10px;
         font-size: 20px;
@@ -62,11 +72,12 @@ export const TodoWrp = styled.div`
     width: 390px;
     margin-top: 40px;
     padding: 10px 0px;
-    border-radius: 30px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: inset 0px 0px 10px #B7CDFF;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.16);
+    
 
     & .todoContent{
         font-size: 20px;

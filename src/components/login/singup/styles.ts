@@ -67,7 +67,7 @@ export const Btn = styled.button`
 export const Verify = styled.div`
     display: flex;
     align-items: flex-end;
-    margin-left: 115px;
+    margin-left: 129px;
     margin-bottom: 25px;
 
 

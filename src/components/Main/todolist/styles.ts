@@ -8,7 +8,15 @@ export const Wrapper = styled.div`
     background: ${COLOR.whiteColor};
     box-shadow: 4px 7px 7px #c2c2c2;
     border-radius: 13px;
-    overflow-y: scroll;
+    .main {
+        overflow-y: scroll;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none;
+    }
+
+    .main::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera*/
+    }
 `
 
 export const Top = styled.div`
@@ -16,7 +24,6 @@ export const Top = styled.div`
     align-items: center;
     /* background: ${COLOR.whiteColor}; */
     justify-content: space-between;
-    position: fixed;
     width: 450px;
     height: 50px;
     border-radius: 13px 13px 0 0;
@@ -35,7 +42,10 @@ export const Top = styled.div`
 
 export const Main = styled.div`
     margin-bottom: 30px;
-    margin-top: 40px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export const Left = styled.div`
@@ -45,11 +55,15 @@ export const Left = styled.div`
 
 
 export const TodoWrp = styled.div`
-    padding-top: 35px;
+    padding-top: 30px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    &:nth-of-type(1){
+        padding-top: 10px;
+    }
 
     & .check{
         width: 25px; 

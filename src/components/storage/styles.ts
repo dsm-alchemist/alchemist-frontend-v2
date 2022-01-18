@@ -6,16 +6,23 @@ export const Wrapper = styled.div`
     height: 100vh;
     display: flex;
     justify-content: center;
+    overflow-y: hidden;
     background: #F8FEFF;
 `
 
 export const Modal = styled.div`
-    overflow-y : scroll;
     background: ${COLOR.whiteColor};
     border-radius: 13px;
-
     margin-top: 60px;
     background: none;
+
+    .todoWrap{
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none;
+    }
+    .todoWrap::-webkit-scrollbar{
+        display: none; /* Chrome, Safari, Opera*/
+    }
 `
 
 export const Top = styled.div`
@@ -36,8 +43,10 @@ export const Main = styled.div`
 export const TodoWrapper = styled.div`
     display: flex;
     width: 100%;
+    height: 700px;
     justify-content: center;
     margin-bottom: 50px;
+    overflow-y : scroll;
 `
 
 export const TodoWrp = styled.div`
