@@ -257,7 +257,7 @@ const Signup = () => {
                     </S.Verify>
                     <S.Verify>
                         <S.InputBox>
-                            <p>emai check</p>
+                            <p>email check</p>
                             <input ref={codeInput} type="text" onChange={emailCode} placeholder="인증번호를 입력해주세요" />
                         </S.InputBox>
                         <button className="send" onClick={emailCodeCheck}>인증코드 확인</button>
