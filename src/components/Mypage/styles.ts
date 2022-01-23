@@ -9,18 +9,19 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     background: #F8FEFF;
+    overflow-y: hidden;
 `
 
 export const Modal = styled.div`
-    width: 1300px;
+    width: 850px;
     display: flex;
     justify-content: space-between;
     margin-top: 70px;
 `
 
 export const Profile = styled.div`
-    width: 580px;
-    height: 770px;
+    width: 400px;
+    height: 600px;
     background: ${COLOR.whiteColor};
     border-radius: 13px;
     box-shadow: 0px 10px 10px #868686;
@@ -32,8 +33,8 @@ export const Profile = styled.div`
 `
 
 export const Todo = styled.div`
-    width: 450px;
-    height: 480px;
+    width: 350px;
+    height: 350px;
     background: ${COLOR.whiteColor};
     box-shadow: 0px 0px 13px #868686;
     border-radius: 13px;
@@ -42,8 +43,9 @@ export const Todo = styled.div`
     align-items: center;
     
     .wrap{
-        height: 430px;
+        height: 325px;
         overflow-y: scroll;
+        padding: 0px 10px;
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none;
     }
@@ -54,7 +56,7 @@ export const Todo = styled.div`
 
     & .title{
         padding-top: 10px;
-        font-size: 20px;
+        font-size: 14px;
         font-weight: bold;
     }
 
@@ -69,24 +71,24 @@ export const Todo = styled.div`
 
 export const TodoWrp = styled.div`
     display: flex;
-    width: 390px;
+    width: 280px;
     margin-top: 40px;
     padding: 10px 0px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 3px 3px 6px rgba(0,0,0,0.16);
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
     
 
     & .todoContent{
-        font-size: 20px;
-        padding-left: 30px;
+        font-size: 13px;
+        padding-left: 15px;
     }
 
     & .check{
-        width: 25px; 
-        height: 25px;
+        width: 15px; 
+        height: 15px;
         border: 1px solid #7F92FC;
         border-radius: 50%;
         margin-left: 35px;
@@ -94,9 +96,9 @@ export const TodoWrp = styled.div`
     }
 
     & .imgWrp{
-        width: 32px;
-        margin-right: 33px;
-        height: 32px;
+        width: 20px;
+        margin-right: 20px;
+        height: 20px;
         background: #E3E3E3;
         display: flex;
         border-radius: 50%;
@@ -104,7 +106,7 @@ export const TodoWrp = styled.div`
         cursor: pointer;
         align-items: center;
         & .more{
-            height: 4.5px;
+            height: 2.5px;
             
         }
     }

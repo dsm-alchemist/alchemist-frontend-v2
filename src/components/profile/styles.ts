@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { COLOR } from "../../styles";
 
 export const Wrapper = styled.div`
-    width: 450px;
-    height: 200px;
+    width: 350px;
+    height: 150px;
     background: ${COLOR.whiteColor};
     box-shadow: 4px 7px 7px #c2c2c2;
     display: flex;
@@ -19,12 +19,12 @@ export const Left = styled.div`
     align-items: center;
 
     & .profile {
-        width: 72px;
+        width: 50px;
         border-radius: 50%;
     }
 
     & .name {
-        font-size: 18px;
+        font-size: 13px;
         padding-top: 10px;
     }
     
@@ -59,23 +59,24 @@ export const Top = styled.div`
     }
 
     & .title{
-        font-size: 18px;
+        font-size: 13px;
         color: #B1B1B1;
     }
 
     & .cnt{
-        font-size: 18px;
+        font-size: 13px;
         margin-top: 5px;
     }
     
 `
 
 export const Bottom = styled.div`
-    margin-top: 30px;
+    margin-top: 20px;
 
     & .editProfile{
         width: 100%;
         border-radius: 3px;
+        font-size: 10px;
         background: none;
         border: 1px solid #ACACAC;
     }

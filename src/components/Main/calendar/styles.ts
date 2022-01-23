@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { COLOR } from "../../../styles/index";
 
 export const Wrapper = styled.div`
-    width: 1200px;
-    height: 700px;
+    width: 800px;
+    height: 540px;
     background: ${COLOR.whiteColor};
     box-shadow: 4px 7px 7px #c2c2c2;
     border-radius: 13px;
@@ -23,11 +23,11 @@ export const Top = styled.div`
     & button{
         border: none;
         background: none;
-        font-size: 30px;
+        font-size: 20px;
     }
 
     & span{
-        font-size: 30px;
+        font-size: 20px;
     }
 
 `
@@ -50,9 +50,9 @@ export const TBody = styled.tbody`
         cursor: pointer;
         display: flex;
         justify-content: center;
-        font-size: 29px;
-        margin-bottom: 50px;
-        margin-left: 80px;
+        font-size: 18px;
+        margin-bottom: 40px;
+        margin-left: 65px;
     }
      
     & span:hover{

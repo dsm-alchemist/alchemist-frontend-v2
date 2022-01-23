@@ -85,9 +85,9 @@ const Signup = () => {
                 return;
             })
         }
-        else if(!id.includes("@gmail.com")){
+        else if(!id.includes("@g")){
             swal({
-                text: "이메일은 @gmail.com으로만 가능합니다.",
+                text: "이메일 형식을 맞춰주세요",
                 icon: "error",
                 dangerMode: true,
             }).then(() => {
@@ -251,7 +251,7 @@ const Signup = () => {
                     <S.Verify>
                         <S.InputBox>
                             <p>email</p>
-                            <input  type="text" ref={idInput} onChange={idChange} placeholder="이메일을 입력해주세요 (gmail만 가능)" />
+                            <input  type="text" ref={idInput} onChange={idChange} placeholder="이메일을 입력해주세요" />
                         </S.InputBox>
                         <button className="send" onClick={emailCk}>인증코드 발송</button>
                     </S.Verify>
@@ -269,7 +269,7 @@ const Signup = () => {
                         </S.InputBox>
                         <button className="send" onClick={nameCk}>이름 중복확인</button>
                     </S.Verify>
-                    <S.InputBox>
+                    <S.InputBox style={{marginLeft: "39px"}}>
                             <p>password</p>
                             <input ref={passwordInput} onKeyPress={onKeyGo} type="password" onChange={pwChange} placeholder="비밀번호를 입력해주세요" />
                     </S.InputBox>

@@ -74,6 +74,70 @@ const Storage = () => {
                                 </S.TodoWrp>
                             ))
                         }
+                        <S.TodoWrp>
+                            <S.Left>
+                                    <span className="todoContent">{"e.task"}</span>
+                            </S.Left>
+                                <div className="imgWrp">
+                                    <img className="more" src={More} alt="" />
+                                </div>
+                        </S.TodoWrp>
+                        <S.TodoWrp>
+                            <S.Left>
+                                    <span className="todoContent">{"e.task"}</span>
+                            </S.Left>
+                                <div className="imgWrp">
+                                    <img className="more" src={More} alt="" />
+                                </div>
+                        </S.TodoWrp>
+                        <S.TodoWrp>
+                            <S.Left>
+                                    <span className="todoContent">{"e.task"}</span>
+                            </S.Left>
+                                <div className="imgWrp">
+                                    <img className="more" src={More} alt="" />
+                                </div>
+                        </S.TodoWrp>
+                        <S.TodoWrp>
+                            <S.Left>
+                                    <span className="todoContent">{"e.task"}</span>
+                            </S.Left>
+                                <div className="imgWrp">
+                                    <img className="more" src={More} alt="" />
+                                </div>
+                        </S.TodoWrp>
+                        <S.TodoWrp>
+                            <S.Left>
+                                    <span className="todoContent">{"e.task"}</span>
+                            </S.Left>
+                                <div className="imgWrp">
+                                    <img className="more" src={More} alt="" />
+                                </div>
+                        </S.TodoWrp>
+                        <S.TodoWrp>
+                            <S.Left>
+                                    <span className="todoContent">{"e.task"}</span>
+                            </S.Left>
+                                <div className="imgWrp">
+                                    <img className="more" src={More} alt="" />
+                                </div>
+                        </S.TodoWrp>
+                        <S.TodoWrp>
+                            <S.Left>
+                                    <span className="todoContent">{"e.task"}</span>
+                            </S.Left>
+                                <div className="imgWrp">
+                                    <img className="more" src={More} alt="" />
+                                </div>
+                        </S.TodoWrp>
+                        <S.TodoWrp>
+                            <S.Left>
+                                    <span className="todoContent">{"e.task"}</span>
+                            </S.Left>
+                                <div className="imgWrp">
+                                    <img className="more" src={More} alt="" />
+                                </div>
+                        </S.TodoWrp>
                     </S.Main>
                 </S.TodoWrapper>
             </S.Modal>

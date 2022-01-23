@@ -6,7 +6,8 @@ export const Wrapper = styled.div`
     background-color: #F8FEFF;
     display: flex;  
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 60px;
     overflow: scroll;
     & .right{
         margin-top: 50px;

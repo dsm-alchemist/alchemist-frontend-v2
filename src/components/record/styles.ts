@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
     overflow-y: scroll;
 
     & .timer{
-        font-size: 20px;
+        font-size: 16px;
         padding: 10px 50px;
         font-weight: bold;
         border: none;
@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 
     & .reset{
         margin-top: 20px;
-        font-size: 20px;
+        font-size: 16px;
         color: #ff5959;
     }
 `
@@ -30,6 +30,6 @@ export const Wrapper = styled.div`
 export const Time = styled.div`
     margin-top: 180px;
     display: flex;
-    font-size: 40px;
+    font-size: 30px;
     margin-bottom: 20px;
 `

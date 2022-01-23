@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
 `
 
 export const Wrap = styled.div`
-    margin-top: 30px;
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,14 +38,14 @@ export const Wrap = styled.div`
 export const Modal = styled.div`
 
 & .loginlogo {
-    width: 700px;
-    margin-top: 40px;
+    width: 500px;
+    margin-top: 20px;
 }
     border-radius: 15px;
     box-shadow: 0px 8px 16px #656565;
     background-color: ${COLOR.whiteColor};
-    width: 1000px;
-    height: 800px;
+    width: 800px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,30 +53,29 @@ export const Modal = styled.div`
 
 
 export const Btn = styled.button`
-    width: 550px;
-    height: 55px;
+    width: 450px;
+    height: 35px;
     background: ${COLOR.blackColor};
     color: ${COLOR.whiteColor};
     border-radius: 7px;
-    font-size: 25px;
+    font-size: 20px;
     border: none;
     margin-top: 30px;
-    margin-left: -40px;
 `
 
 export const Verify = styled.div`
     display: flex;
     align-items: flex-end;
     margin-left: 129px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 
 
     & .send{
         background: ${COLOR.blackColor};
-        padding: 20px 20px;
+        padding: 8px 10px;
         border-radius: 7px;
         color: ${COLOR.whiteColor};
-        font-size: 12px;
+        font-size: 10px;
         margin-bottom: 5px;
         margin-left: 10px;
         position: relative;
@@ -91,17 +90,17 @@ export const Container = styled.div`
 export const InputBox = styled.div`
 
     & p{
-        font-size: 16px;
+        font-size: 14px;
         padding-left: 10px;
     }
 
     & input{
-        width: 550px;
-        height: 65px;
+        width: 450px;
+        height: 40px;
         border-radius: 7px;
         background: #E8E8E8;
         border: none;
-        font-size: 15px;
+        font-size: 12px;
         text-indent: 15px;
         margin-top: 10px;
     }

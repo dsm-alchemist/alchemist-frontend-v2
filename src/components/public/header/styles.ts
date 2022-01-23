@@ -3,7 +3,7 @@ import { COLOR } from "../../../styles";
 
 export const Wrapper = styled.header`
     width: 100%;
-    height: 110px;  
+    height: 90px;  
     position: fixed;
     box-shadow: 0px 6px 7px #c2c2c2;
     display: flex;
@@ -17,7 +17,7 @@ export const Left = styled.div`
     padding-left: 20px;
 
     & .logo{
-        width: 225px;
+        width: 200px;
         cursor: pointer;
     }
     & .mobileLogo{
@@ -29,7 +29,7 @@ export const Right = styled.div`
     display: flex;
     padding-right: 20px;
     align-items: center;  
-    font-size: 26px;
+    font-size: 20px;
     font-family: none;
     font-weight: 300; 
     & ul {

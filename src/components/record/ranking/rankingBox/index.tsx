@@ -28,8 +28,8 @@ const RankingBox = ({
 const Wrapper = styled.div`
     background: white;
     margin-top: 30px;
-    width: 700px;
-    height: 110px;
+    width: 500px;
+    height: 70px;
     box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
     border-radius: 10px;
     display: flex;
@@ -42,12 +42,12 @@ const Top = styled.div`
     .highlight{
         font-weight: bold;
     }
-    font-size: 25px;
+    font-size: 15px;
     margin-left: 20px;
     .isActive{
             color: #78ff39;
             margin-left: 10px;
-            font-size: 16px;
+            font-size: 12px;
         }
 `
 
@@ -58,12 +58,12 @@ const Bottom = styled.div`
 
     .time{
         margin-left: 20px;
-        font-size: 20px;
+        font-size: 15px;
         color: #6D6D6D;
     }
 
     .ranking {
-        font-size: 25px;
+        font-size: 18px;
         margin-right: 20px;
         margin-top: -15px;
         color: red;

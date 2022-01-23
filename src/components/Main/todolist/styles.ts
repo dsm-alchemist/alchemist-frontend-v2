@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { COLOR } from "../../../styles";
 
 export const Wrapper = styled.div`
-    margin-top: 50px;
-    width: 450px;
-    height: 450px;
+    margin-top: 20px;
+    width: 350px;
+    height: 370px;
     background: ${COLOR.whiteColor};
     box-shadow: 4px 7px 7px #c2c2c2;
     border-radius: 13px;
@@ -24,18 +24,18 @@ export const Top = styled.div`
     align-items: center;
     /* background: ${COLOR.whiteColor}; */
     justify-content: space-between;
-    width: 450px;
+    width: 350px;
     height: 50px;
     border-radius: 13px 13px 0 0;
     backdrop-filter: blur(20px);
     & span{
-        font-size: 20px;
+        font-size: 15px;
         padding-left: 30px;
     }
 
     & img{
         cursor: pointer;
-        width: 20px;
+        width: 15px;
         padding-right: 40px;
     }
 `
@@ -66,8 +66,8 @@ export const TodoWrp = styled.div`
     }
 
     & .check{
-        width: 25px; 
-        height: 25px;
+        width: 15px; 
+        height: 15px;
         border: 1px solid #7F92FC;
         border-radius: 50%;
         margin-left: 35px;
@@ -75,14 +75,14 @@ export const TodoWrp = styled.div`
     }
 
     & .todoContent{
-        font-size: 20px;
+        font-size: 14px;
         padding-left: 10px;
     }
 
     & .imgWrp{
-        width: 32px;
-        margin-right: 33px;
-        height: 32px;
+        width: 20px;
+        margin-right: 50px;
+        height: 20px;
         background: #E3E3E3;
         display: flex;
         border-radius: 50%;
@@ -90,7 +90,7 @@ export const TodoWrp = styled.div`
         cursor: pointer;
         align-items: center;
         & .more{
-            height: 4.5px;
+            height: 2.5px;
             
         }
     }

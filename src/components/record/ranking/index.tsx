@@ -88,7 +88,7 @@ const Ranking = () => {
 const Wrapper = styled.div`
     margin-top: 30px;
     .title{
-        font-size: 25px;
+        font-size: 20px;
         font-weight: bold;
         margin-top: 30px;
     }

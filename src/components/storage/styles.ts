@@ -27,7 +27,7 @@ export const Modal = styled.div`
 
 export const Top = styled.div`
     & p{
-        font-size: 30px;
+        font-size: 20px;
         font-weight: bold;
         padding: 40px;
         margin-top: 60px;
@@ -35,14 +35,15 @@ export const Top = styled.div`
 `
 
 export const Main = styled.div`
-    width: 815px;
-    height: 125px;
+    width: 550px;
+    height: 100px;
     justify-content: space-evenly;
 `
 
 export const TodoWrapper = styled.div`
     display: flex;
     width: 100%;
+    padding: 0px 10px;
     height: 700px;
     justify-content: center;
     margin-bottom: 50px;
@@ -58,20 +59,20 @@ export const TodoWrp = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 815px;
-    height: 80px;
+    width: 550px;
+    height: 55px;
     box-shadow: 3px 3px 6px rgba(0,0,0,0.16);
     background: #fff;
 
     & .todoContent{
-        font-size: 20px;
+        font-size: 16px;
         padding-left: 30px;
     }
 
     & .imgWrp{
-        width: 32px;
+        width: 20px;
         margin-right: 33px;
-        height: 32px;
+        height: 20px;
         background: #E3E3E3;
         display: flex;
         border-radius: 50%;
@@ -79,7 +80,7 @@ export const TodoWrp = styled.div`
         cursor: pointer;
         align-items: center;
         & .more{
-            height: 4.5px;
+            height: 2.5px;
             
         }
     }

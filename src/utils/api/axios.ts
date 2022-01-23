@@ -8,7 +8,7 @@ interface AxiosProps {
     data: any;
 }
 
-const BASE_URL = "http://52.79.148.224:8080";
+const BASE_URL = "https://dsm-alchemist.kro.kr";
 export const ACCESS_TOKEN = 'alchemist_access_token';
 export const REFRESH_TOKEN = 'alchemist_refresh_token';
 
