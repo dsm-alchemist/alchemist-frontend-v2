@@ -10,6 +10,9 @@ const GlobalStyle = createGlobalStyle`
     }
     body{
         font-family:Arial, Helvetica, sans-serif;
+        .swal-wide{
+            width: 400px;
+        }
     }
     *{
         -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;  

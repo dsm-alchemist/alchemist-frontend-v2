@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Welcome } from "../../../assets";
 import * as S from "./styles";
 import { useHistory } from "react-router-dom";
 import {requestWithOutAccessToken} from "../../../utils/api/axios";
@@ -78,6 +77,7 @@ const Signup = () => {
         if(id.length === 0) {
             swal({
                 text: "이메일은 빈칸일 수 없습니다",
+                className: "swal-wide",
                 icon: "error",
                 dangerMode: true,
             }).then(() => {
@@ -90,6 +90,7 @@ const Signup = () => {
                 text: "이메일 형식을 맞춰주세요",
                 icon: "error",
                 dangerMode: true,
+                className: 'swal-wide',
             }).then(() => {
                 idInput.current.focus();
                 return;
@@ -108,7 +109,8 @@ const Signup = () => {
                 console.log(err);
                 swal({
                     title: "이미 존재하는 이메일 입니다",
-                    icon: "warning"
+                    icon: "warning",
+                    className: 'swal-wide',
                 })
             })
         }   
@@ -126,7 +128,8 @@ const Signup = () => {
             console.log(res.data)
             swal({
                 title: "이메일 코드 전송",
-                icon: "success"
+                icon: "success",
+                className: 'swal-wide',
             }).then(() => {
                 codeInput.current.focus();
             })
@@ -142,6 +145,7 @@ const Signup = () => {
                 text: "이름은 두글자 이상 10글자 이하입니다.",
                 icon: "error",
                 dangerMode: true,
+                className: 'swal-wide',
             }).then(() => {
                 nameInput.current.focus();
                 return;
@@ -162,6 +166,7 @@ const Signup = () => {
                 swal({
                     title: "사용 가능한 이름입니다.",
                     icon: "success",
+                    className: 'swal-wide',
                 }).then(() => {
                     passwordInput.current.focus();
                 })
@@ -186,6 +191,7 @@ const Signup = () => {
             swal({
                 title: "이메일 인증 완료",
                 icon: "success",
+                className: 'swal-wide',
             }).then(() => {
                 nameInput.current.focus();
             })
@@ -200,6 +206,7 @@ const Signup = () => {
                 text: "먼저 이메일 인증을 완료해 주세요.",
                 icon: "error",
                 dangerMode: true,
+                className: 'swal-wide',
             })
             return false;
         }
@@ -208,6 +215,7 @@ const Signup = () => {
                 text: "이름 중복 확인을 완료해 주세요",
                 icon: "error",
                 dangerMode: true,
+                className: 'swal-wide',
             });
             return false;
         }
@@ -227,6 +235,7 @@ const Signup = () => {
                     title: "회원가입 성공!",
                     text: "로그인 페이지로 이동합니다.",
                     icon: "success",
+                    className: 'swal-wide',
                 }).then(() => {
                     history.push("/signin");
                     localStorage.setItem("name" , data.nickname);
@@ -237,6 +246,7 @@ const Signup = () => {
                     text: "회원가입에 실패했습니다.",
                     icon: "error",
                     dangerMode: true,
+                    className: 'swal-wide',
                 })
 
             })

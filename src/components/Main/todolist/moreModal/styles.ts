@@ -11,7 +11,7 @@ export const Back = styled.div`
 
 export const Wrapper = styled.div`
     background: ${COLOR.whiteColor};
-    width: 500px;
+    width: 430px;
     display: flex;
     justify-content: space-around;
     border-radius: 10px;
@@ -45,8 +45,8 @@ export const ImgWrp = styled.div`
     border-radius: 50%;
 
     & img{
-        width: 27px;
-        height: 27px;
+        width: 20px;
+        height: 20px;
         padding: 10px;
     }
 `

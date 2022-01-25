@@ -68,7 +68,7 @@ export const InputBox = styled.div`
 
     & input{
         width: 450px;
-        height: 45px;
+        height: 50px;
         border-radius: 7px;
         background: #E8E8E8;
         border: none;

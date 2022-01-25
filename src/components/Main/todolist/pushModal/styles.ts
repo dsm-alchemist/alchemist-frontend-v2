@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 
 export const Top = styled.div`
-    width: 600px;
+    width: 500px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,7 +30,7 @@ export const Top = styled.div`
 `
 
 export const InpWrapper = styled.div`
-    width: 630px;
+    width: 530px;
     border-radius: 7px;
     background: ${COLOR.whiteColor};
     display: flex;
@@ -38,13 +38,13 @@ export const InpWrapper = styled.div`
     justify-content: space-evenly;
     & input{
         padding-right: 20px;
-        width: 490px;
-        height: 55px;
+        width: 400px;
+        height: 45px;
         border: none;
         background: #E5E5E5;
         border-radius: 7px;
         margin: 15px 0;
-        font-size: 18px;
+        font-size: 14px;
         text-indent: 15px;
     }
 

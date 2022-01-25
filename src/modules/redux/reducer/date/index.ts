@@ -2,8 +2,12 @@ import { dateActionType } from "../../action/date";
 import { SET_DAY, SET_TODAY, SET_TOMORROW } from "../../action/date/interface";
 import DateState from "./interface";
 
+const todayYear = new Date().getFullYear().toString();
+const todayMonth = (new Date().getMonth() + 1).toString().length === 1 ? "0" + (new Date().getMonth() + 1).toString() : (new Date().getMonth() + 1).toString();
+const todayDate = new Date().getDate().toString();
+
 const initState: DateState = {
-    tdDay: (new Date().getFullYear().toString() + (new Date().getMonth() + 1).toString() + new Date().getDate().toString()),
+    tdDay: (todayYear + todayMonth + todayDate),
     tmDay: 0,
     today: 0
 };

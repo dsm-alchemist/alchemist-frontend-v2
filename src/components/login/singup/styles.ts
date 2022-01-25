@@ -67,16 +67,16 @@ export const Verify = styled.div`
     display: flex;
     align-items: flex-end;
     margin-left: 129px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
 
     & .send{
         background: ${COLOR.blackColor};
-        padding: 8px 10px;
+        padding: 10px 10px;
         border-radius: 7px;
         color: ${COLOR.whiteColor};
         font-size: 10px;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
         margin-left: 10px;
         position: relative;
     }
@@ -96,7 +96,7 @@ export const InputBox = styled.div`
 
     & input{
         width: 450px;
-        height: 40px;
+        height: 50px;
         border-radius: 7px;
         background: #E8E8E8;
         border: none;

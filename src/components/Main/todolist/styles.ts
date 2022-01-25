@@ -36,7 +36,7 @@ export const Top = styled.div`
     & img{
         cursor: pointer;
         width: 15px;
-        padding-right: 40px;
+        padding-right: 30px;
     }
 `
 
