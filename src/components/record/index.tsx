@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as S from "./styles";
 import Webcam from "react-webcam";
-import { ACCESS_TOKEN, requestWithAccessToken, requestWithOutAccessToken } from "../../utils/api/axios";
+import { ACCESS_TOKEN, requestAi, requestWithAccessToken, requestWithOutAccessToken } from "../../utils/api/axios";
 import useTimer from "../../utils/hooks/timer/useTimer";
 import Ranking from "./ranking";
 
@@ -14,6 +14,9 @@ const Record = () => {
     const [timg, setTimg] = useState("");
     const [foimg, setFoimg] = useState("");
     const [limg, setLimg] = useState("");
+
+    const [send, setSend] = useState(false);
+
 
     const ref = useRef<any>(null);
 
@@ -76,36 +79,34 @@ const Record = () => {
                     setTimeout(() => {tCapture();}, 1500);
                     setTimeout(() => {foCapture();}, 2000);
                     setTimeout(() => {lCapture();}, 2500);
+                    setTimeout(() => {setSend(true)}, 2500);
+                    setTimeout(() => {setSend(false)}, 5000);
                 });
-            }, 5000)
+            }, 5000);
         }else{
             clearInterval(ref.current);
         }
     }, [isPaused]);
 
-    useEffect(() => {
-        console.log(fimg);
-        console.log(simg);
-        console.log(timg);
-        console.log(foimg);
-        console.log(limg);
-    }, [limg])
-
 
     useEffect(() => {
-        requestWithOutAccessToken({
-            method: "POST",
-            url: "http://52.79.148.224:8000/ai",
-            headers: {},
-            data: {
-                "files": [fimg, simg, timg, foimg, limg]
-            },
-        }).then((res) => {
-            console.log(res);
-        }).catch((err) => {
-            console.log(err);
-        })
-    }, [limg])
+        if(send === true){
+            requestAi({
+                method: "POST",
+                url: "/ai",
+                headers: {},
+                data: {
+                    "files": [fimg, simg, timg, foimg, limg]
+                },
+            }).then((res) => {
+                console.log(res);
+            }).catch((err) => {
+                console.log(err);
+            })
+        }else{
+            return;
+        }
+    }, [send])
 
     const timerStop = () => {
         if(isPaused) {

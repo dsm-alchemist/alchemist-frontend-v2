@@ -9,6 +9,7 @@ interface AxiosProps {
 }
 
 const BASE_URL = "https://dsm-alchemist.kro.kr";
+const AI_URL = "https://alchemist-timer.kro.kr"
 export const ACCESS_TOKEN = 'alchemist_access_token';
 export const REFRESH_TOKEN = 'alchemist_refresh_token';
 
@@ -25,6 +26,19 @@ export const requestWithOutAccessToken = ({ method, url, headers, data }: AxiosP
             throw new Error(err);
         });
 };
+
+export const requestAi = ({ method, url, headers, data }: AxiosProps) => {
+    return axios({
+        method,
+        url: AI_URL + url,
+        headers,
+        data,
+    }).then((res) => {
+        return res;
+    }).catch((err) => {
+        throw new Error(err);
+    })
+}
 
 export const requestWithAccessToken = ({ method, url, headers, data }: AxiosProps) => {
     return axios({
