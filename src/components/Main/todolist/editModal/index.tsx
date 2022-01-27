@@ -44,6 +44,7 @@ const EditModal = () => {
                 }
             }
     }
+    
 
     const changeState = () => {
         modal.setState.setEditModal(false);
