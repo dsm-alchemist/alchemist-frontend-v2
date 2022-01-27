@@ -72,7 +72,7 @@ export const Todo = styled.div`
 export const TodoWrp = styled.div`
     display: flex;
     width: 280px;
-    margin-top: 40px;
+    margin-top: 20px;
     padding: 10px 0px;
     border-radius: 10px;
     display: flex;

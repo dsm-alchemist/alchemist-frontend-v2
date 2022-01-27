@@ -42,10 +42,11 @@ export const Top = styled.div`
 
 export const Main = styled.div`
     margin-bottom: 30px;
-    height: 400px;
+    height: 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
 `
 
 export const Left = styled.div`

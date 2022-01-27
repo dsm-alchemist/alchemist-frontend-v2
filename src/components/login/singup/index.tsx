@@ -85,7 +85,7 @@ const Signup = () => {
                 return;
             })
         }
-        else if(!id.includes("@g")){
+        else if(!id.includes("@")){
             swal({
                 text: "이메일 형식을 맞춰주세요",
                 icon: "error",

@@ -95,7 +95,7 @@ const Profile = ()=> {
         <S.Wrapper>
             <S.Left>
                 <img className="profile" src={BaseProfile} alt="" />
-                <p className="name">{localStorage.getItem("name")}asdasd</p>
+                <p className="name">{localStorage.getItem("name")}</p>
             </S.Left>
             <S.Right>
                 <S.Top>

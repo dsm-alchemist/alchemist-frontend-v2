@@ -37,6 +37,7 @@ const Todolist = () => {
         }).then((res) => {
             console.log(res.data);
             setList(res.data.taskList);
+            localStorage.setItem("name", res.data.userName);
         }).catch((err) => {
             console.log(err);
         });

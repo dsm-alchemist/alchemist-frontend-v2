@@ -15,8 +15,11 @@ import UserBox from "./userBox";
 
 const Mypage = () => {
 
-    const today = new Date().getFullYear().toString() + (new Date().getMonth() + 1).toString() + new Date().getDate().toString();
-    const tomorrow = Number(new Date().getFullYear().toString() + (new Date().getMonth() + 1).toString() + (new Date().getDate() + 1).toString());
+    const todayYear = new Date().getFullYear().toString();
+    const todayMonth = (new Date().getMonth() + 1).toString().length === 1 ? "0" + (new Date().getMonth() + 1).toString() : (new Date().getMonth() + 1).toString();
+    const todayDate = new Date().getDate().toString();
+    const today = todayYear + todayMonth + todayDate;
+    const tomorrow = Number(todayYear + todayMonth + (new Date().getDate() + 1).toString());
 
     const [list, setList] = useState<any[]>([]);
 
@@ -135,61 +138,7 @@ const Mypage = () => {
                                 </S.TodoWrp>
                             ))
                         }
-                        <S.TodoWrp className="todoWrp">
-                                    <S.Left>
-                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
-                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
-                                    </S.Left>
-                                        <div style={{opacity: 0.3}} className="imgWrp">
-                                            <img className="more" src={More} alt="" />
-                                        </div>
-                                </S.TodoWrp>
-                                <S.TodoWrp className="todoWrp">
-                                    <S.Left>
-                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
-                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
-                                    </S.Left>
-                                        <div style={{opacity: 0.3}} className="imgWrp">
-                                            <img className="more" src={More} alt="" />
-                                        </div>
-                                </S.TodoWrp>
-                                <S.TodoWrp className="todoWrp">
-                                    <S.Left>
-                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
-                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
-                                    </S.Left>
-                                        <div style={{opacity: 0.3}} className="imgWrp">
-                                            <img className="more" src={More} alt="" />
-                                        </div>
-                                </S.TodoWrp>
-                                <S.TodoWrp className="todoWrp">
-                                    <S.Left>
-                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
-                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
-                                    </S.Left>
-                                        <div style={{opacity: 0.3}} className="imgWrp">
-                                            <img className="more" src={More} alt="" />
-                                        </div>
-                                </S.TodoWrp>
-                                <S.TodoWrp className="todoWrp">
-                                    <S.Left>
-                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
-                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
-                                    </S.Left>
-                                        <div style={{opacity: 0.3}} className="imgWrp">
-                                            <img className="more" src={More} alt="" />
-                                        </div>
-                                </S.TodoWrp>
-                                <S.TodoWrp className="todoWrp">
-                                    <S.Left>
-                                        <div style={{ background: "#7F92FC", border: "none", }} className="check" /> 
-                                        <span style={{ textDecoration: "line-through" }} className="todoContent">{"e.task"}</span>
-                                    </S.Left>
-                                        <div style={{opacity: 0.3}} className="imgWrp">
-                                            <img className="more" src={More} alt="" />
-                                        </div>
-                                </S.TodoWrp>
-                                </div>
+                        </div>
                     </S.Todo>
                     
                 </S.Profile>

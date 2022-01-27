@@ -100,6 +100,12 @@ const Record = () => {
                 },
             }).then((res) => {
                 console.log(res);
+                if(res.data === false){
+                    handlePause();
+                    timerStop();
+                }else{
+                    return;
+                }
             }).catch((err) => {
                 console.log(err);
             })
@@ -156,14 +162,6 @@ const Record = () => {
                 )
             }
             <span className="reset" >* 시간은 날짜가 바뀌면 초기화 됩니다. *</span>
-
-      
-      {/* 캡처한 이미지 나타내는 코드 */}
-      {/* {imgSrc && (
-        <img style={{}} className="capture"
-          src={imgSrc}
-        />
-      )} */}
             <Ranking />
         </S.Wrapper>
     )
