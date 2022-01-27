@@ -32,7 +32,10 @@ const TaskModal = () => {
         modal.setState.setPushModal(true);
     }
 
-    const today = new Date().getFullYear().toString() + (new Date().getMonth() + 1).toString() + new Date().getDate().toString()
+    const tdYear =  new Date().getFullYear().toString();
+    const tdMonth = (new Date().getMonth() + 1).toString().length === 1 ? "0" + (new Date().getMonth() + 1).toString() : (new Date().getMonth() + 1).toString();
+    const tdDay = new Date().getDate().toString();
+    const today = tdYear + tdMonth + tdDay;
 
     const setTaskToday = () => {
         requestWithAccessToken({

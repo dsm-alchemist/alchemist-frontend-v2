@@ -34,11 +34,26 @@ export const Modal = styled.div`
 `
 
 export const Top = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
     & p{
         font-size: 20px;
         font-weight: bold;
         padding: 40px;
         margin-top: 60px;
+    }
+    & button{
+        height: 30px;
+        margin-top: 95px;
+        background: none;
+        border: 2px solid #b9b9b9;
+        color: #5e5e5e;
+        border-radius: 5px;
+    }
+    & button:hover{
+        border: 2px solid black;
+        color: black;
     }
 `
 
@@ -46,13 +61,15 @@ export const Main = styled.div`
     width: 550px;
     height: 100px;
     justify-content: space-evenly;
+    margin-top: -20px;
 `
 
 export const TodoWrapper = styled.div`
     display: flex;
     width: 100%;
     padding: 0px 10px;
-    height: 700px;
+    padding: 10px 10px;
+    height: 500px;
     justify-content: center;
     margin-bottom: 50px;
     overflow-y : scroll;

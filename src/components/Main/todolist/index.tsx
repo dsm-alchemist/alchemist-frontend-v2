@@ -28,6 +28,10 @@ const Todolist = () => {
         task.setState.setTaskId(e.task_id);
     }
 
+    useEffect(() => {
+        modal.setState.setTaskModal(false);
+    }, [])
+
     const getTdTask = () => {
         requestWithAccessToken({
             method: "GET",
@@ -48,7 +52,7 @@ const Todolist = () => {
         console.log("render");
         getTdTask();
     },[main.state.todoRender]);
-
+    
     useEffect(() => {
         getTdTask();
     }, [date.state.tdDay]);

@@ -4,4 +4,5 @@ export default interface ModalState {
     editModalState: boolean;
     pushModalState: boolean;
     taskModalState: boolean;
+    storageModalState: boolean;
 }

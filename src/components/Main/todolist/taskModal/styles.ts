@@ -11,9 +11,9 @@ export const Back = styled.div`
 
 export const Wrapper = styled.div`
     background: ${COLOR.whiteColor};
-    width: 500px;
+    width: 400px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     border-radius: 10px;
 `
 
@@ -36,6 +36,7 @@ export const BtnWrapper = styled.div`
 
     & p{
         padding-top: 12px;
+        font-size: 14px;
     }
 `
 
@@ -45,8 +46,8 @@ export const ImgWrp = styled.div`
     border-radius: 50%;
 
     & img{
-        width: 27px;
-        height: 27px;
+        width: 20px;
+        height: 20px;
         padding: 10px;
     }
 `

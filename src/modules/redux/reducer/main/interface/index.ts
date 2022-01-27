@@ -3,4 +3,5 @@ export default interface MainState {
     taskRender: boolean;
     profileRender: boolean;
     myPageRender: boolean;
+    stoageRender: boolean;
 }

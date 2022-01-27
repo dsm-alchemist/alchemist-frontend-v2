@@ -4,7 +4,7 @@ import { ChangeDate, Delete, Edit, Push, Storage } from "../../../../assets";
 import useModal from "../../../../utils/hooks/modal/useModal";
 import useTask from "../../../../utils/hooks/task/useTask";
 import { requestWithAccessToken, ACCESS_TOKEN } from "../../../../utils/api/axios";
-import swal from "sweetalert";
+import swal from "sweetalert2";
 import useMain from "../../../../utils/hooks/main/useMain";
 import useDate from "../../../../utils/hooks/date/useDate";
 
@@ -37,7 +37,7 @@ const MoreModal = () => {
             data: {},
         }).then((res) => {
             console.log(res);
-            swal({
+            swal.fire({
                 title: "오늘 할 일을 미뤘습니다.",
                 icon: "success"
             }).then(() => {
@@ -57,7 +57,7 @@ const MoreModal = () => {
             data:{}
         }).then((res) => {
             console.log(res)
-            swal({
+            swal.fire({
                 title: "보관함 이동 성공",
                 icon: "success",
             }).then(() => {
@@ -71,23 +71,36 @@ const MoreModal = () => {
     
 
     const deleteTask = () => {
-        requestWithAccessToken({
-            method: "DELETE",
-            url: `/task/${task.state.taskId}`,
-            headers: {authorization: ACCESS_TOKEN},
-            data: {}
-        }).then((res) => {
-            console.log(res.data);
-            swal({
-                title: "삭제 성공!",
-                icon: "success"
-            }).then(() => {
-                main.setState.setComponent(true);
-                modal.setState.setMoreModal(false);
-                main.setState.setProfileComponent(true);
-            })
-        }).catch((err) => {
-            console.log(err)
+
+        swal.fire({
+            title: "삭제 하시겠습니까?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "예",
+            cancelButtonText: "아니오",
+            focusConfirm: false,
+            focusCancel: true
+        }).then((result) => {
+            if(result.isConfirmed){
+                requestWithAccessToken({
+                    method: "DELETE",
+                    url: `/task/${task.state.taskId}`,
+                    headers: {authorization: ACCESS_TOKEN},
+                    data: {}
+                }).then((res) => {
+                    console.log(res.data);
+                    swal.fire({
+                        title: "삭제 성공!",
+                        icon: "success",
+                    }).then(() => {
+                        main.setState.setComponent(true);
+                        modal.setState.setMoreModal(false);
+                        main.setState.setProfileComponent(true);
+                    })
+                }).catch((err) => {
+                    console.log(err)
+                })
+            }
         })
     }
 

@@ -10,31 +10,32 @@ const Header = () => {
     const history = useHistory();
 
     const logout = () => {
-        requestWithAccessToken({
-            method: "POST",
-            url: "/logout",
-            headers: {authorization: ACCESS_TOKEN},
-            data: {}
-        }).then((res) => {
-            console.log(res);
-            swal.fire({
-                title: "로그아웃 하시겠습니까?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonText: "예",
-                cancelButtonText: "아니오",
-                focusConfirm: false,
-                focusCancel: true
-            }).then((result) => {
-                if(result.isConfirmed){
-                    history.push("/signin");
-                    localStorage.clear();
-                }else{
-                    return;
-                }
-            })
-        }).catch((err) => {
-            console.log(err);
+
+        swal.fire({
+            title: "로그아웃 하시겠습니까?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "예",
+            cancelButtonText: "아니오",
+            focusConfirm: false,
+            focusCancel: true
+        }).then((result) => {
+            if(result.isConfirmed){
+                requestWithAccessToken({
+                    method: "POST",
+                    url: "/logout",
+                    headers: {authorization: ACCESS_TOKEN},
+                    data: {}
+                }).then((res) => {
+                    console.log(res);
+                    history.push("/signin")
+                }).catch((err) => {
+                    console.log(err);
+                })
+            }
+            else{
+                return;
+            }
         })
     }
 

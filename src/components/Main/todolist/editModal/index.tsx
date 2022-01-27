@@ -47,6 +47,8 @@ const EditModal = () => {
 
     const changeState = () => {
         modal.setState.setEditModal(false);
+        modal.setState.setMoreModal(true);
+        modal.setState.setTaskModal(true);
     }
 
     const editTask = () => {

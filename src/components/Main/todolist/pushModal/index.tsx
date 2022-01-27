@@ -37,6 +37,8 @@ const PushModal = () => {
 
     const changeState = () => {
         modal.setState.setPushModal(false);
+        modal.setState.setMoreModal(true);
+        modal.setState.setTaskModal(true);
     }
 
     const pushTask = () => {

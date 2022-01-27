@@ -8,7 +8,7 @@ const todayDate = new Date().getDate().toString();
 
 const initState: DateState = {
     tdDay: (todayYear + todayMonth + todayDate),
-    tmDay: 0,
+    tmDay: (todayYear + todayMonth + (new Date().getDate() + 1).toString()),
     today: 0
 };
 

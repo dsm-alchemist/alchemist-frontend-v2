@@ -10,7 +10,7 @@ export const Wrapper = styled.header`
     justify-content: space-between;
     align-items: center;
     background: ${COLOR.whiteColor};
-    z-index: 100;
+    z-index: 1;
 `
 
 export const Left = styled.div`

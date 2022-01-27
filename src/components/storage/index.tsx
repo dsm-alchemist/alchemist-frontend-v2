@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ACCESS_TOKEN, requestWithAccessToken } from "../../utils/api/axios";
 import { More } from "../../assets";
 import * as S from "./styles";
+import StorageModal from "./taskModal/taskModal";
 import useModal from "../../utils/hooks/modal/useModal";
 import useTask from "../../utils/hooks/task/useTask";
 import TaskModal from "../Main/todolist/taskModal";
@@ -41,8 +42,24 @@ const Storage = () => {
         getStorageTask();
     }, [main.state.todoRender]);
 
+    useEffect(() => {
+        getStorageTask();
+    }, [main.state.stoageRender]);
+
+    const changeModalState = () => {
+        modal.setState.setStorageModal(true);
+    }
+
+    useEffect(() => {
+        modal.setState.setTaskModal(false);
+    }, [])
+
     return(
         <>
+        {
+            !modal.state.storageModalState ? 
+                null : <StorageModal />
+        }
         {
             !modal.state.taskModalState ? 
                 null : <TaskModal />
@@ -58,7 +75,8 @@ const Storage = () => {
         <S.Wrapper>
             <S.Modal className="modal">
                 <S.Top>
-                    <p>보관함</p>
+                    <p>보관함</p> 
+                    <button onClick={changeModalState}>보관함 할 일 추가</button>
                 </S.Top>
                 <S.TodoWrapper className="todoWrap">
                     <S.Main>

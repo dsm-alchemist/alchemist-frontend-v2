@@ -106,7 +106,7 @@ const Modal = () => {
                     <img src={Close} alt=""onClick={changeState}  />
                 </S.Top>
                 <S.InpWrapper>
-                    <input ref={addInput} type="text" value={data.content} onChange={changeContent} onKeyDown={submit} placeholder="할 일을 입력하세요." />
+                    <input ref={addInput} type="text" value={data.content} onChange={changeContent} onKeyPress={submit} placeholder="할 일을 입력하세요." />
                     <button type="button" onClick={addTask}>추가</button>
                 </S.InpWrapper>
             </S.Wrapper>
