@@ -9,19 +9,28 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    .modal{ 
+        zoom: 1;
+    }
+
+    @media screen and (min-width: 1500px) {
+        .modal{
+            zoom: 1.3;
+        }
+    }
 `
 
 export const Modal = styled.div`
     display: flex;
-    width: 1300px;
-    justify-content: space-between;
-    margin-top: 70px;
+    width: 1000px;
+    justify-content: center;
+    gap: 50px;
+    margin-top:70px;
 `
 
 export const LeftSide = styled.div`
-    width: 580px;
-    height: 770px;
+    width: 420px;
+    height: 570px;
     background: ${COLOR.whiteColor};
     border-radius: 13px;
     box-shadow: 0px 0px 16px #868686;
@@ -31,11 +40,11 @@ export const LeftSide = styled.div`
 `
 
 export const Right = styled.div`
-    width: 580px;
-    height: 770px;
+    width: 420px;
+    height: 570px;
     background: ${COLOR.whiteColor};
     border-radius: 13px;
-    box-shadow: 0px 10px 10px #868686;
+    box-shadow: 0 0 16px #868686;
     background-image: url("${BackLeft}");
     display: flex;
     flex-direction: column;
@@ -44,8 +53,8 @@ export const Right = styled.div`
 `
 
 export const Todo = styled.div`
-    width: 450px;
-    height: 480px;
+    width: 350px;
+    height: 380px;
     overflow-y: scroll;
     background: ${COLOR.whiteColor};
     box-shadow: 0px 0px 13px #868686;
@@ -53,10 +62,19 @@ export const Todo = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &{
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none;
+    }
+    &::-webkit-scrollbar{
+        display: none; /* Chrome, Safari, Opera*/
+    }
+
     
     & .title{
         padding-top: 10px;
-        font-size: 20px;
+        font-size: 17px;
         font-weight: bold;
     }
 
@@ -71,22 +89,23 @@ export const Todo = styled.div`
 
 export const TodoWrapper = styled.div`
     display: flex;
-    width: 450px;
-    margin-top: 30px;
+    width: 350px;
+    margin-top: 20px;
     padding: 10px 0px;
-    border-radius: 30px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 0 16px #c3c3c3;
 
     & .todoContent{
-        font-size: 20px;
-        padding-left: 30px;
+        font-size: 16px;
+        padding-left: 15px;
     }
 
     & .check{
-        width: 25px; 
-        height: 25px;
+        width: 18px; 
+        height: 18px;
         border: 1px solid #7F92FC;
         border-radius: 50%;
         margin-left: 35px;
@@ -94,9 +113,9 @@ export const TodoWrapper = styled.div`
     }
 
     & .imgWrp{
-        width: 32px;
+        width: 25px;
         margin-right: 33px;
-        height: 32px;
+        height: 25px;
         background: #E3E3E3;
         display: flex;
         border-radius: 50%;
@@ -104,7 +123,7 @@ export const TodoWrapper = styled.div`
         cursor: pointer;
         align-items: center;
         & .more{
-            height: 4.5px;
+            height: 2.5px;
             
         }
     }
@@ -112,23 +131,23 @@ export const TodoWrapper = styled.div`
 
 export const TodoWrp = styled.div`
     display: flex;
-    width: 390px;
-    margin-top: 40px;
+    width: 310px;
+    margin-top: 20px;
     padding: 10px 0px;
-    border-radius: 30px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: inset 0px 0px 10px #B7CDFF;
+    box-shadow:  0px 0px 10px #c3c3c3;
 
     & .todoContent{
-        font-size: 20px;
-        padding-left: 30px;
+        font-size: 15px;
+        padding-left: 12px;
     }
 
     & .check{
-        width: 25px; 
-        height: 25px;
+        width: 15px; 
+        height: 15px;
         border: 1px solid #7F92FC;
         border-radius: 50%;
         margin-left: 35px;
@@ -136,9 +155,9 @@ export const TodoWrp = styled.div`
     }
 
     & .imgWrp{
-        width: 32px;
+        width: 25px;
         margin-right: 33px;
-        height: 32px;
+        height: 25px;
         background: #E3E3E3;
         display: flex;
         border-radius: 50%;
@@ -146,7 +165,7 @@ export const TodoWrp = styled.div`
         cursor: pointer;
         align-items: center;
         & .more{
-            height: 4.5px;
+            height: 3.5px;
             
         }
     }
@@ -158,9 +177,10 @@ export const Left = styled.div`
 `
 
 export const LeftTop = styled.div`
-    width: 450px;
-    box-shadow: 4px 7px 10px #8c8c8c;
+    width: 370px;
+    box-shadow: 0 0  9px #c3c3c3;
     border-radius: 13px;
+    margin-top: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -176,7 +196,7 @@ export const LeftTop = styled.div`
     }
 
     & button {  
-        font-size: 17px;
+        font-size: 14px;
         border: none;
         background: #958cff;
         color: white;

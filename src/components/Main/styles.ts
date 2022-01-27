@@ -8,12 +8,24 @@ export const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     gap: 60px;
-    overflow: scroll;
-    & .right{
+     .right{
         margin-top: 50px;
+        zoom: 1;
+    }
+    .left{ 
+        zoom: 1;
+    }
+    @media screen and (min-width: 1500px) {
+        .right{
+            zoom: 1.3;
+        }
+        .left{
+            zoom: 1.3;
+        }
     }
 `
 
 export const Left = styled.div`
     margin-top: 50px;
+
 `

@@ -35,7 +35,7 @@ const Main = () => {
             <div className="right">
                 <Calendar />
             </div>
-            <S.Left>
+            <S.Left className="left">
                 <Profile />
                 <Todolist />
             </S.Left>

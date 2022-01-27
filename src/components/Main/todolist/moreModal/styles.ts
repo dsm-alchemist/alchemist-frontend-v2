@@ -11,7 +11,7 @@ export const Back = styled.div`
 
 export const Wrapper = styled.div`
     background: ${COLOR.whiteColor};
-    width: 430px;
+    width: 450px;
     display: flex;
     justify-content: space-around;
     border-radius: 10px;
@@ -32,7 +32,7 @@ export const BtnWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 20px;
+    padding: 30px 0px;
 
     & p{
         padding-top: 12px;

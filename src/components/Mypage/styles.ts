@@ -10,12 +10,21 @@ export const Wrapper = styled.div`
     align-items: center;
     background: #F8FEFF;
     overflow-y: hidden;
+    .modal{
+        zoom: 1;
+    }
+    @media screen and (min-width: 1500px){
+        .modal{
+            zoom: 1.3;
+        }
+    }
 `
 
 export const Modal = styled.div`
     width: 850px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 50px;
     margin-top: 70px;
 `
 

@@ -27,7 +27,6 @@ export const Top = styled.div`
     width: 350px;
     height: 50px;
     border-radius: 13px 13px 0 0;
-    backdrop-filter: blur(20px);
     & span{
         font-size: 15px;
         padding-left: 30px;
@@ -56,8 +55,9 @@ export const Left = styled.div`
 
 
 export const TodoWrp = styled.div`
+    margin-left: 20px;
     padding-top: 30px;
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;

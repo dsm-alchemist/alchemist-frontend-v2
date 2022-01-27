@@ -6,6 +6,8 @@ import swal from "sweetalert";
 import { ACCESS_TOKEN, requestWithAccessToken } from "../../../../utils/api/axios";
 import useTask from "../../../../utils/hooks/task/useTask";
 import useMain from "../../../../utils/hooks/main/useMain";
+import { useRef } from "react";
+import { useEffect } from "react";
 
 interface ModalProps {
     content: string;
@@ -17,6 +19,7 @@ const EditModal = () => {
     const main = useMain();
     const modal = useModal();
 
+    const ref = useRef<any>(null);
     const [data, setData] = useState<ModalProps>({
         content: "",
     })
@@ -80,6 +83,10 @@ const EditModal = () => {
         }
     }
 
+    useEffect(() => {
+        ref.current.focus();
+    })
+
     const editStorageTask = () => {
         if(content.length === 0) {
             swal({
@@ -102,6 +109,10 @@ const EditModal = () => {
                     icon: "success",
                 }).then(() => {
                     main.setState.setComponent(true);
+                    setData({
+                        content: ""
+                    });
+                    modal.setState.setEditModal(false);
                 })
                 console.log("sex don eit")
             }).catch((err) => {
@@ -113,13 +124,13 @@ const EditModal = () => {
 
     return(
         <>
-            <S.Wrapper>
+            <S.Wrapper >
                 <S.Top>
                     <span>todolist 수정</span>
                     <img src={Close} alt=""onClick={changeState}  />
                 </S.Top>
                 <S.InpWrapper>
-                    <input type="text" value={data.content} onChange={changeContent} onKeyDown={submit} placeholder="할 일을 입력하세요." />
+                    <input ref={ref} type="text" value={data.content} onChange={changeContent} onKeyDown={submit} placeholder="할 일을 입력하세요." />
                     {
                         main.state.taskRender ? 
                             <button type="button" onClick={() => editStorageTask()}>수정</button>

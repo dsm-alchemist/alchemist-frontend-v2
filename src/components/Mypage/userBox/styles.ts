@@ -36,6 +36,7 @@ export const LeftTop = styled.div`
     & .email{
         font-size: 10px;
         color: #8f8f8f; 
+        margin-top: 5px;
     }
 `
 
@@ -61,16 +62,17 @@ export const UserList = styled.div`
     & .navBar{
         display: flex;
         width: 100%;
-        justify-content: center;
-        margin-top: 20px;
+        justify-content: space-around;
+        margin-top: 0px;
         & li{
             font-size: 13px;
             font-weight: bold;
             cursor: pointer;
+            margin-top: 15px;
         }
 
         & li:nth-of-type(2){
-            margin: 0px 110px;
+            margin-top: 15px ;
             
         }
     }
@@ -83,6 +85,14 @@ export const List = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    height: 710px;
+    height: calc(100% - 60px);
     overflow-y: scroll;
+
+    &{
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none;
+    }
+    &::-webkit-scrollbar{
+        display: none; /* Chrome, Safari, Opera*/
+    }
 `

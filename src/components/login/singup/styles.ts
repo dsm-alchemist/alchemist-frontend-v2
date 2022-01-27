@@ -9,6 +9,15 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    .modal{
+        zoom: 1;
+    }
+
+    @media screen and (min-width: 1500px){
+        .modal{
+            zoom: 1.2;
+        }
+    }
 
     & .welcome{
         padding-top: 50px;
@@ -32,7 +41,6 @@ export const Wrap = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: -40px;
 `
 
 export const Modal = styled.div`
@@ -44,7 +52,7 @@ export const Modal = styled.div`
     border-radius: 15px;
     box-shadow: 0px 8px 16px #656565;
     background-color: ${COLOR.whiteColor};
-    width: 800px;
+    width: 750px;
     height: 600px;
     display: flex;
     flex-direction: column;
@@ -53,7 +61,7 @@ export const Modal = styled.div`
 
 
 export const Btn = styled.button`
-    width: 450px;
+    width: 420px;
     height: 35px;
     background: ${COLOR.blackColor};
     color: ${COLOR.whiteColor};
@@ -66,19 +74,19 @@ export const Btn = styled.button`
 export const Verify = styled.div`
     display: flex;
     align-items: flex-end;
-    margin-left: 129px;
     margin-bottom: 20px;
 
 
     & .send{
         background: ${COLOR.blackColor};
         padding: 10px 10px;
+        z-index: 10;
         border-radius: 7px;
         color: ${COLOR.whiteColor};
-        font-size: 10px;
+        font-size: 8px;
         margin-bottom: 8px;
-        margin-left: 10px;
-        position: relative;
+        margin-left: 350px;
+        position: absolute;
     }
 `
 

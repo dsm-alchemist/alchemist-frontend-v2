@@ -159,38 +159,44 @@ const UserBox = () => {
                     userAll: true,
                     following: false,
                     follower: false,
-                }); getAllUser();}} style={{borderBottom: link.userAll ? "3px solid black" : "none", paddingBottom: "3px"}}>유저 전체</li>  
+                }); getAllUser();}} style={{borderBottom: link.userAll ? "3px solid black" : "none",}}>유저 전체</li>  
                 <li onClick={() => {setLink({
                     userAll: false,
                     following: true,
                     follower: false
-                }) ;getFollowingUser();}} style={{borderBottom: link.following ? "3px solid black" : "none", paddingBottom: "3px"}}>팔로잉</li>
+                }) ;getFollowingUser();}} style={{borderBottom: link.following ? "3px solid black" : "none", }}>팔로잉</li>
                 <li onClick={() => {setLink({
                     userAll: false,
                     following: false,
                     follower: true
-                }); getFollowerUser();}} style={{borderBottom: link.follower ? "3px solid black" : "none", paddingBottom: "3px"}}>팔로워</li>
+                }); getFollowerUser();}} style={{borderBottom: link.follower ? "3px solid black" : "none", }}>팔로워</li>
             </ul>
             <S.List>
             {
                 list.map((e, index) => (
-                    <S.Wrapper>
-                        <S.ListLeft>
-                            <img src={BaseProfile} alt="" />
-                            <S.LeftTop>
-                                <p className="name" onClick={() => {localStorage.setItem("otherName", e.userName); localStorage.setItem("otherEmail", e.userEmail); history.push("/other")}}>{e.userName}</p>
-                                <p className="email">{e.userEmail}</p>
-                            </S.LeftTop>    
-                        </S.ListLeft>
-                        <S.ListRight>
-                            {
-                                !e.isFollowing ? 
-                                    <button className="follow" onClick={() => {setFollow(list[index]);}}>팔로우</button>
-                                        : 
-                                    <button style={{border: "1px solid #FF7879", color: "#FF7879"}} onClick={() => {cancleFollow(list[index])}}>팔로잉</button>
-                            }
-                        </S.ListRight>
-                    </S.Wrapper>
+                    <>
+                    {
+                        e.userEmail === localStorage.getItem("email") ? 
+                            null : 
+                            <S.Wrapper>
+                            <S.ListLeft>
+                                <img src={BaseProfile} alt="" />
+                                <S.LeftTop>
+                                    <p className="name" onClick={() => {localStorage.setItem("otherName", e.userName); localStorage.setItem("otherEmail", e.userEmail); history.push("/other")}}>{e.userName}</p>
+                                    <p className="email">{e.userEmail}</p>
+                                </S.LeftTop>    
+                            </S.ListLeft>
+                            <S.ListRight>
+                                {
+                                    !e.isFollowing ? 
+                                        <button className="follow" onClick={() => {setFollow(list[index]);}}>팔로우</button>
+                                            : 
+                                        <button style={{border: "1px solid #FF7879", color: "#FF7879"}} onClick={() => {cancleFollow(list[index])}}>팔로잉</button>
+                                }
+                            </S.ListRight>
+                        </S.Wrapper>
+                    }
+                    </>
                 ))
             }
             </S.List>

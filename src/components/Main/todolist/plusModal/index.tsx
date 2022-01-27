@@ -7,6 +7,7 @@ import useMain from "../../../../utils/hooks/main/useMain";
 import swal from "sweetalert";
 import { ACCESS_TOKEN, requestWithAccessToken } from "../../../../utils/api/axios";
 import useTask from "../../../../utils/hooks/task/useTask";
+import { useEffect } from "react";
 
 interface ModalProps {
     content: string;
@@ -32,6 +33,10 @@ const Modal = () => {
         })
         console.log(data);
     }
+
+    useEffect(() =>{
+        addInput.current.focus();
+    }, []);
 
     const submit = (e: any) => {
             if(e.key === 'Enter'){
@@ -66,6 +71,7 @@ const Modal = () => {
                 },
             }).then((res) => {
                 console.log(res.data);
+                main.setState.setProfileComponent(true);
                 swal({
                     title: "할 일을 추가했습니다.",
                     icon: "success",
@@ -73,6 +79,7 @@ const Modal = () => {
                     addInput.current.focus();
                 })
                 main.setState.setComponent(true);
+                main.setState.setProfileComponent(false);
                 console.log(date.state.tdDay);
                 setData({
                     content: "" 

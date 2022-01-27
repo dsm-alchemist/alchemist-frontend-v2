@@ -99,7 +99,7 @@ const Signin = () => {
     
     return(
         <S.Wrapper onKeyPress={onKeyGo}>
-            <S.Modal>
+            <S.Modal className="modal">
                 <img className="loginlogo" src={LoginLogo} alt="" />
                 <S.Wrap>
                     <S.InputBox>

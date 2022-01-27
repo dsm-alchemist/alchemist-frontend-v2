@@ -3,8 +3,7 @@ import * as S from "./styles";
 import {MainLogo, ImgLogo, MobileLogo} from "../../../assets/index";
 import { useHistory } from "react-router-dom";
 import { ACCESS_TOKEN, requestWithAccessToken } from "../../../utils/api/axios";
-
-import swal from "sweetalert";
+import swal from "sweetalert2";
 
 const Header = () => {
 
@@ -18,12 +17,21 @@ const Header = () => {
             data: {}
         }).then((res) => {
             console.log(res);
-            swal({
-                title: "logout!",
-                icon: "success"
-            }).then(() => {
-                history.push("/signin");
-                localStorage.clear();
+            swal.fire({
+                title: "로그아웃 하시겠습니까?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "예",
+                cancelButtonText: "아니오",
+                focusConfirm: false,
+                focusCancel: true
+            }).then((result) => {
+                if(result.isConfirmed){
+                    history.push("/signin");
+                    localStorage.clear();
+                }else{
+                    return;
+                }
             })
         }).catch((err) => {
             console.log(err);

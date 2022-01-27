@@ -10,6 +10,16 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     
+    .modal{
+        zoom: 1;
+    }
+
+    @media screen and (min-width: 1500px){
+        .modal {
+            zoom: 1.3;
+        }
+    }
+    
 
     & .welcome{
         padding-top: 50px;
@@ -49,7 +59,7 @@ export const Modal = styled.div`
 
 
 export const Btn = styled.button`
-    width: 450px;
+    width: 420px;
     height: 35px;
     background: ${COLOR.blackColor};
     color: ${COLOR.whiteColor};
@@ -67,7 +77,7 @@ export const InputBox = styled.div`
     }
 
     & input{
-        width: 450px;
+        width: 430px;
         height: 50px;
         border-radius: 7px;
         background: #E8E8E8;

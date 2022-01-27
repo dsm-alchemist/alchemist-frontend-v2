@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { COLOR } from "../../../styles";
 
 export const Wrapper = styled.div`
-    width: 450px;
-    height: 200px;
+    width: 350px;
+    height: 150px;
     border-radius: 7px;
-    box-shadow: 4px 7px 10px #8c8c8c;
+    box-shadow: 0 0 16px #868686;
     background: ${COLOR.whiteColor};
     display: flex;
     align-items: center;
@@ -18,12 +18,12 @@ export const Left = styled.div`
     align-items: center;
 
     & .profile {
-        width: 72px;
+        width: 50px;
         border-radius: 50%;
     }
 
     & .name {
-        font-size: 18px;
+        font-size: 14px;
         padding-top: 10px;
     }
     
@@ -58,12 +58,12 @@ export const Top = styled.div`
     }
 
     & .title{
-        font-size: 18px;
+        font-size: 14px;
         color: #B1B1B1;
     }
 
     & .cnt{
-        font-size: 18px;
+        font-size: 14px;
         margin-top: 5px;
     }
     

@@ -65,7 +65,7 @@ const OtherUser = () => {
 
     return(
         <S.Wrapper>
-            <S.Modal>
+            <S.Modal className="modal">
                 <S.LeftSide>
                     <S.LeftTop>
                         <input type="date" onChange={contentChange} />
@@ -94,9 +94,8 @@ const OtherUser = () => {
                             </S.TodoWrapper>
                         ))
                     }
-                    
                 </S.LeftSide>
-                <S.Right>
+                <S.Right >
                     <OtherProfile />
                     <S.Todo>
                         <p className="title">오늘 할 일</p>
@@ -123,8 +122,6 @@ const OtherUser = () => {
                                     </S.TodoWrp>
                                 ))
                             }
-
-                            
                     </S.Todo>
                 </S.Right>
             </S.Modal>

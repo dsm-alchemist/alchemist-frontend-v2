@@ -56,7 +56,7 @@ const Storage = () => {
                 null : <EditModal />
         }
         <S.Wrapper>
-            <S.Modal>
+            <S.Modal className="modal">
                 <S.Top>
                     <p>보관함</p>
                 </S.Top>

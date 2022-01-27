@@ -8,6 +8,14 @@ export const Wrapper = styled.div`
     justify-content: center;
     overflow-y: hidden;
     background: #F8FEFF;
+    .modal{
+        zoom: 1;
+    }
+    @media screen and (min-width: 1500px){
+        .modal {
+            zoom: 1.3;
+        }
+    }
 `
 
 export const Modal = styled.div`

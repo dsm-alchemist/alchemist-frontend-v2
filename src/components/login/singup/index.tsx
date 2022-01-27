@@ -255,7 +255,7 @@ const Signup = () => {
 
     return(
         <S.Wrapper>
-            <S.Modal>
+            <S.Modal className="modal">
                 <img className="loginlogo" src={LoginLogo} alt="" />
                 <S.Wrap>
                     <S.Verify>
@@ -279,7 +279,7 @@ const Signup = () => {
                         </S.InputBox>
                         <button className="send" onClick={nameCk}>이름 중복확인</button>
                     </S.Verify>
-                    <S.InputBox style={{marginLeft: "39px"}}>
+                    <S.InputBox >
                             <p>password</p>
                             <input ref={passwordInput} onKeyPress={onKeyGo} type="password" onChange={pwChange} placeholder="비밀번호를 입력해주세요" />
                     </S.InputBox>

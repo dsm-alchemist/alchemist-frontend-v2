@@ -60,7 +60,7 @@ const PushModal = () => {
             }).then((res) => {
                 console.log(res);
                 swal({
-                    title: "오늘 할 일을 미뤘습니다.",
+                    title: "날짜를 바꿨습니다.",
                     icon: "success"
                 }).then(() => { 
                     main.setState.setComponent(true);

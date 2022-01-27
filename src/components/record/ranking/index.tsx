@@ -92,6 +92,14 @@ const Wrapper = styled.div`
         font-weight: bold;
         margin-top: 30px;
     }
+    & {
+        zoom: 1;
+    }
+    @media screen and (min-width: 1500px){
+        & {
+            zoom: 1.15;
+        }
+    }
 `
 
 

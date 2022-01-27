@@ -5,6 +5,7 @@ import { ACCESS_TOKEN, requestWithAccessToken } from "../../utils/api/axios";
 import useMain from "../../utils/hooks/main/useMain";
 import { useHistory } from "react-router";
 import swal from "sweetalert2";
+import useModal from "../../utils/hooks/modal/useModal";
 
 interface UserProps {
     follower: number;
@@ -15,6 +16,7 @@ interface UserProps {
 const Profile = ()=> {
 
     const main = useMain();
+    const modal = useModal();
 
     const history = useHistory();
 

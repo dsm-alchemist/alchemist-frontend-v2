@@ -106,10 +106,9 @@ const Mypage = () => {
                 null : <PushModal />
         }
         <S.Wrapper>
-            <S.Modal>
-                <S.Profile>
+            <S.Modal className="modal">
+                <S.Profile >
                     <Profile />
-                    
                     <S.Todo>
                     <p className="title">오늘 할 일</p>
                     <div className="wrap">
@@ -142,7 +141,7 @@ const Mypage = () => {
                     </S.Todo>
                     
                 </S.Profile>
-                <UserBox />
+                    <UserBox />
             </S.Modal>
         </S.Wrapper>
         </>
