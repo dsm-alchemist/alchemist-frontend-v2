@@ -7,7 +7,8 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     overflow-y: hidden;
-    background: #F8FEFF;
+    /* background: #F8FEFF; */
+    background: #e2e2e2;    
     .modal{
         zoom: 1;
     }
@@ -47,7 +48,7 @@ export const Top = styled.div`
         height: 30px;
         margin-top: 95px;
         background: none;
-        border: 2px solid #b9b9b9;
+        border: 2px solid #979797;
         color: #5e5e5e;
         border-radius: 5px;
     }

@@ -8,7 +8,8 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #F8FEFF;
+    /* background: #F8FEFF; */
+    background: #e2e2e2;
     overflow-y: hidden;
     .modal{
         zoom: 1;
