@@ -79,14 +79,15 @@ const Record = () => {
                     setTimeout(() => {tCapture();}, 1500);
                     setTimeout(() => {foCapture();}, 2000);
                     setTimeout(() => {lCapture();}, 2500);
-                    setTimeout(() => {setSend(true)}, 2500);
-                    setTimeout(() => {setSend(false)}, 5000);
+                    setTimeout(() => {setSend(!send)}, 2500);
                 });
             }, 5000);
         }else{
             clearInterval(ref.current);
+            console.log("asd");
         }
     }, [isPaused]);
+
 
 
     useEffect(() => {
@@ -96,13 +97,13 @@ const Record = () => {
                 url: "/ai",
                 headers: {},
                 data: {
-                    "files": [fimg, simg, timg, foimg, limg]
+                    "file": fimg
                 },
             }).then((res) => {
-                console.log(res);
                 if(res.data === false){
                     handlePause();
                     timerStop();
+                    window.location.reload();
                 }else{
                     return;
                 }
