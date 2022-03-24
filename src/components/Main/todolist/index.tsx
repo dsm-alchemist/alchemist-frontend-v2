@@ -87,6 +87,15 @@ const Todolist = () => {
             </S.Top>
             
             <S.Main className="main">
+            <S.TodoWrp>
+                            <S.Left>
+                                    <div className="check" />
+                                    <span className="todoContent">ㅁㄴㅇㄴㅇㅁㄴㅇㅁㄴㅇ</span>
+                            </S.Left>
+                            <div onClick={() => { changeMoreState(list[0]); } } className="imgWrp">
+                                    <img className="more" src={More} alt="" />
+                                </div>
+                        </S.TodoWrp>
                 {
                     list.map((e, index) => (
                         <S.TodoWrp>

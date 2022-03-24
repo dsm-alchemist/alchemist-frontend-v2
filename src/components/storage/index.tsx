@@ -80,6 +80,23 @@ const Storage = () => {
                 </S.Top>
                 <S.TodoWrapper className="todoWrap">
                     <S.Main>
+                    <S.TodoWrp>
+                                    <S.Left>
+                                            <span className="todoContent">집에 가기</span>
+                                    </S.Left>
+                                        <div className="imgWrp">
+                                            <img className="more" src={More} alt="" />
+                                        </div>
+                                </S.TodoWrp>
+                                <S.TodoWrp>
+                                    <S.Left>
+                                            <span className="todoContent">내일 집 가기</span>
+                                    </S.Left>
+                                        <div className="imgWrp">
+                                            <img className="more" src={More} alt="" />
+                                        </div>
+                                </S.TodoWrp>
+                        
                         {
                             storage.map((e, index) => (
                                 <S.TodoWrp>

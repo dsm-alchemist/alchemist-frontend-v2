@@ -172,6 +172,36 @@ const UserBox = () => {
                 }); getFollowerUser();}} style={{borderBottom: link.follower ? "3px solid black" : "none", }}>팔로워</li>
             </ul>
             <S.List>
+
+            <S.Wrapper>
+                            <S.ListLeft>
+                                <img src={BaseProfile} alt="" />
+                                <S.LeftTop>
+                                    <p className="name">seockhun</p>
+                                    <p className="email">dbstjrgns12@gmail.com</p>
+                                </S.LeftTop>    
+                            </S.ListLeft>
+
+                            <S.ListRight>
+                         
+                                        <button style={{border: "1px solid #FF7879", color: "#FF7879"}}>팔로잉</button>
+                            </S.ListRight>
+                        </S.Wrapper>
+
+                        <S.Wrapper>
+                            <S.ListLeft>
+                                <img src={BaseProfile} alt="" />
+                                <S.LeftTop>
+                                    <p className="name">훈석윤</p>
+                                    <p className="email">asd123@gmail.com</p>
+                                </S.LeftTop>    
+                            </S.ListLeft>
+
+                            <S.ListRight>
+                         
+                            <button className="follow">팔로우</button>
+                            </S.ListRight>
+                        </S.Wrapper>
             {
                 list.map((e, index) => (
                     <>

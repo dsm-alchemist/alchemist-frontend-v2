@@ -121,8 +121,8 @@ const Profile = ()=> {
                         <li className="title">팔로잉</li>
                         {
                             following === 0 ? 
-                            <li className="cnt" style={{color: "#E0E0E0"}}>{following}</li> :
-                            <li className="cnt" style={{color: "#000000"}}>{following}</li>
+                            <li className="cnt" style={{color: "#000000"}}>{1}</li> :
+                            <li className="cnt" style={{color: "#000000"}}>{1}</li>
                         }
                     </ul>
                 </S.Top>

@@ -74,6 +74,13 @@ const Ranking = () => {
     return(
         <Wrapper>
             <p className="title">랭킹</p>
+            <RankingBox name={"윤석훈 "} isActive={true} time={"6"} ranking={1}  />
+            <RankingBox name={"윤석훈 "} isActive={false} time={"5"} ranking={2}  />
+            <RankingBox name={"윤석훈 "} isActive={true} time={"4"} ranking={3}  />
+            <RankingBox name={"윤석훈 "} isActive={false} time={"3"} ranking={4}  />
+            <RankingBox name={"윤석훈 "} isActive={false} time={"2"} ranking={5}  />
+            <RankingBox name={"윤석훈 "} isActive={true} time={"1"} ranking={6}  />
+
             {
                 data.map((e, index) => {
                     return(
